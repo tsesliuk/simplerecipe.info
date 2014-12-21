@@ -5,7 +5,7 @@
 }
 body,html{
 	font-family: "Noto Sans", sans-serif, Arial, serif;
-	font-size: 13px;
+	font-size: 14px;
 	line-height: 18px;
 
 	font-style:normal;
@@ -24,7 +24,7 @@ a:hover{
 }
 
 h1,h2,h3,h4,h5,h6{
-	font-family: Montserrat, sans-serif, Arial, serif;
+	font-family: Georgia, sans-serif, Arial, serif;
 	font-style:normal;
 	font-variant:normal;
 	font-weight:normal;
