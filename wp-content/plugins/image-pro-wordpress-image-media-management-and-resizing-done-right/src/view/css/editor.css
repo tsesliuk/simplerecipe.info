@@ -1,0 +1,200 @@
+#impro_editor .impro_alt, #impro_editor .impro_title {
+	margin-top: 6px;
+	margin-bottom: 10px;
+	width: 97%;	
+}
+
+#wp_editbtns {
+	display: none !important;
+}
+
+.impro-editor-wh-error {
+    background: #ee5555 !important;
+}
+
+#impro-preview {
+    width: 100%;
+    height: 70px;
+    background-size: cover;
+    background-position: center center;
+    margin-top: 5px;
+
+    -webkit-box-shadow: inset 3px -3px 33px -4px rgba(0,0,0,0.83);
+    -moz-box-shadow: inset 3px -3px 33px -4px rgba(0,0,0,0.83);
+    box-shadow: inset 3px -3px 33px -4px rgba(0,0,0,0.83);
+}
+
+#impro-editor-maxwidth-info {
+    background: #E4F2FF;
+    padding: 10px;
+    border-radius: 3px;
+    margin-left: 23px;
+    margin-top: 10px;
+    display: none;
+}
+
+.impro-control-group {
+    margin-bottom: 5px;
+}
+
+#impro-editor-maxwidth-container {
+    margin-top: 10px;
+    margin-bottom: 10px;
+    margin-left: 1px;
+}
+
+#impro-editor-w, #impro-editor-h {
+    display: inline-block;
+    width: 65px;
+}
+
+#impro_editor_box .inside {
+    margin-top: 12px;
+}
+
+#impro_editor > .impro-control-group:first-child {
+    margin-top: 5px;
+}
+
+.impro-help {
+    display: inline-block;
+    border: 1px solid #CCC;
+    border-radius: 100%;
+    width: 16px;
+    height: 16px;
+    font-size: 14px;
+    text-align: center;
+    position: relative;
+    left: 15px;
+    top: 2px;
+    background: #F7F7F7;
+    cursor: pointer;
+}
+.impro-help:hover {
+    border: 1px solid #bbb;
+    background: #e5e5e5;
+}
+
+.impro-icon-align-none {
+    background-image: url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAAAZklEQVR4XsWTIQ7AMAhF12XnrKquq6ioQiBwaBQXZZvgAKQkJSEf9fIgoZjZtVP312cBjw+qGtql1lr+9BvsG4hIiNRaSzZg5hCp955sgIgh0pwz2WCtFSIBQLLBGCNEIiI3OPyNL2v4LREXVhb4AAAAAElFTkSuQmCC);
+}
+
+.impro-icon-align-left {
+    background-image: url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAAAa0lEQVR4XsWToQ7AIAwF12XfWYWuq0CgEBV16Cp+lKmKmY0FCKhTl8clhdbaMfJOh22Cy6HW2v0XRARnbzC+wMw+TSEEcJ6/oJTSbSKiBQ1E5NUUYwTnNQ1SSr9MOWeYu4CZu0yq+mix/xpvp3wtEZlDu5wAAAAASUVORK5CYII=);
+}
+
+.impro-icon-align-center {
+    background-image: url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAAAcUlEQVR4XsWTrQ4AIQiAz5vPSSLTCAaTwWAjm3xR72c7d+GCTm6yMbB8wLdpaq3bTOxnrgXYpymlDN0CAOaq0w7s+5Fz7qIh4j1ddwMRGSIRkb6DFjHGT6pzrt2u78B7P0QKIfzggJm7aCml5mL9bzwAVJAtEUiVM+sAAAAASUVORK5CYII=);
+}
+
+.impro-icon-align-right {
+    background-image: url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAAAbklEQVR4XsWTOw7AIAhAa+M5nZzZGBycGBjYnJ28KP1MTdq0NmokIQSGlwcJRlWXllj3nAuw16aUUr2Pc84ctfkG9mmYc/6keu8HGKSUqmkA0NXgHsz8Sg4hdDaIMf4iEdGgGyBiFVFEToP537gB920tESu+RscAAAAASUVORK5CYII=);
+}
+
+#impro-align {
+    margin-top: -6px;
+    margin-left: 6px;
+    margin-bottom: 1px;
+    float: left;
+}
+
+#impro-align li {
+    float: left;
+    width: 24px;
+    height: 24px;
+    border: 1px solid #ccc;
+    margin: 3px;
+    background-repeat: no-repeat;
+    background-position: center center;
+    cursor: pointer;
+}
+
+.impro-align-selected {
+    border: 1px solid #bbb !important;
+    background-color: #DFF0F5 !important;
+}
+
+#impro-align li[data-align="alignnone"] {
+    width: auto;
+    padding-left: 24px;
+    background-position: 4px center;
+    padding-right: 8px;
+}
+
+#impro-align li[data-align="alignnone"] span {
+    margin-top: 3px;
+    display: inline-block;
+}
+
+#impro-frm li {
+    float: left;
+    width: 44px;
+    height: 44px;
+    margin: 3px;
+    border: 1px solid #e6e6e6;
+    cursor: pointer;
+}
+
+.impro-frame-selected {
+    border: 1px solid #ddd !important;
+    background: #dff0f5 !important;
+}
+
+#impro-frm li[data-value="none"] span {
+    display: block;
+    margin-left: 10px;
+    margin-top: 10px;
+}
+#impro-frm li[data-value="none"] span small {
+    display: block;
+    width: 24px;
+    height: 24px;
+}
+
+#impro-frm li[data-value="imagepro-polaroid"] span {
+    display: block;
+    border-radius: 3px;
+    border: 1px solid #ccc;
+    padding: 5px;
+    background: white;
+    width: 24px;
+    height: 24px;
+    box-shadow: 0 3px 6px rgba(0, 0, 0, 0.25);
+    margin-left: 4px;
+    margin-top: 4px;
+}
+#impro-frm li[data-value="imagepro-polaroid"] span small {
+    display: block;
+    width: 24px;
+    height: 24px;
+}
+
+#impro-frm li[data-value="imagepro-round"] span {
+    display: block;
+    border-radius: 100%;
+    border: 1px solid #ccc;
+    padding: 5px;
+    background: white;
+    width: 24px;
+    height: 24px;
+    margin-left: 4px;
+    margin-top: 4px;
+}
+#impro-frm li[data-value="imagepro-round"] span small {
+    display: block;
+    width: 24px;
+    height: 24px;
+    border-radius: 50%;
+}
+
+#impro-frm li[data-value="imagepro-radius"] span {
+    display: block;
+    margin-left: 10px;
+    margin-top: 10px;
+}
+#impro-frm li[data-value="imagepro-radius"] span small {
+    display: block;
+    width: 24px;
+    height: 24px;
+    border-radius: 6px;
+}

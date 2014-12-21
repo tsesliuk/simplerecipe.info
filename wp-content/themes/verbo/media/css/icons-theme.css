@@ -1,0 +1,100 @@
+@font-face {
+  font-family: 'fontello';
+  src: url('../fonts/fontello-theme/fontello.eot?98832152');
+  src: url('../fonts/fontello-theme/fontello.eot?98832152#iefix') format('embedded-opentype'),
+       url('../fonts/fontello-theme/fontello.woff?98832152') format('woff'),
+       url('../fonts/fontello-theme/fontello.ttf?98832152') format('truetype'),
+       url('../fonts/fontello-theme/fontello.svg?98832152#fontello') format('svg');
+  font-weight: normal;
+  font-style: normal;
+}
+/* TODO : IF USE FONTS FILE : fonts/fontello-all/ THEN REMOVE this @font-face */
+
+/* THEME ICONS */
+[class^="icon-"]:before,
+[class*="icon-"]:before{
+  font-family: "fontello";
+  font-style: normal;
+  font-weight: normal;
+  speak: none;
+ 
+  display: inline-block;
+  text-decoration: inherit;
+  text-align: center;
+  font-variant: normal;
+  text-transform: none;
+}
+
+/* SOCIAL ICONS */
+div.mythemes-social [class^="icon-"]:before,
+div.mythemes-social [class*="icon-"]:before {
+  font-size: 14px;
+  background: #ffffff;
+  color: #787878;
+ 
+  width: 26px;
+  line-height: 26px;
+  margin-left: 2px;
+  margin-right: 2px;
+
+  -webkit-border-radius: 5px;
+  	-moz-border-radius: 5px;
+  		border-radius: 5px;
+
+  -webkit-transition: all 0.3s linear;
+    -moz-transition: all 0.3s linear;
+    -o-transition: all 0.3s linear;
+    -ms-transition: all 0.3s linear;
+    transition: all 0.3s linear;
+}
+
+
+.icon-comment:before { content: '\e800'; } /* '' */
+.icon-calendar:before { content: '\e801'; } /* '' */
+.icon-heart:before { content: '\e802'; } /* '' */
+.icon-smashing:before { content: '\e803'; } /* '' */
+.icon-rss:before { content: '\e804'; } /* '' */
+.icon-github:before { content: '\e805'; } /* '' */
+.icon-flickr:before { content: '\e806'; } /* '' */
+.icon-vimeo:before { content: '\e807'; } /* '' */
+.icon-vimeo-circled:before { content: '\e808'; } /* '' */
+.icon-twitter:before { content: '\e809'; } /* '' */
+.icon-facebook:before { content: '\e80a'; } /* '' */
+.icon-gplus:before { content: '\e80b'; } /* '' */
+.icon-pinterest:before { content: '\e80c'; } /* '' */
+.icon-tumblr:before { content: '\e80d'; } /* '' */
+.icon-linkedin:before { content: '\e80e'; } /* '' */
+.icon-dribbble:before { content: '\e80f'; } /* '' */
+.icon-stumbleupon:before { content: '\e810'; } /* '' */
+.icon-heart-empty-1:before { content: '\e811'; } /* '' */
+.icon-rdio:before { content: '\e812'; } /* '' */
+.icon-instagram:before { content: '\e813'; } /* '' */
+.icon-dropbox:before { content: '\e814'; } /* '' */
+.icon-evernote:before { content: '\e815'; } /* '' */
+.icon-flattr:before { content: '\e816'; } /* '' */
+.icon-skype:before { content: '\e817'; } /* '' */
+.icon-renren:before { content: '\e818'; } /* '' */
+.icon-picasa:before { content: '\e819'; } /* '' */
+.icon-soundcloud:before { content: '\e81a'; } /* '' */
+.icon-mixi:before { content: '\e81b'; } /* '' */
+.icon-search-5:before { content: '\e81c'; } /* '' */
+.icon-behance:before { content: '\e81d'; } /* '' */
+.icon-google-circles:before { content: '\e81e'; } /* '' */
+.icon-vkontakte:before { content: '\e81f'; } /* '' */
+.icon-lastfm:before { content: '\e820'; } /* '' */
+.icon-user-5:before { content: '\e821'; } /* '' */
+.icon-calendar-empty:before { content: '\e822'; } /* '' */
+.icon-pin:before { content: '\e823'; } /* '' */
+.icon-archive:before { content: '\e824'; } /* '' */
+.icon-link-2:before { content: '\e825'; } /* '' */
+.icon-list:before { content: '\e826'; } /* '' */
+.icon-tags:before { content: '\e827'; } /* '' */
+.icon-chat-empty:before { content: '\e828'; } /* '' */
+.icon-tag:before { content: '\e829'; } /* '' */
+.icon-home:before { content: '\e82a'; } /* '' */
+.icon-right-open-mini:before { content: '\e82b'; } /* '' */
+.icon-menu:before { content: '\e82c'; } /* '' */
+.icon-pencil:before { content: '\e82d'; } /* '' */
+.icon-right-open-big:before { content: '\e82e'; } /* '' */
+.icon-mail-alt:before { content: '\e82f'; } /* '' */
+.icon-doc-inv:before { content: '\e830'; } /* '' */

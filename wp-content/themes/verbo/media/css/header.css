@@ -1,0 +1,128 @@
+header hgroup{
+	padding-top: 40px;
+	padding-bottom: 40px;
+
+	text-align: center;
+}
+header hgroup h1{
+	margin: 0px;
+}
+
+/* RESPONSIVE */
+@media ( min-width: 768px ) and ( max-width: 1199px ) {
+	header hgroup{
+		border-bottom: 1px solid #eeeeee;
+	}
+}
+@media ( max-width: 1199px ) {
+	header hgroup{
+		padding-bottom: 20px;
+		padding-top: 20px;
+	}
+	header hgroup h1{
+		margin: 0px;
+	}
+}
+@media ( max-width:480px ){
+	header hgroup h1{
+		text-align: left;
+	}
+	header hgroup,
+	header hgroup a,
+	header hgroup a img{
+		text-align: left;
+	}
+}
+
+/* BLOG TITLE */
+header hgroup h1,
+header hgroup h1 > a,
+header hgroup > a{
+	color: #454545;
+
+	font-family: Montserrat, sans-serif, Arial, serif;
+	font-size: 30px;
+
+	font-style: normal;
+	font-variant: normal;
+	font-weight: normal;
+
+	line-height: 35px;
+	text-transform: uppercase;
+}
+
+header hgroup a:hover{
+	color: #000000;
+}
+
+/* HEADER IMAGE */
+div.mythemes-header,
+div.mythemes-header div.img-background{
+    height: 500px;
+}
+div.mythemes-header div.img-background{
+
+}
+div.mythemes-header div.valign-cell-wrapper{
+	background: rgba( 0, 0, 0, 0.8 );
+}
+div.mythemes-header .valign-cell h1,
+div.mythemes-header .valign-cell p{
+	text-shadow: 1px 1px 1px rgba(0,0,0,0.5);
+}
+div.mythemes-header .valign-cell h1{
+	font-family: Montserrat, sans-serif, Arial, serif;
+	font-size: 36px;
+
+	font-style: normal;
+	font-variant: normal;
+	font-weight: normal;
+	margin: 20px 0px 10px 0px;
+}
+div.mythemes-header .valign-cell p.description{
+	font-family: "Noto Sans", sans-serif, Arial, serif;
+	font-style: normal;
+	font-size: 15px;
+	padding: 10px 0px;
+	margin: 0px 0px 10px 0px;
+}
+div.mythemes-header .valign-cell p.buttons{
+	padding: 30px 0px 0px 0px;
+}
+div.mythemes-header .valign-cell p.buttons a.btn{
+
+	border: 0px;
+	border-color: transparent;
+	border-style: none;
+
+	font-family: "Noto Sans", sans-serif, Arial, serif;
+	font-size: 13px;
+
+	color: #ffffff;
+
+	padding: 9px 17px;
+
+	letter-spacing: 1px;
+	margin: 0px 10px;
+
+	text-shadow: none;
+	text-decoration: none;
+
+    opacity: 0.90;
+	filter: alpha(opacity=90);
+
+    -webkit-border-radius: 3px;
+       -moz-border-radius: 3px;
+            border-radius: 3px;
+
+    -webkit-transition: all 0s linear;
+    -moz-transition: all 0s linear;
+    -o-transition: all 0s linear;
+    -ms-transition: all 0s linear;
+    transition: all 0s linear;
+
+}
+div.mythemes-header .valign-cell p.buttons a.btn:hover{
+	opacity: 1.0;
+	filter: alpha(opacity=100);
+}

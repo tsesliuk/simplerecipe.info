@@ -1,0 +1,295 @@
+msgid ""
+msgstr ""
+"Project-Id-Version: Image Pro Plugin\n"
+"POT-Creation-Date: 2014-01-29 15:11+0200\n"
+"PO-Revision-Date: 2014-02-06 22:04+0200\n"
+"Last-Translator: Mihai Valentin\n"
+"Language-Team: Mihai Valentin <www.mihaivalentin.com>\n"
+"Language: en_US\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"X-Generator: Poedit 1.6.3\n"
+"X-Poedit-Basepath: .\n"
+"Plural-Forms: nplurals=2; plural=(n != 1);\n"
+"X-Poedit-KeywordsList: __;_e\n"
+"X-Poedit-SearchPath-0: C:\\xampp\\htdocs\\img.dev\\wp-content\\plugins"
+"\\image-pro\n"
+
+#: C:\xampp\htdocs\img.dev\wp-content\plugins\image-pro/src/editor.php:12
+msgid "Selected image"
+msgstr "Imagen seleccionada"
+
+#: C:\xampp\htdocs\img.dev\wp-content\plugins\image-pro/src/editor.php:23
+msgid ""
+"You must enable the visual editor from your User Profile in order for Image "
+"Pro plugin to work"
+msgstr ""
+"Debe habilitar el editor visual de su perfil de usuario para que el plugin "
+"de Image Pro trabaje"
+
+#: C:\xampp\htdocs\img.dev\wp-content\plugins\image-pro/src/editor.php:24
+msgid ""
+"This image is from a different remote domain. To be able to resize it, "
+"upload the image on this domain!"
+msgstr ""
+"Esta imagen es de un dominio remoto diferente. Para ser capaz de cambiar su "
+"tamaño, ¡cargar la imagen en este dominio!"
+
+#: C:\xampp\htdocs\img.dev\wp-content\plugins\image-pro/src/editor.php:25
+msgid ""
+"This image was inserted through the normal WordPress picture upload. Would "
+"you like Image Pro plugin to take care of it's resize and become awesome?"
+msgstr ""
+"Esta imagen se inserta a través de la carga normal de la imagen de "
+"WordPress. ¿Le gustaría que el plugin Image Pro cuide de su cambio de tamaño "
+"y convertirla en impresionante?"
+
+#: C:\xampp\htdocs\img.dev\wp-content\plugins\image-pro/src/editor.php:26
+msgid "Upload files"
+msgstr "Subir archivos"
+
+#: C:\xampp\htdocs\img.dev\wp-content\plugins\image-pro/src/folder.php:7
+#: C:\xampp\htdocs\img.dev\wp-content\plugins\image-pro/src/folder.php:8
+#: C:\xampp\htdocs\img.dev\wp-content\plugins\image-pro/src/folder.php:12
+msgid "Available images"
+msgstr "Imágenes disponibles"
+
+#: C:\xampp\htdocs\img.dev\wp-content\plugins\image-pro/src/folder.php:26
+msgid ""
+"The pop-up window containing the attachment could not be opened! Make sure "
+"you do not have a popup-blocker active!"
+msgstr ""
+"La ventana emergente que contiene el archivo adjunto no se pudo abrir! "
+"Asegúrese de que usted no tiene un bloqueo de ventanas emergentes activo!"
+
+#: C:\xampp\htdocs\img.dev\wp-content\plugins\image-pro/src/folder.php:27
+msgid ""
+"The box below contains the full link of the attachment. You can press CTRL + "
+"C (or Command + C on Mac) to copy it to the clipboard.\\n\\nPress OK or "
+"Cancel to continue."
+msgstr ""
+"El cuadro de abajo contiene el enlace completo del adjunto. Puede presionar "
+"CTRL + C (o Comando + C en Mac) para copiarlo en el portapapeles. \\n"
+"\\nPresione OK o Cancelar para continuar."
+
+#: C:\xampp\htdocs\img.dev\wp-content\plugins\image-pro/src/folder.php:28
+msgid ""
+"Are you sure you want to delete this attachment?\n"
+"\n"
+"BE AWARE THAT IF IT IS ADDED TO ANOTHER POST, REMOVING IT WILL REMOVE IT "
+"FROM THERE TOO!\n"
+"\n"
+"However, if you would like to recover it, you can at any time restore it "
+"from the \"Trash\"."
+msgstr ""
+"¿Está seguro que desea eliminar este adjunto? \n"
+"\n"
+"DESE CUENTA QUE SI SE AGREGA A OTRA PUBLICACIÓN, ¡ELIMINARLO LO ELIMINARÁ DE "
+"AHÍ TAMBIÉN!\n"
+"\n"
+"No obstante, si usted desea recuperarlo, puede en cualquier momento "
+"restaurarlo desde la \"Basura\"."
+
+#: C:\xampp\htdocs\img.dev\wp-content\plugins\image-pro/src/requirements.php:88
+msgid ""
+"<div class=\"error\">\n"
+"\t\t\t\t<strong>ImagePro plugin cannot run on this browser!</strong><br/>\n"
+"\t\t\t\tImagePro currently supports Internet Explorer 10+, Firefox, Chrome, "
+"Safari.<br/>\n"
+"\t\t\t\tThe plugin is currently <strong>NOT WORKING</strong>. Use one of the "
+"browsers suggested!\n"
+"\t\t\t</div>"
+msgstr ""
+"<div class=\"error\">\n"
+"\t\t\t\t<strong>¡El plugin de ImagePro no se puede ejecutar en este "
+"navegador! </strong><br/>\n"
+"\t\t\t\tImagePro actualmente es compatible con Internet Explorer 10+, "
+"Firefox, Chrome, Safari.<br/>\n"
+"\t\t\t\t El plugin NO ESTÁ <strong>TRABAJANDO</strong>. ¡Utilice uno de los "
+"navegadores sugeridos!\n"
+"\t\t\t</div>"
+
+#: C:\xampp\htdocs\img.dev\wp-content\plugins\image-pro/src/requirements.php:97
+msgid ""
+"<div class=\"error\">\n"
+"\t\t\t\t<strong>Cannot get the memory limit!</strong>\n"
+"\t\t\t\tImagePro is unable to determine your memory limit. It seems it is "
+"not defined. If you'll experience errors when resizing large images, perhaps "
+"it's because you should have such memory limit defined!\n"
+"\t\t\t</div>"
+msgstr ""
+"<div class=\"error\">\n"
+"\t\t\t\t<strong> ¡No se puede obtener el límite de memoria! </strong>\n"
+"\t\t\t\tImagePro es incapaz de determinar el límite de la memoria. Parece "
+"que no está definida. Si usted experimentará errores al cambiar el tamaño de "
+"imágenes grandes, tal vez es porque ¡usted debe tener dicho límite de "
+"memoria definido!\n"
+"\t\t\t</div>"
+
+#: C:\xampp\htdocs\img.dev\wp-content\plugins\image-pro/src/requirements.php:114
+#, php-format
+msgid ""
+"<div class=\"error\">\n"
+"\t\t\t\t<strong>Low memory limit!</strong>\n"
+"\t\t\t\tImagePro requires memory to perform image resizing. <br/>\n"
+"\t\t\t\tLarge images such as 2600x2000 pixels will not be resized. You will "
+"only be able to resize pictures of maximum resolution %sx%s. Please increase "
+"your memory limit!\n"
+"\t\t\t</div>"
+msgstr ""
+"<div class=\"error\">\n"
+"\t\t\t\t<strong>¡Límite de memoria bajo!</strong>\n"
+"\t\t\t\tImagePro requiere memoria para realizar el cambio de tamaño de "
+"imagen. <br/>\n"
+"\t\t\t\tNo se cambia el tamaño de las imágenes grandes como de 2600x2000 "
+"píxeles. Usted sólo será capaz de cambiar el tamaño de imágenes de máxima "
+"resolución %sx%s. ¡Por favor, aumente su límite de memoria!\n"
+"\t\t\t</div>"
+
+#: C:\xampp\htdocs\img.dev\wp-content\plugins\image-pro/src/request/deleteattachment.php:25
+msgid "There was an error removing the attachment. Please try again later."
+msgstr ""
+"Ha habido un error al eliminar el archivo adjunto. Por favor, inténtelo de "
+"nuevo más tarde."
+
+#: C:\xampp\htdocs\img.dev\wp-content\plugins\image-pro/src/request/upload.php:19
+msgid "The file you are trying to upload is empty!"
+msgstr "¡El archivo que está intentando cargar esta vacio!"
+
+#: C:\xampp\htdocs\img.dev\wp-content\plugins\image-pro/src/request/upload.php:58
+msgid ""
+"The file was uploaded succesfully but the attachment could not be added to "
+"the posts table"
+msgstr ""
+"El archivo fue subido con éxito, pero el archivo adjunto no se pudo agregar "
+"a la tabla de mensajes"
+
+#: C:\xampp\htdocs\img.dev\wp-content\plugins\image-pro/src/view/editor.php:5
+msgid "Image size preset"
+msgstr "Tamaño de la imagen preestablecido"
+
+#: C:\xampp\htdocs\img.dev\wp-content\plugins\image-pro/src/view/editor.php:8
+msgid "Full size"
+msgstr "Tamaño completo"
+
+#: C:\xampp\htdocs\img.dev\wp-content\plugins\image-pro/src/view/editor.php:17
+msgid "Custom size"
+msgstr "Tamaño personalizado"
+
+#: C:\xampp\htdocs\img.dev\wp-content\plugins\image-pro/src/view/editor.php:23
+msgid "Manually change image size"
+msgstr "Cambiar manualmente el tamaño de la imagen"
+
+#: C:\xampp\htdocs\img.dev\wp-content\plugins\image-pro/src/view/editor.php:25
+msgid "width"
+msgstr "Ancho"
+
+#: C:\xampp\htdocs\img.dev\wp-content\plugins\image-pro/src/view/editor.php:27
+msgid "height"
+msgstr "Altura"
+
+#: C:\xampp\htdocs\img.dev\wp-content\plugins\image-pro/src/view/editor.php:31
+msgid "Override size restriction"
+msgstr "Sobrepasar la restricción de tamaño"
+
+#: C:\xampp\htdocs\img.dev\wp-content\plugins\image-pro/src/view/editor.php:34
+msgid ""
+"The current WordPress theme allows images up to %maxwidth% pixels in width."
+"<br/> Use the option above to disable this restriction for the current "
+"image. However, the image will not be responsive anymore."
+msgstr ""
+"El tema WordPress actual permite imágenes de hasta %maxwidth% píxeles de "
+"ancho. <br/> Utilice la opción anterior para deshabilitar esta restricción "
+"para la imagen actual. Sin embargo, la imagen no responderá más."
+
+#: C:\xampp\htdocs\img.dev\wp-content\plugins\image-pro/src/view/editor.php:40
+msgid "Align:"
+msgstr "Alinear:"
+
+#: C:\xampp\htdocs\img.dev\wp-content\plugins\image-pro/src/view/editor.php:42
+msgid "None"
+msgstr "Ninguno"
+
+#: C:\xampp\htdocs\img.dev\wp-content\plugins\image-pro/src/view/editor.php:43
+msgid "Left"
+msgstr "Izquierda"
+
+#: C:\xampp\htdocs\img.dev\wp-content\plugins\image-pro/src/view/editor.php:44
+msgid "Center"
+msgstr "Centro"
+
+#: C:\xampp\htdocs\img.dev\wp-content\plugins\image-pro/src/view/editor.php:45
+msgid "Right"
+msgstr "Derecha"
+
+#: C:\xampp\htdocs\img.dev\wp-content\plugins\image-pro/src/view/editor.php:52
+msgid "Open the full picture on click"
+msgstr "Abre el cuadro completo al hacer clic"
+
+#: C:\xampp\htdocs\img.dev\wp-content\plugins\image-pro/src/view/editor.php:57
+msgid "Alternative text:"
+msgstr "Texto alternativo:"
+
+#: C:\xampp\htdocs\img.dev\wp-content\plugins\image-pro/src/view/editor.php:61
+msgid "Title text:"
+msgstr "Título del texto:"
+
+#: C:\xampp\htdocs\img.dev\wp-content\plugins\image-pro/src/view/folder.php:9
+msgid "Add to post"
+msgstr "Publicación"
+
+#: C:\xampp\htdocs\img.dev\wp-content\plugins\image-pro/src/view/folder.php:10
+msgid "Edit"
+msgstr "Editar"
+
+#: C:\xampp\htdocs\img.dev\wp-content\plugins\image-pro/src/view/folder.php:11
+msgid "Open"
+msgstr "Abrir"
+
+#: C:\xampp\htdocs\img.dev\wp-content\plugins\image-pro/src/view/folder.php:12
+msgid "Get link"
+msgstr "Obten. enl."
+
+#: C:\xampp\htdocs\img.dev\wp-content\plugins\image-pro/src/view/folder.php:17
+msgid "Show"
+msgstr "Mostrar"
+
+#: C:\xampp\htdocs\img.dev\wp-content\plugins\image-pro/src/view/folder.php:19
+msgid "All files"
+msgstr "Todos los archivos"
+
+#: C:\xampp\htdocs\img.dev\wp-content\plugins\image-pro/src/view/folder.php:20
+msgid "Pictures"
+msgstr "Fotos"
+
+#: C:\xampp\htdocs\img.dev\wp-content\plugins\image-pro/src/view/folder.php:21
+msgid "Videos"
+msgstr "Videos"
+
+#: C:\xampp\htdocs\img.dev\wp-content\plugins\image-pro/src/view/folder.php:22
+msgid "Flash SWF"
+msgstr "SWF de Flash"
+
+#: C:\xampp\htdocs\img.dev\wp-content\plugins\image-pro/src/view/folder.php:23
+msgid "PDF Documents"
+msgstr "Documentos PDF"
+
+#: C:\xampp\htdocs\img.dev\wp-content\plugins\image-pro/src/view/folder.php:26
+msgid "Search"
+msgstr "Buscar"
+
+#: C:\xampp\htdocs\img.dev\wp-content\plugins\image-pro/src/view/folder.php:35
+msgid ""
+"Copy &amp; paste the contents of the textarea below when submitting a "
+"support request at <a target=\"_blank\" href=\"http://www.mihaivalentin.com/"
+"about-me/#contact\">http://www.mihaivalentin.com/about-me/#contact</a><br/"
+">The information will be used only for troubleshooting purposes and may "
+"reveal some information about your WordPress setup."
+msgstr ""
+"Copia y pega el contenido de la caja de texto de abajo al presentar una "
+"solicitud de soporte a <a target=\"_blank\" href=\"http://www.mihaivalentin."
+"com/about-me/#contact\">http://www.mihaivalentin.com/about-me/#contact</"
+"a><br/>La información será utilizada únicamente para fines de solución de "
+"problemas y puede revelar alguna información acerca de la configuración de "
+"WordPress."
