@@ -18,9 +18,10 @@ a{
     -o-transition: all 0.3s linear;
     -ms-transition: all 0.3s linear;
     transition: all 0.3s linear;
+    text-decoration: underline;
 }
 a:hover{
-	text-decoration: none;
+	text-decoration: underline;
 }
 
 h1,h2,h3,h4,h5,h6{

@@ -114,7 +114,7 @@ if ( ! class_exists( 'SearchAndFilter' ) )
 				'taxonomies' => null, //will be deprecated - use `fields` instead
 				'submit_label' => null,
 				'submitlabel' => null, //will be deprecated - use `submit_label` instead
-				'search_placeholder' => "Название рецепта / ингредиента;",
+				'search_placeholder' => "Название рецепта / ингредиента",
 				'types' => "",
 				'type' => "", //will be deprecated - use `types` instead
 				'headings' => "",

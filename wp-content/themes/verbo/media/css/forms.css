@@ -57,7 +57,7 @@ input[type="email"],
 input[type="phone"],
 select,
 textarea{
-    border: 2px solid #cdcdcd;
+    border: 1px solid #cdcdcd;
     color: #999999;
 
     padding: 7px 5px;
