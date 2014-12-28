@@ -30,20 +30,20 @@
 				<div class="time_box">
 				<abbr title="Время приготовления <?php the_title(); ?>"><span class="icons_sprite time_icon"></span>
 				
-				<?php  $books = get_post_meta( $post->ID, 'minutes', true ); 
-				foreach( $books as $book){
-					echo ('<meta itemprop="cookTime" content="PT'); echo $book['minutes']; echo ('M">');
-				}?>
+					<?php  $books = get_post_meta( $post->ID, 'minutes', true ); 
+					foreach( $books as $book){
+						echo ('<meta itemprop="cookTime" content="PT'); echo $book['minutes']; echo ('M">');
+					}?>
 
-				<?php  $books = get_post_meta( $post->ID, 'minutes', true ); 
-				foreach( $books as $book){
-					echo ('<span class="hours"><span class="symbols">');
-					echo $book['hours'];
-					echo ('</span><span class="text">часа</span></span>');
-					echo (' <span class="minutes">');
-					echo $book['minutes']; 
-					echo (' мин</span>');
-				}?>
+					<?php  $books = get_post_meta( $post->ID, 'minutes', true ); 
+					foreach( $books as $book){
+						echo ('<span class="hours"><span class="symbols">');
+						echo $book['hours'];
+						echo ('</span><span class="text">часа</span></span>');
+						echo (' <span class="minutes">');
+						echo $book['minutes']; 
+						echo (' </span>');
+					}?>
 				</abbr>
 				</div>
 			</div>

@@ -416,20 +416,6 @@ tools.my_sl_post = function( obj , fields ){
     });
 }
 
-$(function() {
-  $('a[href*=#]:not([href=#])').click(function() {
-    if (location.pathname.replace(/^\//,'') == this.pathname.replace(/^\//,'') && location.hostname == this.hostname) {
-      var target = $(this.hash);
-      target = target.length ? target : $('[name=' + this.hash.slice(1) +']');
-      if (target.length) {
-        $('html,body').animate({
-          scrollTop: target.offset().top
-        }, 1000);
-        return false;
-      }
-    }
-  });
-});
 
 tools.colorIcons = function( colorSelector , selector ){
     jQuery(function(){
@@ -437,3 +423,4 @@ tools.colorIcons = function( colorSelector , selector ){
         jQuery( selector ).css( { 'background-color' : jQuery( colorSelector ).val() } );
     });
 }
+

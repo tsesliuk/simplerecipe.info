@@ -55,15 +55,6 @@ footer .mythemes-copyright p{
     margin: 6px 0px;
 }
 
-footer .mythemes-copyright a{
-    color: #303030;
-
-}
-footer .mythemes-copyright a:hover{
-    color: #0d0d0d;
-    text-decoration: underline;
-}
-
 footer div.mythemes-social{
     text-align: right;
 }

@@ -62,7 +62,8 @@
 
 
     /* FOOTER */
-    $deff[ 'mythemes-footer-text' ]             = 'Copyright &copy; ' . date( 'Y' ) . '. Powered by <a href="http://wordpress.org" target="_blank">WordPress</a>. Designed by <a href="http://mythem.es" target="_blank" title="myThemes">myThem.es</a>';
+    $deff[ 'mythemes-footer-text' ]             = 'Все права на материалы, находящиеся на сайте prostoyrecept.info,
+охраняются в соответствии с действующим законодательством &copy; 2013-' . date( 'Y' ) . '.';
 	
     
 ?>

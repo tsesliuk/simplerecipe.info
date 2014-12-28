@@ -29,18 +29,57 @@
             <?php } ?>
         </h2>
 
+        <div class="sostav_box" itemprop="ingredients">
+            <?php $sostav = get_post_meta( $post->ID, 'sostav', true );                   
+                foreach( $sostav as $sostav){
+                    $newSostav = substr($sostav['sostav'], 0, 180);
+                    echo $newSostav;
+                }
+            ?>
+        </div>
+
         <?php get_template_part( 'cfg/templates/meta' ); ?>
 
         <?php
+            
             if( !empty( $post -> post_excerpt ) ){
                 the_excerpt();
-                echo '<a href="' . get_permalink( $post -> ID ) . '">' . __( 'Read More' , 'myThemes' ) . ' &rarr;</a>';
+                echo '<a href="' . get_permalink( $post -> ID ) . '">' . __( '' , 'myThemes' ) . '</a>';
             }
             else{
-                the_content( 'Read More &rarr;' );    
+                the_content( '' );    
             }
             
         ?>
+
+        <div class="post-short-info">
+            <abbr title="Время приготовления <?php the_title(); ?>">
+                <span class="glyphicon glyphicon-time" aria-hidden="true"></span>
+                
+                <?php  $books = get_post_meta( $post->ID, 'minutes', true ); 
+                foreach( $books as $book){
+                    echo ('<meta itemprop="cookTime" content="PT'); echo $book['minutes']; echo ('M">');
+                }?>
+
+                <?php  $books = get_post_meta( $post->ID, 'minutes', true ); 
+                foreach( $books as $book){
+                    echo ('<span class="hours"><span class="symbols">');
+                    echo $book['hours'];
+                    echo ('</span> <span class="text">часа</span></span>');
+                    echo (' <span class="minutes">');
+                    echo $book['minutes']; 
+                    echo ('</span>');
+                }?>
+            </abbr>
+            <span class="author-and-rating">
+                <?php if(function_exists('the_ratings')) { the_ratings(); } ?>
+                <span class="entry-author author hCard" itemprop="author">Автор: <?php the_author_link(); ?></span>
+                <span class="entry-date" itemprop="datePublished">Опубликован: <?php the_date(); ?></span>
+            </span>
+        </div>    
+        <span class="post-tags">
+            <?php the_tags( '<span class="glyphicon glyphicon-tag" aria-hidden="true"></span>',', <span class="glyphicon glyphicon-tag" aria-hidden="true"></span>'); ?> 
+        </span>
     </div>
 
     <!-- BOTTOM DELIMITER -->

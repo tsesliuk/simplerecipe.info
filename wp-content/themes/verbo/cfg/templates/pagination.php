@@ -9,8 +9,8 @@
         'end_size'      => 1,
         'mid_size'      => 2,
         'prev_next'     => True,
-        'prev_text'     => __( 'Previous' , 'myThemes' ),
-        'next_text'     => __( 'Next' , 'myThemes' ),
+        'prev_text'     => __( 'Назад' , 'myThemes' ),
+        'next_text'     => __( 'Далее' , 'myThemes' ),
         'type'          => 'list',
         'add_args'      => false,
         'add_fragment'

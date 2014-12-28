@@ -35,7 +35,13 @@
                 <div class="container">
                     <div class="row">
                         <div class="col-sm-6 col-md-6 col-lg-6">
-                            <p><?php echo myThemes::get( 'footer-text', true ); ?></p>
+                           <div class="footer-menu">
+                                 <a title="Простые рецепты (главная страница)" href="http://loc.simplerecipe.info/">Главная</a>, 
+                                 <a title="О проекте «Простые рецепты»" href="http://loc.simplerecipe.info/about/">О проекте</a>, 
+                                 <a title="Контакты простых рецептов" href="http://loc.simplerecipe.info/contacts/">Контакты</a>
+                                 <a title="Простые советы" href="http://loc.simplerecipe.info/simple-advice/"><span class="glyphicon glyphicon-info-sign" aria-hidden="true"></span> Простые советы</a>
+                                </ul>
+                            </div> 
                         </div>
                         <?php
                             $github     = myThemes::get( 'github' );
@@ -66,7 +72,7 @@
                             $rss        = myThemes::get( 'rss' );
                         ?>
                         <div class="col-sm-6 col-md-6 col-lg-6">
-                            <div class="mythemes-social">
+                            <div class="mythemes-social" style="display:none">
                                 <?php
                                     if( !empty( $github ) ){
                                         echo '<a href="' . $github . '" class="icon-github" target="_blank"></a>';
@@ -175,6 +181,7 @@
                                     }
                                 ?>
                             </div>
+                            <p><?php echo myThemes::get( 'footer-text', true ); ?></p>
                         </div>
                     </div>
                 </div>

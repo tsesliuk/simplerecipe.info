@@ -6,6 +6,53 @@ function reset_border_bottom(){
 }
 jQuery(function(){
 
+    jQuery(".sostav_box").each(function(){
+        var sostavRegexp = jQuery(this).text();
+        sostavRegexp = sostavRegexp.replace(/:.*?,/g, ",");
+        sostavRegexp = sostavRegexp.replace(/:.*?;/g, ".");
+        jQuery(this).html(sostavRegexp);
+        
+    });
+
+    jQuery(".post .post-short-info .hours").each(function(){
+        var hoursRegexp = jQuery(this).find(".symbols").text();
+        if(hoursRegexp == "1"){
+            jQuery(this).find(".text").text("час");
+        }
+        if(hoursRegexp == "5" || hoursRegexp > "5"){
+            jQuery(this).find(".text").text(" часов");
+        }
+        if(hoursRegexp == "0"){
+            jQuery(this).find(".text, .symbols").text("");
+        }
+        if(hoursRegexp == ""){
+            jQuery(this).find(".text, .symbols").text("");
+        }
+    });
+
+    jQuery(function() {
+      jQuery('a[href*=#]:not([href=#])').click(function() {
+        if (location.pathname.replace(/^\//,'') == this.pathname.replace(/^\//,'') && location.hostname == this.hostname) {
+          var target = jQuery(this.hash);
+          target = target.length ? target : jQuery('[name=' + this.hash.slice(1) +']');
+          if (target.length) {
+            jQuery('html,body').animate({
+              scrollTop: target.offset().top
+            }, 1000);
+            return false;
+          }
+        }
+      });
+    });
+
+   
+    jQuery(window).scroll(function (event) {
+        var scroll = jQuery(window).scrollTop();
+        if(scroll > 200) {jQuery(".to-start").fadeIn(500);} else {jQuery(".to-start").hide(0);}
+    });   
+
+
+
     /* ADD PLUS AND ARROW FOR MENU ITEMS WITH SUB MENU */
     jQuery('nav.base-nav ul.mythemes-menu > li').find('ul').each(function(){
         if( !jQuery(this).parent('li').hasClass('submenu-arrow') ){

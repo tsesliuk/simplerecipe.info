@@ -139,14 +139,13 @@ min-height: 300px;
     }
 }
 .content-border article{
-    margin-bottom: 30px;
+    margin-bottom: 20px;
 }
 
 .content-border article div.post-delimiter{
-    border-bottom: 1px solid #eeeeee;
     height: 0px;
 
-    padding-bottom: 30px;
+    padding-bottom: 20px;
 }
 
 .content-border article{
@@ -197,14 +196,13 @@ div.wp-playlist.wp-audio-playlist.wp-playlist-light{
 
 }
 .content-border article .post-thumbnail img{
-    max-width: 100% !important;
-    width: auto !important;
-    height: auto !important; 
-
+    width: 100%;
     -webkit-border-radius: 5px;
        -moz-border-radius: 5px;
             border-radius: 5px;
 }
+
+
 .content-border article h2.post-title{
     font-size: 23px;
     margin-top: 0px;
@@ -214,7 +212,7 @@ div.wp-playlist.wp-audio-playlist.wp-playlist-light{
     color: #000000;
 }
 .content-border article p{
-    color: #6f6f6f;
+    color: #666666;
     margin: 10px 0px 10px 0px;
 }
 .content-border article div.meta{
