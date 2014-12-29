@@ -1,39 +1,52 @@
 <?php get_header(); ?>
 
     <?php global $wp_query; ?>
-    
-    <div class="mythemes-page-header">
+
+    <div class="mythemes-page-header second-pages">
 
       <div class="container">
         <div class="row">
 
-          <div class="col-sm-8 col-md-9 col-lg-9">
-            <h1 class="mythemes-title"><?php _e( 'Results for tag' , 'myThemes' ); ?> "<?php echo urldecode( get_query_var( 'tag' ) ); ?>"</h1>
-            <nav class="mythemes-nav-inline">
-              <ul class="mythemes-menu">
-                <li><a href="<?php echo home_url(); ?>" title="<?php _e( 'go home' , 'myThemes' ); ?>"><i class="icon-home"></i> <?php _e( 'Home' , 'myThemes' ); ?></a></li>
-                <li><?php echo urldecode( get_query_var( 'tag' ) ); ?></li>
-              </ul>
-            </nav>
-          </div>
+            <div class="col-sm-12 col-md-2 col-lg-2">
+            </div>
 
-          <div class="col-sm-4 col-md-3 col-lg-3 mythemes-posts-found">
-                <div class="found-details">
-                    <span>
-                        <?php
+            <div class="col-sm-8 col-md-8 col-lg-8">
+                <div class="header-main-search second-pages">
+                    <h1>
+                        С тегом 
+                        <?php _e( '' , 'myThemes' ); ?><?php echo urldecode( get_query_var( 'tag' ) ); ?>:
+                        <strong>
+                            <?php
 
-                            echo $wp_query -> found_posts . ' ';
+                                echo $wp_query -> found_posts . ' ';
 
-                            if( $wp_query -> found_posts == 1 ){
-                                _e( 'Article' , 'myThemes' );
-                            }
-                            else{
-                                _e( 'Articles' , 'myThemes' );
-                            }
-                        ?>
-                    </span>
+                                if( $wp_query -> found_posts == 1 ){
+                                    _e( 'Рецепт' , 'myThemes' );
+                                }
+                                else{
+                                    _e( 'Рецептов' , 'myThemes' );
+                                }
+                            ?>
+                        </strong>
+                    </h1>
+                    
+                    <div class="header-main-filter">
+                        <?php echo do_shortcode('[searchandfilter fields="category,post_tag" submit_label="Отфильтровать"]'); ?>
+                    </div>
+
+                    <nav class="mythemes-nav-inline">
+                      <ul class="mythemes-menu">
+                        <li><a href="<?php echo home_url(); ?>" title="<?php _e( 'go home' , 'myThemes' ); ?>"><i class="icon-home"></i> <?php _e( 'Home' , 'myThemes' ); ?></a></li>
+                        <li><?php echo get_cat_name( get_query_var( 'cat' ) ); ?></li>
+                      </ul>
+                    </nav>
                 </div>
-          </div>
+            </div>
+
+          <div class="col-sm-2 col-md-2 col-lg-2 mythemes-posts-found">
+                <div class="found-details">
+                </div>
+            </div>
 
         </div>
       </div>

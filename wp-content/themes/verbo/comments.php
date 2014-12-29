@@ -79,20 +79,20 @@ if( comments_open() ){
     $rett .= '</p></div>';
     
     if( !myThemes::get( 'html-suggestions' ) ){
-        $rett .= '<p class="comment-notes">' . __( 'You may use these HTML tags and attributes' , 'myThemes' ) . ':</p>';
+        $rett .= '<p class="comment-notes">' . __( 'Вы можете использовать эти HTML теги и атрибуты' , 'myThemes' ) . ':</p>';
         $rett .= '<pre>';
         $rett .= htmlspecialchars( '<a href="" title=""> <abbr title=""> <acronym title=""> <b> <blockquote cite=""> <cite> <code> <del datetime=""> <em> <i> <q cite=""> <strike> <strong>' );
         $rett .= '</pre>';
     }
 
     $args = array(	
-        'title_reply' => __( "Leave a reply" , 'myThemes' ),
+        'title_reply' => __( "Оставить отзыв о рецепте" , 'myThemes' ),
         'comment_notes_after'   => '',
-        'comment_notes_before'  => '<button type="submit" class="submit-comment">' . __( 'Comment' , 'myThemes' ) . '</button><p class="comment-notes">' . __( 'Your email address will not be published.' , 'myThemes' ) . '</p>',
-        'logged_in_as'          => '<button type="submit" class="submit-comment">' . __( 'Comment' , 'myThemes' ) . '</button><p class="logged-in-as">' . __( 'Logged in as' , 'myThemes' ) . ' <a href="' . home_url('/wp-admin/profile.php') . '">' . get_the_author_meta( 'nickname' , get_current_user_id() ) . '</a>. <a href="' . wp_logout_url( get_permalink( $post -> ID ) ) .'" title="' . __( 'Log out of this account' , 'myThemes' ) . '">' . __( 'Log out?' , 'myThemes' ) . ' </a></p>',		
+        'comment_notes_before'  => '<button type="submit" class="submit-comment">' . __( 'Опубликовать' , 'myThemes' ) . '</button><p class="comment-notes">' . __( 'Ваш email не будет опубликован.' , 'myThemes' ) . '</p>',
+        'logged_in_as'          => '<button type="submit" class="submit-comment">' . __( 'Опубликовать' , 'myThemes' ) . '</button><p class="logged-in-as">' . __( 'Залогинен как' , 'myThemes' ) . ' <a href="' . home_url('/wp-admin/profile.php') . '">' . get_the_author_meta( 'nickname' , get_current_user_id() ) . '</a>. <a href="' . wp_logout_url( get_permalink( $post -> ID ) ) .'" title="' . __( 'Выйти из этого аккаунта' , 'myThemes' ) . '">' . __( 'Log out?' , 'myThemes' ) . ' </a></p>',		
         'fields'                => apply_filters( 'comment_form_default_fields', $fields ),
         'comment_field'         => $rett,
-        'label_submit'          => __( 'Comment' , 'myThemes' )
+        'label_submit'          => __( 'Опубликовать' , 'myThemes' )
     );
 
     comment_form( $args );

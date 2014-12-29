@@ -420,6 +420,33 @@ width: 10%;
     width:100%;
 }
 
+.header-main-search.second-pages {
+    padding: 5px;
+    margin-top:0;
+    height:50px;
+}
+
+.header-main-search.second-pages h1 {
+font-size: 14px;
+color: #fff;
+font-style: italic;
+margin-top: 11px;
+margin-left: 1%;
+}
+
+.header-main-search.second-pages h1 strong{
+    font-family: arial;
+    font-size: 14px;
+    color: #fff;
+    font-style: normal;
+    font-weight: normal;
+}
+
+.mythemes-page-header div[class^="col-"] {
+padding-top: 0;
+padding-bottom: 0;
+}
+
 select {
     color: #652501;
 }
@@ -555,7 +582,7 @@ color: #652501;
     max-height:150px;
 }
 
-.post .post-thumbnail img {
+.list-preview .post .post-thumbnail img {
 height: 100% !important;
 width: auto !important;
 min-width: 100%;
@@ -687,6 +714,76 @@ text-align: right;
 .footer-menu a .glyphicon {
     position: relative;
     top: 3px;
+}
+
+
+
+.mythemes-page-header.second-pages {
+    padding: 20px 0;
+    margin-bottom: 0px;
+    background:transparent;
+}
+
+.header-main-search.second-pages {
+    padding: 5px;
+    margin-top:0;
+    height:50px;
+}
+
+.header-main-search.second-pages h1 {
+font-size: 14px;
+color: #fff;
+font-style: italic;
+margin-top: 12px;
+margin-left: 1%;
+float: left;
+white-space: nowrap;
+overflow: hidden;
+text-overflow: ellipsis;
+width: 35%;
+}
+
+.header-main-search.second-pages h1 strong{
+    font-family: arial;
+    font-size: 14px;
+    color: #fff;
+    font-style: normal;
+    font-weight: normal;
+}
+
+.header-main-search.second-pages .mythemes-nav-inline {
+    display: none;
+}
+
+.header-main-search.second-pages .header-main-filter {
+float: right;
+width: 60%;
+margin-top: 3px;
+}
+
+.header-main-search.second-pages .searchandfilter ul li {
+padding: 0;
+margin: 0 1%;
+width: 30%;
+}
+
+.header-main-search.second-pages .searchandfilter ul li:first-child {
+width: 37%;
+margin-left: 0;
+}
+
+.header-main-search.second-pages .searchandfilter ul li:last-child {
+margin-right: 0;
+width: 29%;
+}
+
+.header-main-search.second-pages div[class^="col-"] {
+padding-top: 0;
+padding-bottom: 0;
+}
+
+.category .content, .search-results .content, .tag .content {
+    padding-top: 0;
 }
 
 @media screen and (min-width: 1380px) {
