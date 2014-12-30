@@ -14,11 +14,11 @@
                 <div class="header-main-search second-pages">
                     <h1>
                         С тегом 
-                        <?php _e( '' , 'myThemes' ); ?><?php echo urldecode( get_query_var( 'tag' ) ); ?>:
+                        <?php _e( '' , 'myThemes' ); ?><?php echo urldecode( get_query_var( 'tag' ) ); ?>
                         <strong>
                             <?php
 
-                                echo $wp_query -> found_posts . ' ';
+                                echo $wp_query -> found_posts . '';
 
                                 if( $wp_query -> found_posts == 1 ){
                                     _e( 'Рецепт' , 'myThemes' );

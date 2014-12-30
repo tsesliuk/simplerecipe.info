@@ -32,9 +32,7 @@ h1,h2,h3,h4,h5,h6{
 }
 
 h1.post-title{
-    color: #303030;
-    font-size: 23px;
-    line-height: 26px;
+    color: #333333;
     margin-top: 30px;
     margin-bottom: 10px;
 }

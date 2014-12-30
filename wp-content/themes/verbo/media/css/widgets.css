@@ -33,9 +33,7 @@ div.widget ul li{
 
 /* SEARCH - DEFAULT WIDGET*/
 div.widget_search{
-    background: #f0f0f0;
-
-    -webkit-border-radius: 3px;
+-webkit-border-radius: 3px;
        -moz-border-radius: 3px;
             border-radius: 3px;
 }
@@ -47,45 +45,12 @@ div.widget_search form{
 div.widget_search div#searchbox{
     width: 100%;
 }
-div.widget_search input,
-div.widget_search button{
-    float: left;
-    background: transparent;
-}
-div.widget_search input[type="text"]{
-    border: none;
-    color: #999999;
-    display: inline-block;
-    
-    margin: 0px;
-    padding: 3% 2%;
 
-    width: 85%;
-}
 div.widget_search button[type="submit"]{
-    border: none;
-    color: #454545;
-    display: inline-block;
-
-    font-size: 14px;
-    line-height: 16px;
-
-    margin: 0px;
-    padding: 3% 1%;
-
-    width: 15%;
+    width: 100%;
+    margin: 0; 
 }
-div.widget_search input:focus,
-div.widget_search button:focus{
-    border: none;
-    box-shadow: none;
 
-    color: #454545;
-
-    outline: 0;
-    outline: thin dotted \9;
-    filter: -;
-}
 
 /* TEXT - DEFAULT WIDGET */
 div.widget_text div.textwidget{

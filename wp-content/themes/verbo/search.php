@@ -12,7 +12,7 @@
 
             <div class="col-sm-8 col-md-8 col-lg-8">
                 <div class="header-main-search second-pages">
-                    <h1>
+                    <h1>Найдено
                         <?php _e( '' , 'myThemes' ); ?><?php echo get_search_query( get_query_var( 'cat' ) ); ?>:
                         <strong>
                             <?php

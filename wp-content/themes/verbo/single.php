@@ -48,7 +48,46 @@
                                 <h1 class="post-title <?php echo $classes; ?>"><?php the_title(); ?></h1>
                           
                                 <!-- TOP META : AUTHOR / TIME / COMMENTS -->
-                                <?php get_template_part( 'cfg/templates/meta' ); ?>
+
+                                <div class="row mb-10">
+                                    
+                                    <div class="col-sm-6 col-md-2 col-lg-2 ">
+                                        <?php if(function_exists('the_ratings')) { the_ratings(); } ?>
+                                    </div>
+                                        
+                                    <div class="col-sm-6 col-md-3 col-lg-2 post-short-info">
+                                        <abbr title="Время приготовления <?php the_title(); ?>">
+                                            <span class="glyphicon glyphicon-time" aria-hidden="true"></span>
+                                            
+                                            <?php  $books = get_post_meta( $post->ID, 'minutes', true ); 
+                                            foreach( $books as $book){
+                                                echo ('<meta itemprop="cookTime" content="PT'); echo $book['minutes']; echo ('M">');
+                                            }?>
+
+                                            <?php  $books = get_post_meta( $post->ID, 'minutes', true ); 
+                                            foreach( $books as $book){
+                                                echo ('<span class="hours"><span class="symbols">');
+                                                echo $book['hours'];
+                                                echo ('</span> <span class="text">часа</span></span>');
+                                                echo (' <span class="minutes">');
+                                                echo $book['minutes']; 
+                                                echo ('</span>');
+                                            }?>
+                                        </abbr>    
+                                    </div>
+
+                                    <div class="col-sm-6 col-md-2 col-lg-2">
+                                        <span class="entry-author author hCard" itemprop="author">Автор: <?php the_author_link(); ?></span>
+                                    </div>
+
+                                    <div class="col-sm-6 col-md-4 col-lg-4">
+                                        <span class="entry-date" itemprop="datePublished">Опубликован: <?php the_date(); ?></span>
+                                    </div>
+                                </div>
+
+                                <div class="post-tags">
+                                    <?php the_tags( '<span class="glyphicon glyphicon-tag" aria-hidden="true"></span>',', <span class="glyphicon glyphicon-tag" aria-hidden="true"></span>'); ?> 
+                                </div>
 
                                 <!-- CONTENT -->
                                 <?php the_content(); ?>

@@ -631,7 +631,7 @@ line-height: 18px;
 overflow-y: hidden;
 }
 
-.post-short-info {
+.list-preview .post-short-info {
 white-space: nowrap;
 overflow-x: hidden;
 text-overflow: ellipsis;
@@ -784,6 +784,23 @@ padding-bottom: 0;
 
 .category .content, .search-results .content, .tag .content {
     padding-top: 0;
+}
+
+.page .content {
+    padding-top:0;
+}
+
+.page .mythemes-page-header {
+    margin-bottom: 0;
+}
+
+.single .post-tags {
+    margin-bottom: 30px;
+    font-size:14px;
+}
+
+.mb-10 {
+    margin-bottom: 10px
 }
 
 @media screen and (min-width: 1380px) {

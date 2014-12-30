@@ -1,5 +1,4 @@
 <?php get_header(); ?>
-
 <?php
     if( have_posts() ){
         while( have_posts() ){
@@ -9,17 +8,19 @@
 
               <div class="container">
                 <div class="row">
-
-                  <div class="col-lg-12">
-                    <h1><?php the_title(); ?></h1>
-                    <nav class="mythemes-nav-inline">
-                      <ul class="mythemes-menu">
-                        <li><a href="<?php echo home_url(); ?>" title="<?php _e( 'go home' , 'myThemes' ); ?>"><i class="icon-home"></i> <?php _e( 'Home' , 'myThemes' ); ?></a></li>
-                        <li><?php the_title(); ?></li>
-                      </ul>
-                    </nav>
-                  </div>
-
+                    <div class="col-sm-2 col-md-2 col-lg-2">
+                    </div>
+                    <div class="col-sm-8 col-md-8 col-lg-8">
+                        <h1><?php the_title(); ?></h1>
+                        <nav class="mythemes-nav-inline">
+                          <ul class="mythemes-menu">
+                            <li><i class="glyphicon glyphicon-home"></i> <a href="<?php echo home_url(); ?>" title="<?php _e( 'На главную' , 'myThemes' ); ?>"> <?php _e( 'Главная' , 'myThemes' ); ?></a></li>
+                            <li><i class="glyphicon glyphicon-play"></i><?php the_title(); ?></li>
+                          </ul>
+                        </nav>
+                    </div>
+                    <div class="col-sm-2 col-md-2 col-lg-2">
+                    </div>
                 </div>
               </div>
 
