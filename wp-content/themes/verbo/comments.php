@@ -89,7 +89,7 @@ if( comments_open() ){
         'title_reply' => __( "Оставить отзыв о рецепте" , 'myThemes' ),
         'comment_notes_after'   => '',
         'comment_notes_before'  => '<button type="submit" class="submit-comment">' . __( 'Опубликовать' , 'myThemes' ) . '</button><p class="comment-notes">' . __( 'Ваш email не будет опубликован.' , 'myThemes' ) . '</p>',
-        'logged_in_as'          => '<button type="submit" class="submit-comment">' . __( 'Опубликовать' , 'myThemes' ) . '</button><p class="logged-in-as">' . __( 'Залогинен как' , 'myThemes' ) . ' <a href="' . home_url('/wp-admin/profile.php') . '">' . get_the_author_meta( 'nickname' , get_current_user_id() ) . '</a>. <a href="' . wp_logout_url( get_permalink( $post -> ID ) ) .'" title="' . __( 'Выйти из этого аккаунта' , 'myThemes' ) . '">' . __( 'Log out?' , 'myThemes' ) . ' </a></p>',		
+        'logged_in_as'          => '<button type="submit" class="submit-comment">' . __( 'Опубликовать' , 'myThemes' ) . '</button><p class="logged-in-as">' . __( 'Залогинен как' , 'myThemes' ) . ' <a href="' . home_url('/wp-admin/profile.php') . '">' . get_the_author_meta( 'nickname' , get_current_user_id() ) . '</a>. <a href="' . wp_logout_url( get_permalink( $post -> ID ) ) .'" title="' . __( 'Выйти из этого аккаунта' , 'myThemes' ) . '">' . __( 'Выйти?' , 'myThemes' ) . ' </a></p>',		
         'fields'                => apply_filters( 'comment_form_default_fields', $fields ),
         'comment_field'         => $rett,
         'label_submit'          => __( 'Опубликовать' , 'myThemes' )

@@ -24,8 +24,8 @@
         }
     }
     else{
-        echo '<h3>' . __( 'Not found results' , 'myThemes' ) . '</h3>';
-        echo '<p>' . __( 'We apologize but this page, post or resource does not exist or can not be found. Perhaps it is necessary to change the call method to this page, post or resource.' , 'myThemes' ) . '</p>';
+        echo '<h3>' . __( 'Не найдено' , 'myThemes' ) . '</h3>';
+        echo '<p>' . __( 'Мы приносим свои извинения, но рецепта с таким словом в имени или инградиенте мы не нашли. Попробуйте поискать по другому слову.' , 'myThemes' ) . '</p>';
     }
 
     /* PAGINATION */
