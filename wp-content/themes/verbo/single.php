@@ -23,7 +23,7 @@
                         if (function_exists('show_full_breadcrumb')) show_full_breadcrumb(
                             array(
                                 'labels' => array(
-                                    'local'  => __('<i class="glyphicon glyphicon-home"></i>:'), // set FALSE to hide
+                                    'local'  => __('<i class="glyphicon glyphicon-home"></i>'), // set FALSE to hide
                                     'home'   => __('Home'),
                                     'page'   => __('Page'),
                                     'tag'    => __('Tag'),

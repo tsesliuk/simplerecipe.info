@@ -814,6 +814,10 @@ padding-bottom: 0;
     border-radius: 5px;
 }
 
+.sidebar-to-left .widget#text-5 {
+    border-bottom:0;
+}
+
 @media screen and (min-width: 1380px) {
     body > header:before {
         width:40%;
