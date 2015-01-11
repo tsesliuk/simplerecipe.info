@@ -17,6 +17,51 @@
                 <!-- CONTENT -->
                 <section class="<?php echo $myThemes_layout -> contentClass(); ?>">
 
+                <div class="breadcrumb">
+                    <?php
+
+                        if (function_exists('show_full_breadcrumb')) show_full_breadcrumb(
+                            array(
+                                'labels' => array(
+                                    'local'  => __('<i class="glyphicon glyphicon-home"></i>:'), // set FALSE to hide
+                                    'home'   => __('Home'),
+                                    'page'   => __('Page'),
+                                    'tag'    => __('Tag'),
+                                    'search' => __('Searching for'),
+                                    'author' => __('Published by'),
+                                    '404'    => __('Error 404 &rsaquo; Page not found')
+                                ),
+                                'separator' => array(
+                                    'element' => 'span',
+                                    'class'   => 'separator',
+                                    'content' => '&rsaquo;'
+                                ), // set FALSE to hide
+                                'local' => array(
+                                    'element' => 'span',
+                                    'class'   => 'local'
+                                ),
+                                'home' => array(
+                                    'showLink'       => true,
+                                    'showBreadcrumb' => true
+                                ),
+                                'actual' => array(
+                                    'element' => 'span',
+                                    'class'   => 'actual'
+                                ), // set FALSE to hide
+                                'quote' => array(
+                                    'tag'    => true,
+                                    'search' => true
+                                ),
+                                'page_ancestors' => array(
+                                    'showLink' => false
+                                )
+                            )
+                        );
+
+                    ?>
+                </div>
+
+
                 <?php
                     /* LEFT WRAPPER */
                     $myThemes_layout ->  contentWrapper( 'left' );
@@ -24,7 +69,7 @@
                     if( have_posts() ){
                         while( have_posts() ){
                             the_post();    
-                ?>
+                        ?>
                             <article <?php post_class( 'row-fluid' ); ?>>
 
                                 <?php

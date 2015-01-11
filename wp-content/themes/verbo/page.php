@@ -12,12 +12,6 @@
                     </div>
                     <div class="col-sm-8 col-md-8 col-lg-8">
                         <h1><?php the_title(); ?></h1>
-                        <nav class="mythemes-nav-inline">
-                          <ul class="mythemes-menu">
-                            <li><i class="glyphicon glyphicon-home"></i> <a href="<?php echo home_url(); ?>" title="<?php _e( 'На главную' , 'myThemes' ); ?>"> <?php _e( 'Главная' , 'myThemes' ); ?></a></li>
-                            <li><i class="glyphicon glyphicon-play"></i><?php the_title(); ?></li>
-                          </ul>
-                        </nav>
                     </div>
                     <div class="col-sm-2 col-md-2 col-lg-2">
                     </div>
@@ -48,7 +42,49 @@
 
                         ?>
                             <article <?php post_class( 'row-fluid' ); ?>>
+                                <div class="breadcrumb">
+                                        <?php
 
+                                            if (function_exists('show_full_breadcrumb')) show_full_breadcrumb(
+                                                array(
+                                                    'labels' => array(
+                                                        'local'  => __('<i class="glyphicon glyphicon-home"></i>:'), // set FALSE to hide
+                                                        'home'   => __('Home'),
+                                                        'page'   => __('Page'),
+                                                        'tag'    => __('Tag'),
+                                                        'search' => __('Searching for'),
+                                                        'author' => __('Published by'),
+                                                        '404'    => __('Error 404 &rsaquo; Page not found')
+                                                    ),
+                                                    'separator' => array(
+                                                        'element' => 'span',
+                                                        'class'   => 'separator',
+                                                        'content' => '&rsaquo;'
+                                                    ), // set FALSE to hide
+                                                    'local' => array(
+                                                        'element' => 'span',
+                                                        'class'   => 'local'
+                                                    ),
+                                                    'home' => array(
+                                                        'showLink'       => true,
+                                                        'showBreadcrumb' => true
+                                                    ),
+                                                    'actual' => array(
+                                                        'element' => 'span',
+                                                        'class'   => 'actual'
+                                                    ), // set FALSE to hide
+                                                    'quote' => array(
+                                                        'tag'    => true,
+                                                        'search' => true
+                                                    ),
+                                                    'page_ancestors' => array(
+                                                        'showLink' => false
+                                                    )
+                                                )
+                                            );
+
+                                        ?>
+                                    </div>
                                 <?php 
                                     if( has_post_thumbnail() ){
                                 ?>

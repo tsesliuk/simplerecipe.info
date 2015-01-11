@@ -88,7 +88,7 @@ if ( post_password_required($post) ) {  // and it doesn't match the cookie
 	<p>
 	  <label for="comment"><?php _e('Your Comment'); ?></label>
 	<br />
-	  <textarea name="comment" id="comment" cols="70" rows="4" tabindex="4"></textarea>
+	  <textarea name="comment" id="comment" cols="70" rows="4" tabindex="4">Оставьте пожалуйста свой комментарий чтобы другие посетители знали что это за рецептик.</textarea>
 	</p>
 
 	<p>

@@ -23,7 +23,7 @@ padding: 10px;
 border-radius: 5px;
 height: 40px;
 }
-.mythemes-page-header nav a{
+.mythemes-page-header nav a {
     color: #000000;
 }
 .mythemes-page-header nav a:hover{
@@ -33,32 +33,30 @@ height: 40px;
     color: #666666;
     text-shadow: 1px 1px rgba( 255, 255, 255, 0.5 );
 }
-.mythemes-page-header nav.mythemes-nav-inline li{
+.breadcrumb span{
     padding: 0px;
     font-family: Georgia, sans-serif, Arial, serif;
     font-style: italic;
 }
 
-.mythemes-page-header nav.mythemes-nav-inline li i {
+.breadcrumb i {
 position: relative;
 color: #999999;
 font-size: 12px;
 top: 1px;
 }
 
-.mythemes-page-header nav.mythemes-nav-inline li a {
+.breadcrumb a {
 color: #652501;
 }
 
-.mythemes-page-header nav.mythemes-nav-inline li i.glyphicon-play {
+.breadcrumb i.glyphicon-play {
 font-size: 10px;
 margin-right: 5px;
 margin-left: 4px;
 top:0;
 }
-.mythemes-page-header nav li:first-child:before{
-    padding: 0px;
-}
+
 .mythemes-page-header .mythemes-author-avatar div.author-details{
     text-align: center;
     margin: -23px 0px;

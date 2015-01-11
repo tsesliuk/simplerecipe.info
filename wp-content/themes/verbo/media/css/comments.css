@@ -145,7 +145,7 @@ div.comment-respond form.comment-form textarea{
     border: none;
     margin: 0px;
     width: 100%;
-
+    height:100px;
     padding: 10px 8px;
 
     -webkit-border-radius: 3px;
