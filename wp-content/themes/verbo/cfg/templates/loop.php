@@ -21,6 +21,30 @@
             $posts_index++;
             the_post();
             get_template_part( 'cfg/templates/view/list-view' );
+
+            if ($posts_index % 6 == 1) {
+                //echo("<div class='advertise-taxonomy'>Место для Вашей рекламы</div>");
+
+                /*
+                echo('
+                    <script async src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+                    <!-- advertise-taxonomy banners -->
+                    <div class="advertise-taxonomy">
+                        <ins class="adsbygoogle"
+                             style="display:block"
+                             data-ad-client="ca-pub-3923388382694018"
+                             data-ad-slot="8519316889"
+                             data-ad-format="auto"></ins>
+                        <script>
+                        (adsbygoogle = window.adsbygoogle || []).push({});
+                        </script>
+                    </div>
+                ');
+                */
+
+            }
+            else {}
+
         }
     }
     else{
