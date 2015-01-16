@@ -284,16 +284,19 @@ color: #f9bea5;
 }
 
 header nav.mythemes-nav-inline div > ul li:last-child a:before {
+position: relative;
+top: 1px;
 display: inline-block;
-font: normal normal normal 14px/1 FontAwesome;
-font-size: inherit;
-text-rendering: auto;
+content: "\e086";
+font-family: 'Glyphicons Halflings';
+font-style: normal;
+font-weight: 400;
+line-height: 1;
 -webkit-font-smoothing: antialiased;
 -moz-osx-font-smoothing: grayscale;
-content: "\f05a";
 margin-right: 3px;
 margin-left: 10px;
-font-size: 18px;
+font-size: 14px;
 position: relative;
 top: 3px;
 }
@@ -592,7 +595,7 @@ max-width: 999px !important;
 .list-preview .post p {
 color: #666666;
 margin: 10px 0px 10px 0px;
-line-height: 18px;
+line-height: 20px;
 margin-top: 0;
 }
 
@@ -626,7 +629,7 @@ font-family: Georgia, sans-serif, Arial, serif;
 white-space: nowrap;
 overflow-x: hidden;
 text-overflow: ellipsis;
-margin-bottom: 10px;
+margin-bottom: 5px;
 line-height: 18px;
 overflow-y: hidden;
 }
@@ -662,12 +665,8 @@ font-size: 12px;
 
 .post .post-tags {
 color: #652501;
-white-space: nowrap;
-overflow-x: hidden;
-text-overflow: ellipsis;
 display: block;
 max-width: 100%;
-overflow-y: hidden;
 font-size:12px;
 }
 
@@ -677,13 +676,16 @@ font-size:12px;
     top: 4px;
 }
 
+.list-preview .post .post-tags {
+white-space: nowrap;
+overflow: hidden;
+text-overflow: ellipsis;
+}
+
 .list-preview .post .entry-date, .list-preview .post .entry-author {
     display: none;   
 }
 
-.rating-average {
-    display: none;
-}
 
 footer .mythemes-copyright {
     background: #fff;
@@ -816,6 +818,42 @@ padding-bottom: 0;
 
 .sidebar-to-left .widget#text-5 {
     border-bottom:0;
+}
+
+.small-info-box {
+    font-family: Georgia, sans-serif, Arial, serif;
+    color: #333333;
+    margin-bottom:20px;
+}
+
+.small-info-box-title {
+    display: block;
+    color: #333333;
+    line-height: 16px;
+}
+
+.param-list {
+font-family: Georgia, sans-serif, Arial, serif;
+color: #666666;
+margin: 0;
+padding: 0;
+list-style-type: none;
+}
+
+.param-list strong {
+    font-family: "Noto Sans", sans-serif, Arial, serif;
+    color: #333333;
+    font-weight: normal;
+    display: block;
+}
+
+.param-list li {
+    margin: 0 0 5px 0;
+}
+
+.param-list abbr[title], .param-list abbr[data-original-title] {
+    color: #666666;
+    border-bottom: 0;
 }
 
 @media screen and (min-width: 1380px) {
