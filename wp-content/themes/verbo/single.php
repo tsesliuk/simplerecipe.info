@@ -72,7 +72,7 @@
                         ?>
                             <article <?php post_class( 'row-fluid' ); ?>>
                                 <div class="row">
-                                    <div class="col-sm-12 col-md-3 col-lg-3 pull-right pl-0">
+                                    <div class="col-sm-12 col-md-4 col-lg-4 pull-right pl-0">
                                         <div class="first-plan-box">
                                             <ul class="param-list">
                                                 <li>
@@ -112,9 +112,20 @@
                                                 <span class="small-info-box-title">Особенности рецепта: </span>
                                                 <?php the_tags( '<span class="glyphicon glyphicon-tag" aria-hidden="true"></span>',', <br><span class="glyphicon glyphicon-tag" aria-hidden="true"></span>'); ?> 
                                             </div>
+
+                                            <div class="sostav_box sidebar" itemprop="ingredients" data-spy="affix" data-offset-top="60" data-offset-top="200">
+                                            <?php $sostav = get_post_meta( $post->ID, 'sostav', true );
+                                                foreach( $sostav as $sostav){
+                                                    echo ('');
+                                                    echo $sostav['sostav'];
+                                                    echo (';');
+                                                }
+                                            ?>
+                                            </div>
+
                                         </div>
                                     </div>
-                                    <div class="col-sm-12 col-md-9 col-lg-9">
+                                    <div class="col-sm-12 col-md-8 col-lg-8">
 
                                         <?php
                                             $classes = 'no-thumbnail';

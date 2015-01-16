@@ -6,7 +6,7 @@ function reset_border_bottom(){
 }
 jQuery(function(){
 
-    jQuery(".sostav_box").each(function(){
+    jQuery(".list-preview .sostav_box").each(function(){
         var sostavRegexp = jQuery(this).text();
         sostavRegexp = sostavRegexp.replace(/:.*?,/g, ",");
         sostavRegexp = sostavRegexp.replace(/:.*?;/g, ".");
@@ -14,7 +14,30 @@ jQuery(function(){
         
     });
 
+        var sostavSidebarRegexpParentWith = jQuery(".first-plan-box").parent().width();
+        var sostavSidebarRegexp = jQuery(".sostav_box.sidebar").text().replace(/,/g,"<br></span><span class='sostav-list-item'>");
+        sostavSidebarRegexp = sostavSidebarRegexp.replace(";","</span>");
+        sostavSidebarRegexp = sostavSidebarRegexp.replace(/:/g,"</span><span class='sostav-list-item'>");
+        jQuery(".sostav_box.sidebar").width(sostavSidebarRegexpParentWith).html("<span class='sostav-list-item'>"+sostavSidebarRegexp);
+
+
     jQuery(".post .post-short-info .hours").each(function(){
+        var hoursRegexp = jQuery(this).find(".symbols").text();
+        if(hoursRegexp == "1"){
+            jQuery(this).find(".text").text("час");
+        }
+        if(hoursRegexp == "5" || hoursRegexp > "5"){
+            jQuery(this).find(".text").text(" часов");
+        }
+        if(hoursRegexp == "0"){
+            jQuery(this).find(".text, .symbols").text("");
+        }
+        if(hoursRegexp == ""){
+            jQuery(this).find(".text, .symbols").text("");
+        }
+    });
+
+    jQuery(".param-list .hours").each(function(){
         var hoursRegexp = jQuery(this).find(".symbols").text();
         if(hoursRegexp == "1"){
             jQuery(this).find(".text").text("час");
