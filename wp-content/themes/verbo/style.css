@@ -875,7 +875,7 @@ overflow: hidden;
     margin-bottom: 0;
 }
 
-.sostav_box.sidebar .sostav-list-item {position: absolute; margin-left: -400px;margin-top: -100px;}
+.sostav_box.sidebar .sostav-list-item {position: absolute; margin-left: -400px;margin-top: -3000px;}
 .sostav_box.sidebar.affix-top {}
 .sostav_box.sidebar.affix {
 background: #f5f5f5;
@@ -884,7 +884,9 @@ border-radius: 10px;
 top: 60px;
 position: fixed;
 margin-left: -15px;
-margin-top: 0px;}
+margin-top: 0px;
+z-index: 9999;
+}
 
 .sostav_box.sidebar.affix .sostav-list-item {
     margin-left: 0;
@@ -892,7 +894,14 @@ margin-top: 0px;}
     position: static;
 }
 
+.comment-form .submit-comment {
+    position: absolute;
+    bottom: 140px;
+}
 
+textarea#comment {
+    margin-bottom:60px;
+}
 
 @media screen and (min-width: 1380px) {
     body > header:before {
