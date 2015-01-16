@@ -12,5 +12,6 @@ wp-content/cache/
 wp-content/upgrade/
 wp-content/wp-cache-config.php
 wp-content/uploads/new
+wp-content/uploads/
 wp-content/pmad/
 wp-content/db_back/

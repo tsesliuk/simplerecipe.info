@@ -57,8 +57,10 @@ import url(http://fonts.googleapis.com/css?family=Montserrat:400,700|Noto+Sans:4
 
 @import url(media/css/footer.css);
 
-
-
+/****************** hot class *********************/
+.pl-0 {
+    padding-left: 0 !important;
+}
 /* WORDPRESS */
 .alignleft,
 .alignright{
@@ -854,6 +856,13 @@ list-style-type: none;
 .param-list abbr[title], .param-list abbr[data-original-title] {
     color: #666666;
     border-bottom: 0;
+}
+
+.first-plan-box {
+background-color: #f5f5f5;
+padding: 10px 15px;
+border-radius: 5px;
+font-size: 13px;
 }
 
 @media screen and (min-width: 1380px) {

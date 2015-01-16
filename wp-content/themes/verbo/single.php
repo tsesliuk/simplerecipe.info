@@ -72,45 +72,47 @@
                         ?>
                             <article <?php post_class( 'row-fluid' ); ?>>
                                 <div class="row">
-                                    <div class="col-sm-12 col-md-3 col-lg-3 pull-right">
-                                        <ul class="param-list">
-                                            <li>
-                                                <abbr title="Время приготовления <?php the_title(); ?>">
-                                                    <span class="glyphicon glyphicon-time" aria-hidden="true"></span>
-                                                    Готовка:
-                                                    <strong>
-                                                        <?php  $books = get_post_meta( $post->ID, 'minutes', true ); 
-                                                        foreach( $books as $book){
-                                                            echo ('<meta itemprop="cookTime" content="PT'); echo $book['minutes']; echo ('M">');
-                                                        }?>
+                                    <div class="col-sm-12 col-md-3 col-lg-3 pull-right pl-0">
+                                        <div class="first-plan-box">
+                                            <ul class="param-list">
+                                                <li>
+                                                    <abbr title="Время приготовления <?php the_title(); ?>">
+                                                        <span class="glyphicon glyphicon-time" aria-hidden="true"></span>
+                                                        Готовка:
+                                                        <strong>
+                                                            <?php  $books = get_post_meta( $post->ID, 'minutes', true ); 
+                                                            foreach( $books as $book){
+                                                                echo ('<meta itemprop="cookTime" content="PT'); echo $book['minutes']; echo ('M">');
+                                                            }?>
 
-                                                        <?php  $books = get_post_meta( $post->ID, 'minutes', true ); 
-                                                        foreach( $books as $book){
-                                                            echo ('<span class="hours"><span class="symbols">');
-                                                            echo $book['hours'];
-                                                            echo ('</span> <span class="text">часа</span></span>');
-                                                            echo (' <span class="minutes">');
-                                                            echo $book['minutes']; 
-                                                            echo ('</span>');
-                                                        }?>
-                                                    </strong>
-                                                </abbr>
-                                            </li>
-                                            <li>
-                                                <span class="entry-author author hCard" itemprop="author">
-                                                    Автор:
-                                                    <strong><?php the_author_link(); ?></strong>
-                                                </span>
-                                            </li>
-                                            <li>
-                                                <span class="entry-date" itemprop="datePublished">Опубликован: <strong><?php the_date(); ?></strong></span>
-                                            </li>
-                                            <li><?php if(function_exists('the_ratings')) { the_ratings(); } ?></li>
-                                        </ul>
-                                        <div class="post-tags small-info-box">
-                                            <span class="small-info-box-title">Особенности рецепта: </span>
-                                            <?php the_tags( '<span class="glyphicon glyphicon-tag" aria-hidden="true"></span>',', <br><span class="glyphicon glyphicon-tag" aria-hidden="true"></span>'); ?> 
-                                        </div>   
+                                                            <?php  $books = get_post_meta( $post->ID, 'minutes', true ); 
+                                                            foreach( $books as $book){
+                                                                echo ('<span class="hours"><span class="symbols">');
+                                                                echo $book['hours'];
+                                                                echo ('</span> <span class="text">часа</span></span>');
+                                                                echo (' <span class="minutes">');
+                                                                echo $book['minutes']; 
+                                                                echo ('</span>');
+                                                            }?>
+                                                        </strong>
+                                                    </abbr>
+                                                </li>
+                                                <li>
+                                                    <span class="entry-author author hCard" itemprop="author">
+                                                        Автор:
+                                                        <strong><?php the_author_link(); ?></strong>
+                                                    </span>
+                                                </li>
+                                                <li>
+                                                    <span class="entry-date" itemprop="datePublished">Опубликован: <strong><?php the_date(); ?></strong></span>
+                                                </li>
+                                                <li><?php if(function_exists('the_ratings')) { the_ratings(); } ?></li>
+                                            </ul>
+                                            <div class="post-tags small-info-box">
+                                                <span class="small-info-box-title">Особенности рецепта: </span>
+                                                <?php the_tags( '<span class="glyphicon glyphicon-tag" aria-hidden="true"></span>',', <br><span class="glyphicon glyphicon-tag" aria-hidden="true"></span>'); ?> 
+                                            </div>
+                                        </div>
                                     </div>
                                     <div class="col-sm-12 col-md-9 col-lg-9">
 
