@@ -22,7 +22,7 @@
             the_post();
             get_template_part( 'cfg/templates/view/list-view' );
 
-            if ($posts_index % 6 == 1) {
+            if ($posts_index % 6 == 3) {
                 //echo("<div class='advertise-taxonomy'>Место для Вашей рекламы</div>");
 
                 
