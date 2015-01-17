@@ -20,9 +20,9 @@ if( comments_open() ){
         $nr = get_comments_number();
         
         if( $nr == 1 )
-            $title = __( 'Comment' , 'myThemes' );
+            $title = __( 'Комментарий' , 'myThemes' );
         else
-            $title = __( 'Comments' , 'myThemes' );
+            $title = __( 'Комментарии' , 'myThemes' );
 
         echo '<h3 class="comments-title">';
         echo $title . ' ( <strong>' . number_format_i18n( $nr ) . '</strong> )'; 
