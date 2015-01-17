@@ -871,6 +871,10 @@ overflow: hidden;
     display: inline;
 }
 
+.post-ratings .rating-average {
+    margin-right:3px;
+}
+
 .single .first-plan-box .post-tags {
     margin-bottom: 0;
 }
