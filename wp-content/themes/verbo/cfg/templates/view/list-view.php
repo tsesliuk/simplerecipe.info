@@ -7,7 +7,7 @@
                 if( has_post_thumbnail() ){
             ?>
                     <div class="post-thumbnail col-md-4 col-lg-4">
-                      <a href="<?php the_permalink(); ?>">
+                      <a href="<?php the_permalink(); ?>" title="<?php echo esc_attr( $post -> post_title ); ?>">
                         <?php echo get_the_post_thumbnail( $post -> ID , 'grid-thumbnail' , esc_attr( $post -> post_title ) ); ?>
                       </a>
                     </div>

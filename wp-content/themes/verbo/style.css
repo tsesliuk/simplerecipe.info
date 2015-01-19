@@ -395,8 +395,9 @@ padding: 0;
 margin: 0;
 }
 
-.header-main-search .searchandfilter ul input, .header-main-search .searchandfilter ul select{
+.header-main-search .searchandfilter ul input, .header-main-search .searchandfilter ul select {
 margin: 0;
+height: 34px;
 }
 
 .header-main-search .searchandfilter ul li {
@@ -421,7 +422,6 @@ width: 10%;
 
 .header-main-search input[type="submit"] {
     position: relative;
-    top:-1px;
     width:100%;
 }
 
