@@ -146,11 +146,24 @@
 
                                         <!-- TITLE -->
                                         <h1 class="post-title <?php echo $classes; ?>"><?php the_title(); ?></h1>
-                                  
+                                    
 
                                         <!-- CONTENT -->
                                         <?php the_content(); ?>
 
+                                        <script async src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+                                        <!-- advertise-taxonomy banners -->
+                                        <div class="advertise-taxonomy">
+                                            <ins class="adsbygoogle"
+                                                 style="display:block"
+                                                 data-ad-client="ca-pub-3923388382694018"
+                                                 data-ad-slot="8519316889"
+                                                 data-ad-format="auto"></ins>
+                                            <script>
+                                            (adsbygoogle = window.adsbygoogle || []).push({});
+                                            </script>
+                                        </div>
+                                        
                                         <div class="clearfix"></div>
 
                                         <?php get_template_part( 'cfg/templates/bottom-meta' ); ?>
