@@ -125,11 +125,11 @@
                                     }
 
                                     if( !empty( $vkontakte ) ){
-                                        echo '<a href="' . $vkontakte . '" class="fa fa-vk" target="_blank"></a>';
+                                        echo '<a href="' . $vkontakte . '" class="fa fa-vk" target="_blank" title="Простой рецепт в ВК"></a>';
                                     }
 
                                     if( !empty( $facebook ) ){
-                                        echo '<a href="' . $facebook . '" class="fa fa-facebook" target="_blank"></a>';
+                                        echo '<a href="' . $facebook . '" class="fa fa-facebook" target="_blank"  title="Простой рецепт в Facebook"></a>';
                                     }
 
                                     if( !empty( $evernote ) ){
@@ -165,11 +165,11 @@
                                     }
 
                                     if( !empty( $gplus ) ){
-                                        echo '<a href="' . $gplus . '" class="fa fa-google" target="_blank"></a>';
+                                        echo '<a href="' . $gplus . '" class="fa fa-google" target="_blank" title="Простой рецепт в Google Plus"></a>';
                                     }
 
                                     if( !empty( $pinterest ) ){
-                                        echo '<a href="' . $pinterest . '" class="fa fa-pinterest" target="_blank"></a>';
+                                        echo '<a href="' . $pinterest . '" class="fa fa-pinterest" target="_blank" title="Простой рецепт в Pinterest"></a>';
                                     }
 
                                     if( !empty( $smashing ) ){
