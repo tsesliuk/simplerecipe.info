@@ -60,16 +60,15 @@ footer div.mythemes-social{
     float: right;
 }
 footer div.mythemes-social a{
-    display: inline-block;
-    margin:0 0 0 20px;
-    text-decoration: none;
-    font-size: 21px;
-
-    -webkit-transition: all 0.3s linear;
-    -moz-transition: all 0.3s linear;
-    -o-transition: all 0.3s linear;
-    -ms-transition: all 0.3s linear;
-    transition: all 0.3s linear;
+display: inline-block;
+margin: 4px 20px 0 0px;
+text-decoration: none;
+font-size: 18px;
+-webkit-transition: all 0.3s linear;
+-moz-transition: all 0.3s linear;
+-o-transition: all 0.3s linear;
+-ms-transition: all 0.3s linear;
+transition: all 0.3s linear;
 }
 footer div.mythemes-social a:before{
     -webkit-transition: all 0.3s linear;
