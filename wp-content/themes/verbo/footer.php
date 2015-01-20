@@ -78,7 +78,7 @@
                             border="0" height="18" width="88" alt="Рейтинг@Mail.ru"></a>
                             <!-- //Rating@Mail.ru logo -->
 
-                            <div class="mythemes-social" style="display:none">
+                            <div class="mythemes-social">
                                 <?php
                                     if( !empty( $github ) ){
                                         echo '<a href="' . $github . '" class="fa fa-github-alt" target="_blank"></a>';
