@@ -194,6 +194,10 @@ text-decoration: none;
 -ms-transition: all 0.3s linear;
 transition: all 0.3s linear;
 }
+header .brand a:hover {
+    color: #f9bea5;
+}
+
 .sub-title {
 font-size: 14px;
 position: absolute;
