@@ -181,11 +181,13 @@ padding: 0 10px 0 5px;
 border-left: 1px solid #84573e;
 float: left;
 position: relative;
+}
+
+header .brand a{
 font-size: 18px;
 font-style: italic;
 color: #fff;
 }
-
 .sub-title {
 font-size: 14px;
 position: absolute;
