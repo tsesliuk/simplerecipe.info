@@ -81,23 +81,23 @@
                             <div class="mythemes-social" style="display:none">
                                 <?php
                                     if( !empty( $github ) ){
-                                        echo '<a href="' . $github . '" class="icon-github" target="_blank"></a>';
+                                        echo '<a href="' . $github . '" class="fa fa-github-alt" target="_blank"></a>';
                                     }
 
                                     if( !empty( $vimeo ) ){
-                                        echo '<a href="' . $vimeo . '" class="icon-vimeo" target="_blank"></a>';
+                                        echo '<a href="' . $vimeo . '" class="fa fa-vimeo-square" target="_blank"></a>';
                                     }
 
                                     if( !empty( $twitter ) ){
-                                        echo '<a href="' . $twitter . '" class="icon-twitter" target="_blank"></a>';
+                                        echo '<a href="' . $twitter . '" class="fa fa-twitter" target="_blank"></a>';
                                     }
 
                                     if( !empty( $renren ) ){
-                                        echo '<a href="' . $renren . '" class="icon-renren" target="_blank"></a>';
+                                        echo '<a href="' . $renren . '" class="fa fa-renren" target="_blank"></a>';
                                     }
 
                                     if( !empty( $skype ) ){
-                                        echo '<a href="' . $skype . '" class="icon-skype" target="_blank"></a>';
+                                        echo '<a href="' . $skype . '" class="fa fa-skype" target="_blank"></a>';
                                     }
 
                                     if( !empty( $linkedin ) ){
@@ -113,23 +113,23 @@
                                     }
 
                                     if( !empty( $flickr ) ){
-                                        echo '<a href="' . $flickr . '" class="icon-flickr" target="_blank"></a>';
+                                        echo '<a href="' . $flickr . '" class="fa fa-flickr" target="_blank"></a>';
                                     }
 
                                     if( !empty( $tumblr ) ){
-                                        echo '<a href="' . $tumblr . '" class="icon-tumblr" target="_blank"></a>';
+                                        echo '<a href="' . $tumblr . '" class="fa fa-tumblr" target="_blank"></a>';
                                     }
 
                                     if( !empty( $instagram ) ){
-                                        echo '<a href="' . $instagram . '" class="icon-instagram" target="_blank"></a>';
+                                        echo '<a href="' . $instagram . '" class="fa fa-instagram" target="_blank"></a>';
                                     }
 
                                     if( !empty( $vkontakte ) ){
-                                        echo '<a href="' . $vkontakte . '" class="icon-vkontakte" target="_blank"></a>';
+                                        echo '<a href="' . $vkontakte . '" class="fa fa-vk" target="_blank"></a>';
                                     }
 
                                     if( !empty( $facebook ) ){
-                                        echo '<a href="' . $facebook . '" class="icon-facebook" target="_blank"></a>';
+                                        echo '<a href="' . $facebook . '" class="fa fa-facebook" target="_blank"></a>';
                                     }
 
                                     if( !empty( $evernote ) ){
@@ -165,11 +165,11 @@
                                     }
 
                                     if( !empty( $gplus ) ){
-                                        echo '<a href="' . $gplus . '" class="icon-gplus" target="_blank"></a>';
+                                        echo '<a href="' . $gplus . '" class="fa fa-google" target="_blank"></a>';
                                     }
 
                                     if( !empty( $pinterest ) ){
-                                        echo '<a href="' . $pinterest . '" class="icon-pinterest" target="_blank"></a>';
+                                        echo '<a href="' . $pinterest . '" class="fa fa-pinterest" target="_blank"></a>';
                                     }
 
                                     if( !empty( $smashing ) ){
