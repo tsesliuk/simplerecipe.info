@@ -73,7 +73,7 @@
                         ?>
                         <div class="col-sm-6 col-md-6 col-lg-6">
                             <!-- Rating@Mail.ru logo -->
-                            <a target="_blank" href="http://top.mail.ru/jump?from=2500936">
+                            <a class="pull-right" target="_blank" href="http://top.mail.ru/jump?from=2500936">
                             <img src="//top-fwz1.mail.ru/counter?id=2500936;t=355;l=1" 
                             border="0" height="18" width="88" alt="Рейтинг@Mail.ru"></a>
                             <!-- //Rating@Mail.ru logo -->
@@ -183,13 +183,14 @@
                                    /* echo '<a href="http://ok.ru/group/56850074435628" class="icon-rdio" target="_blank"></a>'; */
 
                                     if( $rss ){
-                                        echo '<a href="'; bloginfo('rss2_url');  echo '" class="icon-rss" target="_blank"></a>';
+                                        echo '<a href="'; bloginfo('rss2_url');  echo '" class="fa fa-rss" target="_blank"></a>';
                                     }
                                 ?>
                             </div>
-                            <p><?php echo myThemes::get( 'footer-text', true ); ?></p>
+                            
                         </div>
                     </div>
+                    <p><?php echo myThemes::get( 'footer-text', true ); ?></p>
                 </div>
             </div>
         </footer>

@@ -57,12 +57,13 @@ footer .mythemes-copyright p{
 
 footer div.mythemes-social{
     text-align: right;
+    float: right;
 }
 footer div.mythemes-social a{
     display: inline-block;
-
-    width: 30px;
-    height: 30px;
+    margin:0 0 0 20px;
+    text-decoration: none;
+    font-size: 21px;
 
     -webkit-transition: all 0.3s linear;
     -moz-transition: all 0.3s linear;
