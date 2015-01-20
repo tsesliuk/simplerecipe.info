@@ -77,7 +77,7 @@ footer div.mythemes-social a:before{
     -ms-transition: all 0.3s linear;
     transition: all 0.3s linear;   
 }
-footer div.mythemes-social a:hover:before{ color: #ffffff; text-decoration: none; }
+footer div.mythemes-social a:hover:before{ color: #652501; text-decoration: none; }
 
 footer div.mythemes-social a.icon-rss:hover:before{ background: #ff7600; }
 footer div.mythemes-social a.icon-smashing:hover:before { background: #ff462c; }
