@@ -156,7 +156,7 @@ div.comment-respond form.comment-form p.form-submit{
 
 div.comment-respond form.comment-form input:focus,
 div.comment-respond form.comment-form textarea:focus{
-    border: none;
+    border: 1px solid #999999;
     box-shadow: none;
 
     color: #454545;
