@@ -873,9 +873,13 @@ list-style-type: none;
     border-bottom: 0;
 }
 
+.param-list li .post-ratings img{
+    top: -2px;
+    position: relative;
+}
 .first-plan-box {
 background-color: #f5f5f5;
-padding: 10px 15px;
+padding: 10px 15px 0 15px;
 border-radius: 5px;
 font-size: 13px;
 overflow: hidden;
@@ -892,7 +896,7 @@ overflow: hidden;
 }
 
 .single .first-plan-box .post-tags {
-    margin-bottom: 0;
+    margin-bottom: 10px;
 }
 
 .sostav_box.sidebar .sostav-list-item {position: absolute; margin-left: -400px;margin-top: -3000px;}

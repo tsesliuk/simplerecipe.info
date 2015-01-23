@@ -109,6 +109,10 @@
                                                 <li><?php if(function_exists('the_ratings')) { the_ratings(); } ?></li>
                                             </ul>
                                             <div class="post-tags small-info-box">
+                                                <span class="small-info-box-title"><?php _e( 'Категория:' ); ?></span>
+                                                <?php the_category( ', ' ); ?>
+                                            </div>
+                                            <div class="post-tags small-info-box">
                                                 <span class="small-info-box-title">Особенности рецепта: </span>
                                                 <?php the_tags( '<span class="glyphicon glyphicon-tag" aria-hidden="true"></span>',', <br><span class="glyphicon glyphicon-tag" aria-hidden="true"></span>'); ?> 
                                             </div>
@@ -163,7 +167,7 @@
                                             (adsbygoogle = window.adsbygoogle || []).push({});
                                             </script>
                                         </div>
-                                        
+
                                         <div class="clearfix"></div>
 
                                         <?php get_template_part( 'cfg/templates/bottom-meta' ); ?>
