@@ -919,8 +919,8 @@ z-index: 9999;
 }
 
 .comment-form .submit-comment {
-    position: absolute;
-    bottom: 140px;
+position: absolute;
+bottom: 125px;
 }
 
 textarea#comment {

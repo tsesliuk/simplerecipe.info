@@ -134,8 +134,8 @@ div.comment-respond form.comment-form p.comment-notes{
     font-size: 12px;
     color: #555555;
 
-    padding: 15px 0px;
-    margin: 0px;
+    padding: 0px 0px;
+    margin: 10px 0px;
 }
 div.comment-respond form.comment-form input,
 div.comment-respond form.comment-form textarea{

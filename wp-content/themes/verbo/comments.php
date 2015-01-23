@@ -86,7 +86,7 @@ if( comments_open() ){
     }
 
     $args = array(	
-        'title_reply' => __( "оставьте пожалуйста <strong>простой отзыв</strong>" , 'myThemes' ),
+        'title_reply' => __( "Оставьте пожалуйста <strong>простой отзыв</strong>" , 'myThemes' ),
         'comment_notes_after'   => '',
         'comment_notes_before'  => '<button type="submit" class="submit-comment">' . __( 'Опубликовать' , 'myThemes' ) . '</button><p class="comment-notes">' . __( 'Ваш email не будет опубликован.' , 'myThemes' ) . '</p>',
         'logged_in_as'          => '<button type="submit" class="submit-comment">' . __( 'Опубликовать' , 'myThemes' ) . '</button><p class="logged-in-as">' . __( 'Залогинен как' , 'myThemes' ) . ' <a href="' . home_url('/wp-admin/profile.php') . '">' . get_the_author_meta( 'nickname' , get_current_user_id() ) . '</a>. <a href="' . wp_logout_url( get_permalink( $post -> ID ) ) .'" title="' . __( 'Выйти из этого аккаунта' , 'myThemes' ) . '">' . __( 'Выйти?' , 'myThemes' ) . ' </a></p>',		
