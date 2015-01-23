@@ -4,6 +4,7 @@
     }
     if( is_singular( 'post' ) && ( has_category( ) || has_tag() ) ){
 ?>
+        <!--
         <div class="post-meta-terms">
             <?php
 
@@ -22,6 +23,7 @@
                 }
             ?>
         </div>
+        -->
 <?php
     }
 ?>
