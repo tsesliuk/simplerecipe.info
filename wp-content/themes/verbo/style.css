@@ -575,7 +575,7 @@ display: block;
 .to-start i {
 position: absolute;
 top: 8px;
-left: 12px;
+left: 10px;
 }
 
 div.pagination nav ul li:first-child span {
@@ -931,4 +931,139 @@ textarea#comment {
     body > header:before {
         width:40%;
     }
+}
+
+@media screen and (max-width: 1200px) {
+
+header hgroup {
+padding-bottom: 20px;
+padding-top: 20px;
+float: left;
+padding: 0;
+}
+
+header .brand .sub-title {
+    display: none;
+}
+
+.header-main-search .searchandfilter ul input, .header-main-search .searchandfilter ul select {
+margin: 0;
+height: 34px;
+font-size: 13px;
+padding: 0 2px;
+}
+
+}
+
+@media screen and (max-width: 990px) {
+.sostav_box.sidebar.affix {
+    display: none;
+}
+.first-plan-box {
+    margin: 0 0 20px 15px;
+}
+.single div.pagination {
+    padding-top: 0;
+}
+aside.sidebar-to-right {
+    display: none;
+}
+header .mythemes-topper {
+display: block;
+height: 41px;
+}
+.list-preview .post-content.col-md-8.col-lg-8 {
+padding-left: 15px;
+}
+}
+
+@media screen and (max-width: 680px) {
+.header-main-search {
+height: auto;
+padding: 15px 0 1px 0;
+margin-top: 15px;
+}
+.header-main-search .searchandfilter ul li:first-child {
+width: auto;
+margin: 0 15px;
+display: block;
+text-align: center;
+}
+.header-main-search .glyphicon-search {
+position: absolute;
+top: 25px;
+left: 25px;
+color: #666666;
+}
+.header-main-search .searchandfilter ul li {
+padding: 0;
+margin: 15px 15px;
+width: auto;
+display: block;
+}
+header .mythemes-topper {
+display: block;
+height: auto;
+padding: 0;
+text-align: center;
+}
+.mythemes-delimiter div.delimiter-item {
+    border:0;
+    background: transparent;
+    background-color: none;
+}
+.header-main-search .searchandfilter ul li:last-child {
+margin-right: 0;
+width: auto;
+}
+.header-main-search input[type="submit"] {
+position: relative;
+width: 100px;
+margin: 0 auto !important;
+display: block;
+float: none;
+}
+header .mythemes-nav-inline {
+float: none;
+padding-top: 7px;
+color: #fff;
+position: relative;
+padding-right: 10px;
+display: block;
+clear: both;
+}
+nav.mythemes-nav-inline div > ul, nav.mythemes-nav-inline > ul {
+list-style: none;
+margin: 0px;
+padding: 10px 0 25px 0;
+text-align: center;
+}
+header hgroup {
+float: none;
+display: inline-block;
+}
+header .brand {
+    height:39px;
+    float: none;
+}
+header .brand:after {
+    display: none;
+}
+body > header:before {
+    display: none;
+}
+header nav.mythemes-nav-inline:after {
+    display: none;
+}
+.footer-menu {
+    text-align: center;
+}
+.counters {
+    display: none;
+}
+footer div.mythemes-social {
+margin-top: 30px;
+text-align: center;
+float: none;
+}
 }

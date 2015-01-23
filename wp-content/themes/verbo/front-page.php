@@ -127,7 +127,7 @@
             <div class="row">
                 
                 <div class="col-sm-4 col-md-2 col-lg-2"></div>
-                <div class="col-sm-4 col-md-8 col-lg-8">
+                <div class="col-sm-8 col-md-8 col-lg-8">
                     
                     <div class="archive-meta bottom-description" id="description">
                         <h3>Рецепты простые для мужиков и не опытных девушек, в готовке:)</h3>
