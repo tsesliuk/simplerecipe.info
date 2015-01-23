@@ -1,6 +1,4 @@
-div.comments-list{
-    margin-top: 50px;
-}
+
 div.comments-list h3.comments-title,
 div.comment-respond h3.comment-reply-title{
     color: #555555;
@@ -140,16 +138,14 @@ div.comment-respond form.comment-form p.comment-notes{
 div.comment-respond form.comment-form input,
 div.comment-respond form.comment-form textarea{
     background: #f0f0f0;
-    color: #999999;
-
-    border: none;
-    margin: 0px;
-    width: 100%;
-    padding: 10px 8px;
-
-    -webkit-border-radius: 3px;
-       -moz-border-radius: 3px;
-            border-radius: 3px;
+color: #999999;
+border: 1px solid #ccc;
+margin: 0px;
+width: 100%;
+padding: 8px 8px;
+-webkit-border-radius: 3px;
+-moz-border-radius: 3px;
+border-radius: 3px;
 }
 div.comment-respond form.comment-form input[type="submit"],
 div.comment-respond form.comment-form p.form-submit{
