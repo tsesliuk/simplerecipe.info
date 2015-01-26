@@ -36,10 +36,10 @@
                     <div class="row">
                         <div class="col-sm-6 col-md-6 col-lg-6">
                            <div class="footer-menu">
-                                 <a title="Простые рецепты (главная страница)" href="prostoyrecept.info">Главная</a>, 
-                                 <a title="О проекте «Простые рецепты»" href="prostoyrecept.info/about/">О проекте</a>, 
-                                 <a title="Контакты простых рецептов" href="prostoyrecept.info/contacts/">Контакты</a>
-                                 <a title="Простые советы" href="prostoyrecept.info/simple-advice/"><span class="glyphicon glyphicon-info-sign" aria-hidden="true"></span> Простые советы</a>
+                                 <a title="Простые рецепты (главная страница)" href="/prostoyrecept.info">Главная</a>, 
+                                 <a title="О проекте «Простые рецепты»" href="/prostoyrecept.info/about/">О проекте</a>, 
+                                 <a title="Контакты простых рецептов" href="/prostoyrecept.info/contacts/">Контакты</a>
+                                 <a title="Простые советы" href="/prostoyrecept.info/simple-advice/"><span class="glyphicon glyphicon-info-sign" aria-hidden="true"></span> Простые советы</a>
                                 </ul>
                             </div> 
                         </div>
