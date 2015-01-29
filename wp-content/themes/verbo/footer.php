@@ -74,16 +74,6 @@
                         <div class="col-sm-6 col-md-6 col-lg-6">
                             
                             <span class="counters pull-right">
-                                <!-- begin of Top100 code -->
-                                <script id="top100Counter" type="text/javascript" src="http://counter.rambler.ru/top100.jcn?3082375"></script>
-                                <noscript>
-                                <a href="http://top100.rambler.ru/navi/3082375/">
-                                <img src="http://counter.rambler.ru/top100.cnt?3082375" alt="Rambler's Top100" border="0" />
-                                </a>
-
-                                </noscript>
-                                <!-- end of Top100 code -->
-
                                 <!-- Rating@Mail.ru logo -->
                                 <a class="" target="_blank" href="http://top.mail.ru/jump?from=2500936">
                                 <img src="//top-fwz1.mail.ru/counter?id=2500936;t=355;l=1" 
@@ -122,7 +112,15 @@
                                 <noscript><div><img src="//mc.yandex.ru/watch/23821627" style="position:absolute; left:-9999px;" alt="" /></div></noscript>
                                 <!-- /Yandex.Metrika counter -->
 
+                                <!-- begin of Top100 code -->
+                                <script id="top100Counter" type="text/javascript" src="http://counter.rambler.ru/top100.jcn?3082375"></script>
+                                <noscript>
+                                <a href="http://top100.rambler.ru/navi/3082375/">
+                                <img src="http://counter.rambler.ru/top100.cnt?3082375" alt="Rambler's Top100" border="0" />
+                                </a>
 
+                                </noscript>
+                                <!-- end of Top100 code -->
                             </span>
                             <div class="mythemes-social">
                                 <?php
