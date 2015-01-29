@@ -111,6 +111,16 @@
                                 </script>
                                 <noscript><div><img src="//mc.yandex.ru/watch/23821627" style="position:absolute; left:-9999px;" alt="" /></div></noscript>
                                 <!-- /Yandex.Metrika counter -->
+
+                                <!-- begin of Top100 code -->
+                                <script id="top100Counter" type="text/javascript" src="http://counter.rambler.ru/top100.jcn?3082375"></script>
+                                <noscript>
+                                <a href="http://top100.rambler.ru/navi/3082375/">
+                                <img src="http://counter.rambler.ru/top100.cnt?3082375" alt="Rambler's Top100" border="0" />
+                                </a>
+
+                                </noscript>
+                                <!-- end of Top100 code -->
                             </span>
                             <div class="mythemes-social">
                                 <?php
