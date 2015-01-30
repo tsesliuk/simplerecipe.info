@@ -971,6 +971,11 @@ color: #9a3f23;
     display: none;
 }
 
+.wpdt-categories .dtree > .dtree_cat > .clip .clip .dtNode {
+    display: inline-block;
+}
+
+
 @media screen and (min-width: 1380px) {
     body > header:before {
         width:40%;
