@@ -972,7 +972,7 @@ color: #9a3f23;
 }
 
 .wpdt-categories .dtree > .dtree_cat > .clip > .clip {
-    padding-left: 20px;
+    padding-left: 18px;
     white-space: normal;
 }
 
@@ -984,7 +984,7 @@ color: #9a3f23;
 font-family: Georgia,sans-serif,Arial,serif;
 font-size: 14px;
 line-height: 20px;
-color: #652501;
+color: #333333;
 }
 
 .wpdt-categories .dtree > .dtree_cat > .clip .clip .dtNode a:hover {
