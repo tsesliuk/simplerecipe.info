@@ -1009,6 +1009,14 @@ margin: 0;
 z-index: 999;
 }
 
+textarea#comment {
+margin-bottom: 20px;
+}
+
+.comment-form .submit-comment {
+    position: static;
+}
+
 }
 
 @media screen and (max-width: 680px) {
