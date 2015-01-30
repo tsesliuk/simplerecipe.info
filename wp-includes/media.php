@@ -724,7 +724,7 @@ function wp_get_attachment_image($attachment_id, $size = 'thumbnail', $icon = fa
 		 */
 		$attr = apply_filters( 'wp_get_attachment_image_attributes', $attr, $attachment );
 		$attr = array_map( 'esc_attr', $attr );
-		$html = rtrim("<img $hwstring");
+		$html = rtrim('<img itemprop="image" $hwstring');
 		foreach ( $attr as $name => $value ) {
 			$html .= " $name=" . '"' . $value . '"';
 		}
@@ -1106,7 +1106,7 @@ function wp_underscore_playlist_templates() {
 ?>
 <script type="text/html" id="tmpl-wp-playlist-current-item">
 	<# if ( data.image ) { #>
-	<img src="{{ data.thumb.src }}"/>
+	<img itemprop="image" src="{{ data.thumb.src }}"/>
 	<# } #>
 	<div class="wp-playlist-caption">
 		<span class="wp-playlist-item-meta wp-playlist-item-title">&#8220;{{ data.title }}&#8221;</span>
