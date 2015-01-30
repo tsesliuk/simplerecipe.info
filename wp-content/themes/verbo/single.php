@@ -147,7 +147,7 @@
                                                 $classes = '';
                                             }
                                         ?>
-                                        <!-- advertise-taxonomy banners
+                                        <!-- advertise-taxonomy banners -->
                                          <script async src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
                                         <div class="advertise-taxonomy">
                                             <ins class="adsbygoogle"
@@ -159,7 +159,7 @@
                                             (adsbygoogle = window.adsbygoogle || []).push({});
                                             </script>
                                         </div>
-                                        -->
+                                        
                                         <!-- TITLE -->
                                         <h1 class="post-title <?php echo $classes; ?>"><?php the_title(); ?></h1>
                                     
