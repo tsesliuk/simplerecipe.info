@@ -980,10 +980,12 @@ color: #9a3f23;
     display: inline-block;
 }
 
-.wpdt-categories .dtree > .dtree_cat > .clip .clip .dtNode:after {
-    content: ",";
+.wpdt-categories .dtree > .dtree_cat > .clip .clip .dtNode:before {
+    content:",";
     margin-right:5px;
 }
+
+.wpdt-categories .dtree > .dtree_cat > .clip .clip .dtNode:before {}
 
 @media screen and (min-width: 1380px) {
     body > header:before {
