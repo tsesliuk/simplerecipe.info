@@ -929,7 +929,7 @@ textarea#comment {
 
 footer .counters {
     position: relative;
-    top: -2px;
+    top: -4px;
 }
 
 @media screen and (min-width: 1380px) {
