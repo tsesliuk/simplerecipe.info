@@ -927,6 +927,11 @@ textarea#comment {
     margin-bottom:60px;
 }
 
+footer .counters {
+    position: relative;
+    top: -2px;
+}
+
 @media screen and (min-width: 1380px) {
     body > header:before {
         width:40%;
