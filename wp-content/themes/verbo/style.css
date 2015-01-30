@@ -996,9 +996,14 @@ transition: all 0.3s linear;
 color: #9a3f23;
 }
 
-.wpdt-categories .dtree > .dtree_cat > .clip .clip .dtNode:after {
+.wpdt-categories .dtree > .dtree_cat > .clip .clip .dtNode a:after {
     content:",";
     margin-right:5px;
+}
+
+.wpdt-categories .dtree > .dtree_cat > .clip .clip .dtNode:last-child a:after {
+    content:"";
+    margin-right:0;
 }
 
 @media screen and (min-width: 1380px) {
