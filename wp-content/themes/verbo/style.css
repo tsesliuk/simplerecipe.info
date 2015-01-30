@@ -980,12 +980,26 @@ color: #9a3f23;
     display: inline-block;
 }
 
-.wpdt-categories .dtree > .dtree_cat > .clip .clip .dtNode:before {
+.wpdt-categories .dtree > .dtree_cat > .clip .clip .dtNode a {
+font-family: Georgia,sans-serif,Arial,serif;
+font-size: 14px;
+line-height: 20px;
+color: #652501;
+}
+
+.wpdt-categories .dtree > .dtree_cat > .clip .clip .dtNode a:hover {
+    -webkit-transition: all 0.3s linear;
+-moz-transition: all 0.3s linear;
+-o-transition: all 0.3s linear;
+-ms-transition: all 0.3s linear;
+transition: all 0.3s linear;
+color: #9a3f23;
+}
+
+.wpdt-categories .dtree > .dtree_cat > .clip .clip .dtNode:after {
     content:",";
     margin-right:5px;
 }
-
-.wpdt-categories .dtree > .dtree_cat > .clip .clip .dtNode:before {}
 
 @media screen and (min-width: 1380px) {
     body > header:before {
