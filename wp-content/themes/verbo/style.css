@@ -967,6 +967,10 @@ transition: all 0.3s linear;
 color: #9a3f23;
 }
 
+.wpdt-categories .dtree > .dtree_cat > .clip > .dtNode img {
+    display: none;
+}
+
 @media screen and (min-width: 1380px) {
     body > header:before {
         width:40%;
