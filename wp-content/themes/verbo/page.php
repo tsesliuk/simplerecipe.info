@@ -88,7 +88,7 @@
                                 <?php 
                                     if( has_post_thumbnail() ){
                                 ?>
-                                        <div class="post-thumbnail">
+                                        <div class="post-thumbnail" itemprop="image">
                                             <?php echo get_the_post_thumbnail( $post -> ID , 'full-thumbnail' , esc_attr( $post -> post_title ) ); ?>
                                             <?php $caption = get_post( get_post_thumbnail_id() ) -> post_excerpt; ?>
                                             <?php if( !empty( $caption ) ) { ?>
