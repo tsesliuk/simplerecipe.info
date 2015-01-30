@@ -95,6 +95,20 @@
                                                 <footer><?php echo $caption; ?></footer>
                                             <?php } ?>
                                         </div>
+
+                                        <script async src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+                                        <!-- advertise-taxonomy banners -->
+                                        <div class="advertise-taxonomy">
+                                            <ins class="adsbygoogle"
+                                                 style="display:block"
+                                                 data-ad-client="ca-pub-3923388382694018"
+                                                 data-ad-slot="8519316889"
+                                                 data-ad-format="auto"></ins>
+                                            <script>
+                                            (adsbygoogle = window.adsbygoogle || []).push({});
+                                            </script>
+                                        </div>
+
                                 <?php
                                     }
                                 ?>
