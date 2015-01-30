@@ -958,7 +958,7 @@ line-height: 20px;
 color: #652501;
 }
 
-.wpdt-categories .dtree > .dtree_cat > .clip > .dtNode a.node:hover {
+.wpdt-categories .dtree > .dtree_cat > .clip .clip .dtNode a.node:hover {
 -webkit-transition: all 0.3s linear;
 -moz-transition: all 0.3s linear;
 -o-transition: all 0.3s linear;
