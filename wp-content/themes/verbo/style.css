@@ -568,7 +568,7 @@ display: block;
     height:30px;
     display: block;
     position: fixed;
-    bottom: 20px;
+    top: 20px;
     right:20px;
 }
 
