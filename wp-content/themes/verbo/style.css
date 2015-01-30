@@ -932,6 +932,20 @@ footer .counters {
     top: -4px;
 }
 
+.social-likes__widget_single {
+    position: fixed;
+    bottom: 0;
+    left:0;
+    right:0;
+    padding: 5px;
+    background:#f2f2f2;
+    text-align: center;
+}
+
+.social-likes__widget_single .social-likes__widget {
+    display: inline-block;
+}
+
 @media screen and (min-width: 1380px) {
     body > header:before {
         width:40%;
