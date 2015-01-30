@@ -710,6 +710,7 @@ footer .mythemes-copyright {
     border-top: 1px solid #b3b3b3;
     padding-top: 20px;
     margin: 0 10px;
+    padding-bottom: 60px;
 }
 
 footer .mythemes-copyright p {
@@ -1017,7 +1018,9 @@ margin-bottom: 20px;
 .comment-form .submit-comment {
     position: static;
 }
-
+footer .mythemes-copyright {
+    padding-bottom: 10px;
+}
 }
 
 @media screen and (max-width: 680px) {
