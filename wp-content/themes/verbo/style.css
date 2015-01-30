@@ -973,12 +973,17 @@ color: #9a3f23;
 
 .wpdt-categories .dtree > .dtree_cat > .clip > .clip {
     padding-left: 20px;
+    white-space: normal;
 }
 
 .wpdt-categories .dtree > .dtree_cat > .clip .clip .dtNode {
     display: inline-block;
 }
 
+.wpdt-categories .dtree > .dtree_cat > .clip .clip .dtNode:after {
+    content: ",";
+    margin-right:5px;
+}
 
 @media screen and (min-width: 1380px) {
     body > header:before {
