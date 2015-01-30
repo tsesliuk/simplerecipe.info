@@ -932,7 +932,7 @@ footer .counters {
     top: -4px;
 }
 
-.social-likes {
+.content .social-likes {
     position: fixed;
     bottom: 0;
     left:0;
@@ -942,7 +942,7 @@ footer .counters {
     text-align: center;
 }
 
-.social-likes .social-likes__widget {
+.content .social-likes .social-likes__widget {
     display: inline-block;
 }
 
