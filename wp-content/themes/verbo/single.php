@@ -70,7 +70,7 @@
                         while( have_posts() ){
                             the_post();    
                         ?>
-                            <article <?php post_class( 'row-fluid' ); ?>>
+                            <article <?php post_class( 'row-fluid' ); ?> itemscope itemtype="http://schema.org/Recipe">
                                 <div class="row">
                                     <div class="col-sm-12 col-md-4 col-lg-4 pull-right pl-0">
                                         <div class="first-plan-box">
@@ -136,7 +136,7 @@
 
                                             if( has_post_thumbnail() ){
                                         ?>
-                                                <div class="post-thumbnail">
+                                                <div class="post-thumbnail" itemprop="image">
                                                     <?php echo get_the_post_thumbnail( $post -> ID , 'full-thumbnail' , esc_attr( $post -> post_title ) ); ?>
                                                     <?php $caption = get_post( get_post_thumbnail_id() ) -> post_excerpt; ?>
                                                     <?php if( !empty( $caption ) ) { ?>
@@ -161,7 +161,7 @@
                                         </div>
                                         
                                         <!-- TITLE -->
-                                        <h1 class="post-title <?php echo $classes; ?>"><?php the_title(); ?></h1>
+                                        <h1 class="post-title <?php echo $classes; ?>" itemprop="name"><?php the_title(); ?></h1>
                                     
 
                                         <!-- CONTENT -->
