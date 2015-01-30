@@ -570,6 +570,7 @@ display: block;
     position: fixed;
     top: 20px;
     right:20px;
+    z-index: 999;
 }
 
 .to-start i {
