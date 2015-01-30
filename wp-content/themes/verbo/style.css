@@ -971,6 +971,10 @@ color: #9a3f23;
     display: none;
 }
 
+.wpdt-categories .dtree > .dtree_cat > .clip > .clip {
+    padding-left: 20px;
+}
+
 .wpdt-categories .dtree > .dtree_cat > .clip .clip .dtNode {
     display: inline-block;
 }
