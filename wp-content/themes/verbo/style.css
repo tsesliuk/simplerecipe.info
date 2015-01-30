@@ -566,7 +566,7 @@ display: block;
 .to-start {
     width:30px;
     height:30px;
-    display: block;
+    display: none;
     position: fixed;
     top: 20px;
     right:20px;
