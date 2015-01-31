@@ -180,14 +180,15 @@
                                         <div class="clearfix"></div>
 
                                         <?php get_template_part( 'cfg/templates/bottom-meta' ); ?>
-
+                                        
+                                        <!-- COMMENTS -->
+                                        <?php comments_template(); ?>
                                     </div>
 
                                 </div>
                             </article>
 
-                            <!-- COMMENTS -->
-                            <?php comments_template(); ?>
+                            
 
                 <?php
                         } /* END ARTICLE */
