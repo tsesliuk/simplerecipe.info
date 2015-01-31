@@ -76,7 +76,7 @@ jQuery(function(){
 
 
 
-    /* ADD PLUS AND ARROW FOR MENU ITEMS WITH SUB MENU 
+    /* ADD PLUS AND ARROW FOR MENU ITEMS WITH SUB MENU */
     jQuery('nav.base-nav ul.mythemes-menu > li').find('ul').each(function(){
         if( !jQuery(this).parent('li').hasClass('submenu-arrow') ){
             jQuery(this).parent('li').addClass('submenu-arrow');
@@ -85,8 +85,6 @@ jQuery(function(){
             jQuery(this).parent('li').append('<span class="menu-delimiter" style="width: ' + width + 'px;"></span>');
         }
     });
-    */
-
 
     /* ADD PLUS AND MINUS FOR MENU ITEMS WITH SUB MENU */
     jQuery( '.btn-collapse' ).click(function(){
