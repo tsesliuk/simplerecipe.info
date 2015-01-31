@@ -165,8 +165,10 @@
                                     
 
                                         <!-- CONTENT -->
+                                        <div itemprop="description">
                                         <?php the_content(); ?>
-
+                                        </div>
+                                        
                                         <div class="clearfix"></div>
 
                                         <?php get_template_part( 'cfg/templates/bottom-meta' ); ?>

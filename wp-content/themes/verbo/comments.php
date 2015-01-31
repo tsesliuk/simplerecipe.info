@@ -74,7 +74,7 @@ if( comments_open() ){
     );
     
 
-    $rett  = '<div class="textarea row-fluid"><p class="comment-form-comment textarea user-not-logged-in">';
+    $rett  = '<div itemprop="interactionCount" class="textarea row-fluid"><p class="comment-form-comment textarea user-not-logged-in">';
     $rett .= '<textarea id="comment" name="comment" cols="45" rows="10" class="span12" aria-required="true">Оставьте пожалуйста свой комментарий чтобы другие посетители знали что это за рецептик.</textarea>';
     $rett .= '</p></div>';
     
