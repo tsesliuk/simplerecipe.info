@@ -25,7 +25,7 @@
             if ($posts_index % 6 == 3) {
                 //echo("<div class='advertise-taxonomy'>Место для Вашей рекламы</div>");
 
-                
+                /*
                 echo('
                     <script async src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
                     <!-- advertise-taxonomy banners -->
@@ -40,7 +40,7 @@
                         </script>
                     </div>
                 ');
-                
+                */
 
             }
             else {}
