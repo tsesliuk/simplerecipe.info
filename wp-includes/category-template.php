@@ -1295,7 +1295,7 @@ function get_the_term_list( $id, $taxonomy, $before = '', $sep = '', $after = ''
 		$link = get_term_link( $term, $taxonomy );
 		if ( is_wp_error( $link ) )
 			return $link;
-		$term_links[] = '<a href="' . esc_url( $link ) . '" rel="tag">' . $term->name . '</a>';
+		$term_links[] = '<a href="' . esc_url( $link ) . '" rel="tag" title="'. $term->name .'">' . $term->name . '</a>';
 	}
 
 	/**
