@@ -1006,6 +1006,26 @@ color: #9a3f23;
     margin-right:0;
 }
 
+body #elegance-modal {
+width: 500px;
+height: 500px;
+left: 50%;
+top: 50%;
+z-index: 999;
+position: fixed;
+max-height: 80%;
+}
+
+body #elegance-modal-box .elegance-modal-content {
+width: 100%;
+max-height: 100%;
+background: #fff;
+position: relative;
+padding: 5px;
+overflow-y: auto;
+overflow-x: hidden;
+}
+
 @media screen and (min-width: 1380px) {
     body > header:before {
         width:40%;
