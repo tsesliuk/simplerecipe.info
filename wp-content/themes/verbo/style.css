@@ -1027,6 +1027,7 @@ overflow-x: hidden;
 }
 
 body #elegance-modal-close {
+color: #fff;
 display: inline-block;
 font-family: FontAwesome;
 font-style: normal;
@@ -1042,10 +1043,14 @@ font-variant: normal;
 font-size: inherit;
 text-rendering: auto;
 transform: translate(0px, 0px);
+height:30px;
+width:30px;
 }
 
 body #elegance-modal-close:before {
     content: "\f00d";
+    margin:10px 0 0 10px;
+    color:#333;
 }
 
 @media screen and (min-width: 1380px) {
