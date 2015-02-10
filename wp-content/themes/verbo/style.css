@@ -1013,7 +1013,7 @@ left: 50%;
 top: 50%;
 z-index: 999;
 position: fixed;
-max-height: 80%;
+max-height: 90%;
 }
 
 body #elegance-modal-box .elegance-modal-content {
@@ -1024,6 +1024,28 @@ position: relative;
 padding: 5px;
 overflow-y: auto;
 overflow-x: hidden;
+}
+
+body .elegance-modal-close {
+display: inline-block;
+font-family: FontAwesome;
+font-style: normal;
+font-weight: normal;
+line-height: 1;
+font-size-adjust: none;
+font-stretch: normal;
+font-feature-settings: normal;
+font-language-override: normal;
+font-kerning: auto;
+font-synthesis: weight style;
+font-variant: normal;
+font-size: inherit;
+text-rendering: auto;
+transform: translate(0px, 0px);
+}
+
+body .elegance-modal-close:before {
+    content: "\f00d";
 }
 
 @media screen and (min-width: 1380px) {
