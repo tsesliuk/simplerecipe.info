@@ -1026,7 +1026,7 @@ overflow-y: auto;
 overflow-x: hidden;
 }
 
-body .elegance-modal-close {
+body #elegance-modal-close {
 display: inline-block;
 font-family: FontAwesome;
 font-style: normal;
@@ -1044,7 +1044,7 @@ text-rendering: auto;
 transform: translate(0px, 0px);
 }
 
-body .elegance-modal-close:before {
+body #elegance-modal-close:before {
     content: "\f00d";
 }
 
