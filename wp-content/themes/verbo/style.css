@@ -911,7 +911,7 @@ top: 60px;
 position: fixed;
 margin-left: -15px;
 margin-top: 0px;
-z-index: 9999;
+z-index: 9;
 }
 
 .sostav_box.sidebar.affix .sostav-list-item {
@@ -1053,7 +1053,7 @@ margin: 0;
 color: #666;
 position: absolute;
 left: 6px;
-top: 3px;
+top: 2px;
 font-size: 18px;
 }
 
