@@ -27,7 +27,6 @@
 
                 
                 echo('
-                    <script async src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
                     <!-- advertise-taxonomy banners -->
                     <div class="advertise-taxonomy">
                         <ins class="adsbygoogle"

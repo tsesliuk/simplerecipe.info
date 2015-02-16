@@ -148,7 +148,6 @@
                                             }
                                         ?>
                                         <!-- advertise-taxonomy banners -->
-                                         <script async src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
                                         <div class="advertise-taxonomy">
                                             <ins class="adsbygoogle"
                                                  style="display:block"
