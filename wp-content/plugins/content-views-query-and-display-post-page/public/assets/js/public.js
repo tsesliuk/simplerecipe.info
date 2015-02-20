@@ -15,17 +15,35 @@
 
 	$.PT_CV_Public = function (options) {
 		this.options = $.extend({
-			_autoload : 1
+			_autoload: 1
 		}, options);
 
 		// Autoload all registered functions
 		if (this.options._autoload !== 0) {
+			this.move_bootstrap_to_top();
 			this.pagination();
-			this.openin_window();
 		}
 	};
 
 	$.PT_CV_Public.prototype = {
+
+		/**
+		 * Manually move Bootstrap to top of all styles
+		 *
+		 * @returns {undefined}
+		 */
+		move_bootstrap_to_top: function () {
+			if ( PT_CV_PUBLIC.move_bootstrap === '0' ) {
+				return;
+			}
+
+			var _prefix = PT_CV_PUBLIC._prefix;
+
+			var selector = _prefix + 'bootstrap-style-css';
+			var bootstrap_css = $('#' + selector);
+			bootstrap_css.remove();
+			$('title').after("<!-- Manually move Bootstrap to top of all styles --><link rel='stylesheet' id='" + selector + "' href='" + bootstrap_css.attr('href') + "' type='text/css' media='all' />");
+		},
 
 		/**
 		 * Bootstrap pagination
@@ -36,7 +54,7 @@
 			var _prefix = PT_CV_PUBLIC._prefix;
 
 			// Bootstrap paginator
-			$('.' + _prefix + 'pagination').each(function () {
+			$('.' + _prefix + 'pagination.' + _prefix + 'ajax').each(function () {
 				var this_ = $(this);
 				var total_pages = $(this).attr('data-totalpages');
 				$(this).bootstrapPaginator({
@@ -89,10 +107,13 @@
 			var session_id = this_.attr('data-sid');
 			var spinner = this_.next('.' + _prefix + 'spinner');
 
+			// Get the pagination element
 			var pagination_wrapper = this_;
 			if (this_.parent('.' + _prefix + 'pagination-wrapper').length) {
 				pagination_wrapper = this_.parent('.' + _prefix + 'pagination-wrapper');
 			}
+
+			// Get the View element
 			var pages_holder = pagination_wrapper.prev('.' + _prefix + 'view');
 
 			// For Timeline
@@ -139,11 +160,11 @@
 				data      : data,
 				beforeSend: function () {
 					// Show loading icon
-					spinner.toggleClass('active');
+					spinner.addClass('active');
 				}
 			}).done(function (response) {
 					// Hide loading icon
-					spinner.toggleClass('active');
+					spinner.removeClass('active');
 
 					// Update content of Preview box
 					pages_holder.append(response);
@@ -188,36 +209,13 @@
 			// Trigger to make Pinterest layout works when do pagination
 			if ($('.' + _prefix + 'pinterest').length || $('.' + _prefix + 'same-height').length) {
 				$('body').trigger(_prefix + 'custom-trigger');
+				$(window).trigger(_prefix + 'resize');
 			}
 
 			// Trigger action after pagination finished
 			$('body').trigger(_prefix + 'pagination-finished');
 
 			return page_existed;
-		},
-
-		/**
-		 * Open in new window
-		 *
-		 * @returns {undefined}
-		 */
-		openin_window: function () {
-			var _prefix = PT_CV_PUBLIC._prefix;
-
-			$('body').on('click', '.' + _prefix + 'window', function (e) {
-				e.preventDefault();
-
-				var this_ = $(this);
-
-				var href = this_.attr('href');
-				var width = this_.attr('data-width');
-				var height = this_.attr('data-height');
-				var left = (window.screen.width / 2) - (width / 2);
-				var top = (window.screen.height / 2) - (height / 2);
-
-				var settings = 'toolbar=no, location=no, directories=no, status=no, menubar=no, scrollbars=no, resizable=no, copyhistory=no, ';
-				window.open(href, "_blank", settings + ' top=' + top + ', left=' + left + ', width=' + width + ', height=' + height);
-			});
 		}
 	};
 

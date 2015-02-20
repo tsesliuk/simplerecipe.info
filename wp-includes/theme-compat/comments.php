@@ -86,12 +86,15 @@ _deprecated_file( sprintf( __( 'Theme without %1$s' ), basename(__FILE__) ), '3.
 
 <!--<p><small><?php printf(__('<strong>XHTML:</strong> You can use these tags: <code>%s</code>'), allowed_tags()); ?></small></p>-->
 
-<p><textarea name="comment" id="comment" cols="58" rows="10" tabindex="4">Оставьте пожалуйста свой комментарий чтобы другие посетители знали что это за рецептик.</textarea></p>
+<p><textarea name="comment" id="comment" cols="58" rows="10" tabindex="4"></textarea></p>
 
 <p><input name="submit" type="submit" id="submit" tabindex="5" value="<?php esc_attr_e('Submit Comment'); ?>" />
 <?php comment_id_fields(); ?>
 </p>
-<?php do_action('comment_form', $post->ID); ?>
+<?php
+/** This filter is documented in wp-includes/comment-template.php */
+do_action( 'comment_form', $post->ID );
+?>
 
 </form>
 

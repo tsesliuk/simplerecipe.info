@@ -2,8 +2,8 @@
 Contributors: Jan Köster
 Tags: recipes, cooking, food, recipe share
 Requires at least: 3.8
-Tested up to: 4.0.0
-Stable tag: 0.6.1
+Tested up to: 4.1
+Stable tag: 0.7.6
 License: GPLv2
 
 A simple recipe plugin. It does all you need for your food blog. Plus: there these nifty recipe previews in Google's search - automagically.
@@ -11,7 +11,7 @@ A simple recipe plugin. It does all you need for your food blog. Plus: there the
 == Description ==
 
 It basically adds a post type for recipes to your site. You can publish recipes as standalone posts or include in your normal posts and pages. 
-Organize your recipes in categories, cuisines, courses, seasons, ... It'S up to your choice how many taxonomies you are creating. Of course there are post images and all the normal wordpress post goodies for your recipes as well.
+Organize your recipes in categories, cuisines, courses, seasons, ... It's up to your choice how many taxonomies you are creating. Of course there are post images and all the normal wordpress post goodies for your recipes as well.
 The backend is designed to allow fast, keyboard-based input and not to bother you with to many clicks and choices.
 The frontend is using schema.org's recipe microformat to allow search engines like google to display our recipes nicely.
 
@@ -22,6 +22,8 @@ The frontend is using schema.org's recipe microformat to allow search engines li
 * a bunch of taxonomies like cateogories, cuisines, seasons, course. You can add as many custom taxonomies as you like
 * display nutritional information alongside your recipes
 * options to also include categories and tags used from standard posts.
+* easily include recipes into posts and pages
+* shortcodes for displaying an alphabetic index of recipes, ingredients
 * user comments and pingbacks
 * recipe photo using featured thumbnail tools.
 * easy-type backend
@@ -35,13 +37,11 @@ This plugin includes the following translations:
 
 * English
 * German
-* Italian, thanks to [Bonecruncher](https://wordpress.org/support/profile/bonecruncher)
+* Italian (partly)
+* Hungarian (partly)
 
 If you want a translation of another language included please help translating!
 
-= Future Features =
-
-* shortcodes for displaying an alphabetic index of recipes, ingredients, ...
 
 
 == Installation ==
@@ -52,6 +52,26 @@ If you want a translation of another language included please help translating!
 
 == Changelog ==
 
+= 0.7.6 =
+* Taxonomy cloud widget
+* Redux-Framework is now pulled in as a dependency. Keeping it up to date is much easier this way.
+* Fixed a bug in excerpt view.
+= 0.7.5 =
+* improved layout engine
+* several bugfixes
+= 0.7.4 =
+* added an option to hide recipes from homepage
+* fixed a problem of RPR interfering with other plugins
+= 0.7.3 =
+* button for the editor to include shortcodes
+* exclude ingredients like 'salt' and 'pepper' from ingredient listings
+* completely refurbished settings page
+* media buttons for description and notes sections
+* fixing a bug affecting attachment pages
+= 0.7.2 =
+* fixed a bug affecting foreign post types
+= 0.7.1 =
+* completly recoded function for querying recipes 
 = 0.7.0 =
 * proper excerpts for recipes
 * templates can define the look & feel of excerpts
@@ -118,3 +138,4 @@ I'm currently building up http://www.rp-reloaded.net/ as the home of RecipePress
 3. Output is using Schema.org's microformat for recipes to allow Google to create RichSnippets
 4. Details of the backend interface (ingredients). Easily add number, unit, ingredient name, comment and link. Ingredients will automatically be created as taxonomy items. You can also group ingredients.  
 5. Details of the backend interface (instructions). Add instructions step by step. You can even illustrate each step with a picture. Of course istructions can be grouped as well.
+6. Easily embed recipes into posts or pages using the shortcode button in the editor

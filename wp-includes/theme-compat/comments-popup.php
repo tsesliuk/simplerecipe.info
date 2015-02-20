@@ -88,7 +88,7 @@ if ( post_password_required($post) ) {  // and it doesn't match the cookie
 	<p>
 	  <label for="comment"><?php _e('Your Comment'); ?></label>
 	<br />
-	  <textarea name="comment" id="comment" cols="70" rows="4" tabindex="4">Оставьте пожалуйста свой комментарий чтобы другие посетители знали что это за рецептик.</textarea>
+	  <textarea name="comment" id="comment" cols="70" rows="4" tabindex="4"></textarea>
 	</p>
 
 	<p>
@@ -96,7 +96,10 @@ if ( post_password_required($post) ) {  // and it doesn't match the cookie
 	  <input type="hidden" name="redirect_to" value="<?php echo esc_attr($_SERVER["REQUEST_URI"]); ?>" />
 	  <input name="submit" type="submit" tabindex="5" value="<?php esc_attr_e('Say It!' ); ?>" />
 	</p>
-	<?php do_action('comment_form', $post->ID); ?>
+	<?php
+	/** This filter is documented in wp-includes/comment-template.php */
+	do_action( 'comment_form', $post->ID );
+	?>
 </form>
 <?php } else { // comments are closed ?>
 <p><?php _e('Sorry, the comment form is closed at this time.'); ?></p>

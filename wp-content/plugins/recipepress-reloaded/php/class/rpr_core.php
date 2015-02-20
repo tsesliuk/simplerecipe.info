@@ -4,6 +4,7 @@ class RPR_Core extends RPReloaded {
 
  public function __construct( $pluginName, $pluginDir, $pluginUrl )
     {
+    	global $rpr_option;
 
         $this->pluginName = $pluginName;
         $this->pluginDir = $pluginDir;
@@ -23,7 +24,8 @@ class RPR_Core extends RPReloaded {
         require_once('rpr_taxonomies.php');
         $this->tax = new RPR_Taxonomies($this->pluginName, $this->pluginDir, $this->pluginUrl);  
         
-        add_action( 'init', array( $this, 'ratings_init' ));
+        //add_action( 'init', array( $this, 'ratings_init' ));
+
         //add image sizes
         add_filter( 'image_size_names_choose', array( $this, 'rpr_image_sizes' ) );
         add_action( 'init', array( $this, 'rpr_add_image_sizes' ));
@@ -33,10 +35,11 @@ class RPR_Core extends RPReloaded {
         add_action( 'admin_enqueue_scripts', array( $this, 'admin_plugin_styles' ) );
         add_action( 'admin_enqueue_scripts', array( $this, 'admin_plugin_scripts' ) );
         add_action( 'do_meta_boxes', array( $this, 'rpr_metabox_init' ));
-        add_action( 'vp_option_set_after_save', array( $this, 'set_flush_needed' ) );
+    //    add_action( 'vp_option_set_after_save', array( $this, 'set_flush_needed' ) );
         add_action( 'admin_init', array( $this, 'flush_permalinks_if_needed' ));
         add_action( 'save_post', array( $this, 'recipes_save' ), 10, 2 );
         add_action( 'pre_get_posts', array( $this, 'query_recipes' ) );
+		add_action( 'widgets_init', array( $this, 'rpr_add_widgets') );
 
         // Filters
         add_filter( 'the_content', array( $this, 'recipes_content' ), 10 );
@@ -66,9 +69,18 @@ class RPR_Core extends RPReloaded {
         add_shortcode("rpr-recipe-index", array( $this, 'recipes_index_shortcode' ));
         add_shortcode( "rpr-tax-list", array( $this, 'recipes_taxlist_shortcode' ));
 
+		// Shortcode dialog
+		add_action('admin_head', array($this, 'rpr_add_tinymce'));
         // Other
 //        $this->add_link_to_ingredients();
+		/*
+		 * Add a button to TinyMce to easily include shortcodes:
+		 */
+		 add_action('admin_enqueue_scripts', array($this, 'rpr_ajax_load_scripts'));
+		 add_action('wp_ajax_rpr_get_results', array($this, 'rpr_process_ajax'));
+		 add_action('in_admin_footer', array($this, 'rpr_in_admin_footer'));
     }
+
     
     /*
      * //////////////////////////////////////// General & Inits ///////////////////////////////////////
@@ -76,8 +88,8 @@ class RPR_Core extends RPReloaded {
     public function public_plugin_styles()
     {
         wp_register_style( 'rpr_fa', $this->pluginUrl . '/css/font-awesome.min.css');
-        wp_register_style( 'rpr_pub', $this->pluginUrl . '/templates/' . $this->option( 'rpr_template', 'rpr_default') . '/public.css');
-        wp_register_style( 'rpr_pub_prn', $this->pluginUrl . '/templates/' . $this->option( 'rpr_template', 'rpr_default') . '/print.css', '', RPR_VERSION, 'print');
+        wp_register_style( 'rpr_pub', $this->pluginUrl . '/layouts/' . $this->option( 'rpr_template', 'rpr_default') . '/public.css');
+        wp_register_style( 'rpr_pub_prn', $this->pluginUrl . '/layouts/' . $this->option( 'rpr_template', 'rpr_default') . '/print.css', '', RPR_VERSION, 'print');
         wp_enqueue_style( 'rpr_fa' );    	
         wp_enqueue_style( 'rpr_pub' );
         wp_enqueue_style( 'rpr_pub_prn' );
@@ -95,6 +107,7 @@ class RPR_Core extends RPReloaded {
     {
     	wp_register_style( 'rpr_fa', $this->pluginUrl . '/css/font-awesome.min.css');
         wp_register_style( 'rpr_adm', $this->pluginUrl . '/css/rpr_admin.css', '', RPR_VERSION );
+		wp_enqueue_style (  'wp-jquery-ui-dialog');
         wp_enqueue_style( 'rpr_fa' );
         wp_enqueue_style( 'rpr_adm' );
     }
@@ -104,8 +117,18 @@ class RPR_Core extends RPReloaded {
         if( 'post-new.php' != $hook && 'post.php' != $hook && isset($_GET['post_type']) && 'rpr_recipe' != $_GET['post_type'] ) {
             return;
         } else {
-            wp_register_script( $this->pluginName, $this->pluginUrl . '/js/rpr_admin.js', array('jquery', 'jquery-ui-sortable', 'suggest', 'wp-color-picker' ), RPR_VERSION );
+            wp_register_script( $this->pluginName, $this->pluginUrl . '/js/rpr_admin.js', array('wpdialogs', 'jquery', 'jquery-form', 'wpdialogs', 'jquery-ui-dialog', 'jquery-ui-sortable', 'suggest', 'wp-color-picker' ), RPR_VERSION );
             wp_enqueue_script( $this->pluginName );
+			
+			
+			wp_localize_script( $this->pluginName, 'objectL10n', array(
+				'submit' => __( 'Submit', $this->pluginName ),
+				'save' => __( 'Save', $this->pluginName),
+				'cancel' => __( 'Cancel', $this->pluginName),
+				'edit' => __( 'Edit', $this->pluginName),
+				'delete' => __( 'Delete', $this->pluginName),
+				'rpr_taxdialog_title' => __( 'Edit Taxonomy', $this->pluginName),
+			) );
         }
     }
 
@@ -139,12 +162,119 @@ class RPR_Core extends RPReloaded {
     			'rpr-table-thumb' => __('RPR table thumbnail', $this->pluginName ),
     	) );
     }
+	
+	// Add Widgets
+	function rpr_add_widgets()
+	{
+		global $rpr_option;
+		
+		if($rpr_option['use_taxcloud_widget'] == true ){
+			require_once( $this->pluginDir . '/widgets/rpr_widget_tag_cloud.php');
+			register_widget( 'RPR_Widget_Tag_Cloud' );
+			unregister_widget( 'WP_Widget_Tag_Cloud' );
+		}
+
+		if($rpr_option['use_taxlist_widget'] == true ){
+			require_once( $this->pluginDir . '/widgets/taxonomy-list-widget.php');
+			register_widget( 'RPR_Widget_Taxonomy_List' );
+		}
+		
+	}
+/*
+* Add a button to TinyMce to easily include shortcodes:
+*/
+function rpr_ajax_load_scripts($hook){
+	global $post_type;
+	
+	// Only load on pages where it is necessary:
+	if(!in_array($post_type,array('post','page')))
+		return;
+	
+	wp_enqueue_style('rpr_mce', $this->pluginUrl . '/css/rpr_mce.css');
+	
+	
+	wp_enqueue_script('rpr_ajax', $this->pluginUrl .'/js/rpr_ajax.js', array('jquery'));
+	wp_localize_script('rpr_ajax', 'rpr_vars', array(
+			'rpr_ajax_nonce' => wp_create_nonce('rpr-ajax-nonce')
+		)
+	);
+	wp_localize_script( 'rpr_ajax', 'rprLinkL10n', array(
+		'noTitle' => __( 'No title', $this->pluginName ),
+		'recipe' => __( 'Recipe', $this->pluginName ),
+		'save' => __( 'Insert', $this->pluginName ),
+		'update' => __( 'Insert', $this->pluginName ),
+	) );
+}
+function rpr_process_ajax() {
+	
+	check_ajax_referer( 'rpr-ajax-nonce', 'rpr_ajax_nonce' );
+
+	$args = array();
+
+	if ( isset( $_POST['search'] ) ){
+		$args['s'] = wp_unslash( $_POST['search'] );
+	} else {
+		$args['s'] = '';
+	}
+	
+	$args['pagenum'] = ! empty( $_POST['page'] ) ? absint( $_POST['page'] ) : 1;
+
+	$query=array(
+		'posts_per_page' => 10,
+	);
+	$query['offset'] = $args['pagenum'] > 1 ? $query['posts_per_page'] * ( $args['pagenum'] - 1 ) : 0;
+	
+	$recipes = get_posts(array('s'=> $args['s'], 'post_type' => 'rpr_recipe', 'posts_per_page' => $query['posts_per_page'], 'offset'=> $query['offset'], 'orderby'=> 'post_date'));
+	
+	$json = array();
+	
+	foreach($recipes as $recipe){
+		array_push($json, array('id'=>$recipe->ID, 'title'=>$recipe->post_title));
+	}
+	
+	wp_send_json($json);
+	die();
+}
+
+function rpr_in_admin_footer(){
+ global $post_type;
+ if(!in_array($post_type,array('post','page')))
+	return;
+
+ include $this->pluginDir . '/views/mce_dialog.php';
+}
+/**
+ * Shortcode Dialog for Tinymce
+*/
+public function rpr_add_tinymce() {
+	global $typenow;
+	if (empty($typenow)) return;
+	    
+	add_filter('mce_external_plugins', array( $this, 'rpr_mce_external_plugins_filter'));
+	add_filter('mce_buttons', array($this, 'rpr_mce_buttons_filter'));
+}
+
+function rpr_mce_external_plugins_filter($plugin_array) {
+	$plugin_array['rpr_mce_plugin'] = $this->pluginUrl . '/js/rpr-mce-plugin.js';
+	    
+	return $plugin_array;
+}
+
+function rpr_mce_buttons_filter($buttons) {
+	array_push($buttons, 'rpr_mce_plugin');
+	    
+	return $buttons;
+}
+
+
     /*
      * //////////////////////////////////////////// RECIPES ///////////////////////////////////////////
     */
     
     public function recipes_init()
     {
+    	global $rpr_option;
+		
     	$slug = $this->option('recipe_slug', 'recipe');
     
     	$name = __( 'Recipes', $this->pluginName );
@@ -162,19 +292,19 @@ class RPR_Core extends RPReloaded {
     	register_post_type( 'rpr_recipe',
 	    	array(
 		    	'labels' => array(
-			    	'name' => $name,
-			    	'singular_name' => $singular,
-			    	'add_new' => __( 'Add New', $this->pluginName ),
-			    	'add_new_item' => __( 'Add New', $this->pluginName ) . ' ' . $singular,
+			    	'name' => __( 'Recipes', $this->pluginName ),
+			    	'singular_name' => __( 'Recipe', $this->pluginName ),
+			    	'add_new' => __( 'Add new', $this->pluginName ),
+			    	'add_new_item' => __( 'Add new recipe', $this->pluginName ),
 			    	'edit' => __( 'Edit', $this->pluginName ),
-			    	'edit_item' => __( 'Edit', $this->pluginName ) . ' ' . $singular,
-			    	'new_item' => __( 'New', $this->pluginName ) . ' ' . $singular,
+			    	'edit_item' => __( 'Edit recipe', $this->pluginName ),
+			    	'new_item' => __( 'New recipe', $this->pluginName ),
 			    	'view' => __( 'View', $this->pluginName ),
-			    	'view_item' => __( 'View', $this->pluginName ) . ' ' . $singular,
-			    	'search_items' => __( 'Search', $this->pluginName ) . ' ' . $name,
-			    	'not_found' => __( 'No', $this->pluginName ) . ' ' . $name . ' ' . __( 'found.', $this->pluginName ),
-			    	'not_found_in_trash' => __( 'No', $this->pluginName ) . ' ' . $name . ' ' . __( 'found in trash.', $this->pluginName ),
-			    	'parent' => __( 'Parent', $this->pluginName ) . ' ' . $singular,
+			    	'view_item' => __( 'View recipe', $this->pluginName ),
+			    	'search_items' => __( 'Search recipes', $this->pluginName ),
+			    	'not_found' => __( 'No recipes found.', $this->pluginName ),
+			    	'not_found_in_trash' => __( 'No recipes found in trash.', $this->pluginName ),
+			    	'parent' => __( 'Parent recipe', $this->pluginName ),
 			    	),
 		    	'public' => true,
 		    	'menu_position' => 5,
@@ -187,94 +317,59 @@ class RPR_Core extends RPReloaded {
 			    	)
 	    	)
 		);
+		
+		// Re-register categories and tags for posts, else they will disappear 
+    	register_taxonomy_for_object_type( 'category', 'post' );
+    	register_taxonomy_for_object_type( 'post_tag', 'post' );
     }
 
     function query_recipes($query) {
+    	global $rpr_option;
+		
+		// Don't change query on admin page
+    	if (is_admin()){
+    		return;
+    	}
 
-        //if($this->option('recipe_as_posts', '1') == '1')
-        //{
-            // Hide recipes in admin posts overview when enabled
-            //if( $this->option('show_recipes_in_posts', '1') != '1' ){
-                global $pagenow;
-
-                if( $pagenow == 'edit.php' ) {
-                    return;
-                }
-            //}
-
-            // Querying specific page (not set as home/posts page) or attachment
-            if(!$query->is_home()) {
-               if($query->get('page_id') !== 0 || $query->get('pagename') !== '' || $query->get('attachment_id') !== 0) {
-                    return;
-                }
-            }
-
-                // Querying a specific taxonomy
-            if( is_object($query->tax_query) ){
-                $tax_queries = $query->tax_query->queries;
-                $recipe_taxonomies = get_object_taxonomies( 'rpr_recipe' );
-
-                if(is_array($tax_queries)) {
-                    foreach($tax_queries as $tax_query)
-                    {
-                        if(isset($tax_query['taxonomy']) && $tax_query['taxonomy'] !== '' && !in_array( $tax_query['taxonomy'], $recipe_taxonomies ) ) {
-                            return;
-                        }
-                    }
-                }
-            }
-            
-            if ( $query->is_main_query() ){
-                $post_type = $query->get('post_type');
-                if( is_array( $post_type ) && ! array_key_exists( 'rpr_recipe', $post_type ) ){
-                    $post_type[] = 'rpr_recipe';
-                } else {
-                    $post_type = array( 'post', 'rpr_recipe' );
-                }
-                $query->set( 'post_type', $post_type );
-            }
-
-            // No idea why we neeed(ed) this. However it is interfering in the search preventing other cpt to be found!
-            /*$post_type = $query->get('post_type');
-            var_dump($post_type);
-            
-            if($post_type == '' || $post_type == 'post')
-            {
-                $post_type = array('post','rpr_recipe');
-            }
-            else if( is_array($post_type) )
-            {
-                if(array_key_exists('post', $post_type) && !array_key_exists('rpr_recipe', $post_type)) {
-                    $post_type[] = 'rpr_recipe';
-                }
-            }
-			var_dump($post_type);*/
-    //       $query->set('post_type',$post_type);
-
-            return;
-        /*}
-        else
-        {
-            if (!in_the_loop () || !$query->is_main_query ()) {
-                return;
-            }
-
-            if($this->option('recipe_tags_use_wp_categories', '1') == '1' && $this->option('recipe_tags_show_in_archives', '1') == '1')
-            {
-                if(is_category() || is_tag()) {
-                    $post_type = $query->get('post_type');
-                    if($post_type)
-                        $post_type = $post_type;
-                    else
-                        $post_type = array('post','rpr_recipe');
-                    $query->set('post_type',$post_type);
-                    return;
-                }
-            }
-        }*/
-
-        return;
+		if ( ! is_admin() && $query->is_main_query() ) {
+				
+			// Post archive page:
+    		if ( is_post_type_archive( 'rpr_recipe' ) ) {
+    			//set post type to only recipes
+      			$query->set('post_type', 'rpr_recipe' );
+				return;
+    		}
+			
+			// Homepage
+			if ( $rpr_option['recipe_homepage_display']=='1' ){
+				if( is_home() || $query->is_home() || $query->is_front_page() ){
+					$this->add_recipe_to_query($query);
+				}
+			}
+			// All other pages:
+			if( is_category() || is_tag() ){
+				$this->add_recipe_to_query($query);
+				return;
+			}
+  		}
+		
+		return;
     }
+	
+	private function add_recipe_to_query($query)
+	{
+		// add post type to query
+		$post_type = $query->get('post_type');
+        
+        if( is_array( $post_type ) && ! array_key_exists( 'rpr_recipe', $post_type ) ){
+        	$post_type[] = 'rpr_recipe';
+        } else {
+        	$post_type = array( 'post', $post_type, 'rpr_recipe' );
+        }
+        
+		$query->set( 'post_type', $post_type );
+		return;
+	}
     
     public function rpr_metabox_init()
     {
@@ -387,8 +482,10 @@ class RPR_Core extends RPReloaded {
     	include($this->pluginDir . '/views/metabox_notes.php');
     }
     
-    public function recipes_save( $recipe_id, $recipe )
+    public function recipes_save( $recipe_id, $recipe = NULL )
     {
+    	remove_action('save_post', array($this, 'recipes_save'));
+		
     	$data=$_POST;
     	//if(!isset($data)||$data==""){$data=$_POST;}
     	if( $recipe->post_type == 'rpr_recipe' )
@@ -487,6 +584,14 @@ class RPR_Core extends RPReloaded {
 	    
 	    				$new = $non_empty_instructions;
 	    			}
+					elseif ( $field == 'rpr_recipe_description' )
+					{
+						// Set Excerpt:
+						$recipe->post_content = $data[$field];
+						$recipe->post_excerpt = $data[$field];
+						wp_update_post($recipe);
+						
+					}
 	    			//echo '<div style="color:red">';var_dump($new);echo'</div>';
 	    			// Update or delete meta data if changed
 	    			if (isset($new) && $new != $old)
@@ -497,9 +602,11 @@ class RPR_Core extends RPReloaded {
 	    			{
 	    				delete_post_meta( $recipe_id, $field, $old );
 	    			}
+					
 	    		}
     		}
     	}
+	add_action('save_post', array($this, 'recipes_save'));
     }
     
     /* 
@@ -622,6 +729,8 @@ class RPR_Core extends RPReloaded {
     
     public function recipes_content( $content )
     {
+    	global $rpr_option;
+		
     	if (!in_the_loop () || !is_main_query ()) {
     		return $content;
     	}
@@ -650,25 +759,9 @@ class RPR_Core extends RPReloaded {
     
     		if (is_single() || $this->option('recipe_archive_display', 'excerpt') == 'full')
     		{
-    			$taxonomies = $this->get_custom_taxonomies();
-    			unset($taxonomies['ingredient']);
-    
-    			ob_start();
-    			
-    			include($this->pluginDir . '/templates/'.$this->option( 'rpr_template', 'rpr_default' ).'/recipe.php');
-    
-    			$recipe_box = ob_get_contents();
-    			ob_end_clean();
-
-    			//if(strpos($content, '[rpr_recipe]') !== false) {
-    			//	$content = str_replace('[rpr_recipe]', $recipe_box, $content);
-    			//} else { // Add recipe to end of post
-    				$content = $recipe_box;
-    			//}
-    		}
-    		else
-    		{
-    			$content = $this->get_recipes_excerpt();
+    			$content = $this->get_recipes_content($recipe_post);
+    		} else {
+    			$content = $this->get_recipes_excerpt( $recipe_post );
     		}
     
     		add_filter('the_content', array( $this, 'recipes_content' ), 10);
@@ -677,6 +770,33 @@ class RPR_Core extends RPReloaded {
     	return $content;
     }
     
+	private function get_recipes_content ($recipe_post ){
+		global $rpr_option;
+		
+    	$recipe = get_post_custom($recipe_post->ID);
+		ob_start();
+		
+		// Check if a global or local layout should be used:
+		if( strpos( $rpr_option['rpr_template'], 'local') !== false ){
+			//Local layout
+			$includepath = get_stylesheet_directory() . '/rpr_layouts/'. preg_replace('/^local\_/', '', $this->option( 'rpr_template', 'rpr_default' )) . '/recipe.php';
+		} else {
+			//Global layout
+			$includepath = $this->pluginDir . '/layouts/'.$this->option( 'rpr_template', 'rpr_default' ).'/recipe.php';
+		}
+		
+		if( file_exists($includepath) ){
+    		include($includepath);
+			$content = ob_get_contents();
+		} else {
+			$content = __('There was an error parsing the layout file. No content can be displayed', $this->pluginName );
+		}
+		
+		ob_end_clean();
+		
+		return $content;
+	}
+	
     public function recipes_excerpt( $content ) {
         if (!in_the_loop () || !is_main_query ()) {
             return $content;
@@ -685,39 +805,40 @@ class RPR_Core extends RPReloaded {
         if ( get_post_type() == 'rpr_recipe' ) {
             remove_filter('get_the_excerpt', array( $this, 'recipes_excerpt' ), 10);
             $recipe_post = get_post();
-            //$content = $recipe_post->post_excerpt
-            $recipe = get_post_custom($recipe_post->ID);
-
-            if( isset($recipe['rpr_recipe_description'][0]) ){
-                $content = $recipe['rpr_recipe_description'][0];
-            }
-
-          add_filter('get_the_excerpt', array( $this, 'recipes_excerpt' ), 10);
-          $content = get_the_recipe_taxonomy_bar().wpautop($content).get_the_recipe_times();              
+            
+			$content = $this->get_recipes_excerpt($recipe_post);
+			
+          	add_filter('get_the_excerpt', array( $this, 'recipes_excerpt' ), 10);
         }
         return $content;
     }
      
-    public function get_recipes_excerpt() {
-/*        if (!in_the_loop () || !is_main_query ()) {
-            return $content;
-        }
-
-        if ( get_post_type() == 'rpr_recipe' ) {
-            remove_filter('get_the_excerpt', array( $this, 'recipes_excerpt' ), 10);
-*/            $recipe_post = get_post();
-            //$content = $recipe_post->post_excerpt
-            $recipe = get_post_custom($recipe_post->ID);
-
-            if( isset($recipe['rpr_recipe_description'][0]) ){
-                $content = $recipe['rpr_recipe_description'][0];
-            }
-
-  //          add_filter('get_the_excerpt', array( $this, 'recipes_excerpt' ), 10);
-  //      }
-        
-    //    return $content;
-    return get_the_recipe_taxonomy_bar().wpautop($content).get_the_recipe_times();    
+    private function get_recipes_excerpt($recipe_post) {
+    	global $rpr_option;
+		
+    	$recipe = get_post_custom($recipe_post->ID);
+		
+		$content = $this->get_recipes_content($recipe_post);
+		ob_start();
+		
+    	// Check if a global or local layout should be used:
+		if( strpos( $rpr_option['rpr_template'], 'local') !== false ){
+			//Local layout
+			$includepath = get_stylesheet_directory() . '/rpr_layouts/'. preg_replace('/^local\_/', '', $this->option( 'rpr_template', 'rpr_default' )) . '/excerpt.php';
+		} else {
+			//Global layout
+			$includepath = $this->pluginDir . '/layouts/'.$this->option( 'rpr_template', 'rpr_default' ).'/excerpt.php';
+		}
+		if(file_exists($includepath)){
+			include( $includepath);
+			$content = ob_get_contents();
+		} else {
+			$content = get_the_recipe_taxonomy_bar().wpautop($content).get_the_recipe_times();
+		}
+		
+    	ob_end_clean();
+		
+		return $content;
     }
 
     // These filters will only be regoistered, if the apropriate settings are made
@@ -738,8 +859,11 @@ class RPR_Core extends RPReloaded {
     }
     
     public function recipes_shortcode($options) {
+    	global $rpr_option;
+		
         $options = shortcode_atts(array(
-            'id' => 'n/a'
+            'id' => 'n/a',
+            'excerpt' => 0,
         ), $options);
 
         $recipe_post = null;
@@ -758,18 +882,21 @@ class RPR_Core extends RPReloaded {
                 $recipe_post = get_post(intval($options['id']));
             }
         }
-        if(!is_null($recipe_post) && $recipe_post->post_type == 'rpr_recipe')
+        if(!is_null($recipe_post) && $recipe_post->post_type == 'rpr_recipe' )
         {
             $recipe = get_post_custom($recipe_post->ID);
 
             $taxonomies = $this->get_custom_taxonomies();
-
-            ob_start();
             
-            include($this->pluginDir . '/templates/'.$this->option( 'rpr_template', 'rpr_default' ).'/recipe.php');
-            
-            $output = ob_get_contents();
-            ob_end_clean();
+			if( $options['excerpt'] == 0 ){
+				// Embed complete recipe
+				$output = $this->get_recipes_content($recipe_post);
+			} elseif( $options['excerpt']== 1 ){
+				// Embed excerpt only
+				$output = '<h2 class="rpr_title">'.$recipe_post->post_title.'</h2>';
+				$output .= get_the_post_thumbnail($recipe_post->ID); 
+				$output .=  $this->get_recipes_excerpt($recipe_post);
+			}
         }
         else
         {
@@ -825,6 +952,8 @@ class RPR_Core extends RPReloaded {
     }
     
     public function recipes_taxlist_shortcode($options) {
+    	global $rpr_option;
+		
         $options = shortcode_atts(array(
             'headers' => 'false',
             'tax' => 'n/a',
@@ -839,27 +968,53 @@ class RPR_Core extends RPReloaded {
 
             foreach($terms as $term) {
 
-                $title = ucfirst($term->name);//$this->get_recipe_title( $post );
-
-                if($title != '')
-                {
-                    //if ($options['headers'] != 'false'){
-                        $first_letter = substr($title,0,1);
-
-                        if(!in_array($first_letter, $letters))
-                        {
-                            $letters[] = $first_letter;
-                            $out .= '<h2><a name="'.$first_letter.'"></a>';
-                            $out .= $first_letter;
-                            $out .= '</h2>';
-                        }
-                    //}
-
-                    //$out .= '<a href="'.get_permalink($term->term_id).'">';
-                    $out .= '<a href="'.get_term_link( $term ).'">';
-                    $out .= $title;
-                    $out .= '</a><br/>';
-                }
+				if( $options['tax'] == 'rpr_ingredient'){
+					if( !in_array($term->term_id, $rpr_option['ingredients_exclude_list']) ){
+		                $title = ucfirst($term->name);//$this->get_recipe_title( $post );
+		
+		                if($title != '')
+		                {
+		                    //if ($options['headers'] != 'false'){
+		                        $first_letter = substr($title,0,1);
+		
+		                        if(!in_array($first_letter, $letters))
+		                        {
+		                            $letters[] = $first_letter;
+		                            $out .= '<h2><a name="'.$first_letter.'"></a>';
+		                            $out .= $first_letter;
+		                            $out .= '</h2>';
+		                        }
+		                    //}
+		
+		                    //$out .= '<a href="'.get_permalink($term->term_id).'">';
+		                    $out .= '<a href="'.get_term_link( $term ).'">';
+		                    $out .= $title;
+		                    $out .= '</a><br/>';
+		                }
+		                }
+				} else {
+					$title = ucfirst($term->name);//$this->get_recipe_title( $post );
+	
+	                if($title != '')
+	                {
+	                    //if ($options['headers'] != 'false'){
+	                        $first_letter = substr($title,0,1);
+	
+	                        if(!in_array($first_letter, $letters))
+	                        {
+	                            $letters[] = $first_letter;
+	                            $out .= '<h2><a name="'.$first_letter.'"></a>';
+	                            $out .= $first_letter;
+	                            $out .= '</h2>';
+	                        }
+	                    //}
+	
+	                    //$out .= '<a href="'.get_permalink($term->term_id).'">';
+	                    $out .= '<a href="'.get_term_link( $term ).'">';
+	                    $out .= $title;
+	                    $out .= '</a><br/>';
+	                }
+					}
             }
         }
         else

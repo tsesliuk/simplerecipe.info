@@ -175,7 +175,7 @@
 				}
 					break;
 				default :
-					if (typeof expect_val !== 'array')
+					if (typeof expect_val !== 'object')
 						pass = eval("this_val " + operator + " expect_val");
 					break;
 
@@ -250,7 +250,7 @@
 				// Scroll to
 				if (!$self.options.onload && !$(toggle_id).hasClass(_prefix + 'no-animation') && $(toggle_id).offset()) {
 					$('html, body').animate({
-						scrollTop: $(toggle_id).offset().top - 20
+						scrollTop: $(toggle_id).offset().top - 40
 					}, $self.options.scroll_time);
 				}
 
@@ -261,7 +261,7 @@
 				// Remove highlight color
 				setTimeout(function () {
 					$(toggle_id).removeClass(activate_group);
-				}, 800);
+				}, 2000);
 
 			} else {
 				$('#' + id_prefix + $this.val()).addClass('hidden');
@@ -436,9 +436,9 @@
 
 			// Sent POST request
 			$.ajax({
-				type      : "POST",
-				url       : ajaxurl,
-				data      : data,
+				type: "POST",
+				url : ajaxurl,
+				data: data,
 			}).done(function (response) {
 					preview_box.css('opacity', '1');
 					// Hide loading icon
@@ -472,7 +472,6 @@
 			 * @param this_val Layout format value
 			 * @returns void
 			 */
-
 			var fn_thumbnail_setting = function (this_val) {
 
 				var $thumbnail_wrapper = $('.' + _prefix + 'thumbnail-setting').parent();
@@ -499,9 +498,8 @@
 			});
 
 			/**
-			 * Toggle 'Thumbnail settings' when change 'View type'
+			 * Toggle 'Layout format' when change 'View type'
 			 */
-
 			var fn_layout_format = function (this_val, layout_format) {
 				var expect_val = [ 'scrollable' ];
 
@@ -538,8 +536,8 @@
 			var $self = this;
 			var _prefix = $self.options._prefix;
 
-			var _fn = function ( is_trigger ) {
-				if ( ! is_trigger ) {
+			var _fn = function (is_trigger) {
+				if (!is_trigger) {
 					$self.options.onload = 0;
 				}
 
@@ -551,7 +549,7 @@
 			};
 			// Bind on change input after page load
 			$('.pt-wrap .tab-content').on('change', 'input, select, textarea', function (evt, is_trigger) {
-				_fn( is_trigger );
+				_fn(is_trigger);
 			});
 
 			$('body').bind(_prefix + 'preview-btn-toggle', function () {
@@ -610,9 +608,6 @@
 			// Toggle panel of 'Advanced filters'
 			$self._toggle_panel('.' + _prefix + 'group .panel-heading');
 
-			// Color picker
-			$('.' + _prefix + 'color').wpColorPicker();
-
 			// 'Thumbnail settings' toggle
 			$self._thumbnail_settings();
 
@@ -628,14 +623,14 @@
 			$('.' + _prefix + 'bg-none').parent().css({'background-color': '#fff', 'padding-bottom': '10px'});
 			$('.' + _prefix + 'bg-none').parent().addClass('unsortable');
 
-			// Prevent click on Links but title
-			$('#pt-cv-preview-box').on('click', 'a', function (e) {
+			// Prevent click on links
+			$('#' + _prefix + 'preview-box').on('click', 'a', function (e) {
 				e.preventDefault();
 			});
 
 			// Handle Pagination actions
 			$('body').bind(_prefix + 'custom-trigger', function () {
-				var $pt_cv_public_js = new $.PT_CV_Public({_prefix: _prefix,_autoload: 0});
+				var $pt_cv_public_js = new $.PT_CV_Public({_prefix: _prefix, _autoload: 0});
 				$pt_cv_public_js.pagination();
 			});
 		},

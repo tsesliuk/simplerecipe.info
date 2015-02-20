@@ -156,3 +156,88 @@ padding-left:40px;
 #latest_news_changelog__dom .date{
 font-style:italic;
 }
+
+.redux-notice-field .redux-info-icon i,
+.redux-sidebar .redux-group-tab-link-a i,
+.redux-info-icon i {
+    font-style: normal;
+    font-weight: normal;
+}
+.redux-notice-field .redux-info-icon i[class^=fa],
+.redux-sidebar .redux-group-tab-link-a i[class^=fa],
+#redux-share i[class^=fa]{ 
+	font: normal normal normal 18px/1 FontAwesome;
+	font-size: inherit;
+  	text-rendering: auto;
+  	-webkit-font-smoothing: antialiased;
+  	-moz-osx-font-smoothing: grayscale;
+  	font-size:18px;
+ }
+.admin_demo{
+	border:solid 1px #aaa;
+	background:#eee; 
+	padding:2px;
+	margin: 0 2px;
+	border-radius:3px;
+}
+.redux-info-icon{
+	float:left;
+}
+.redux-info-field .redux-info-desc {
+	display: inline;
+}
+
+#rpr-tags-table{
+	margin-bottom:6px;
+}
+#rpr-tags-table button.rpr-edit-tag{
+	margin-right:6px!important;
+}
+
+/* Widgets */
+.widgets-php .columns-1 {}
+
+.widgets-php .columns-2 {
+    overflow: hidden;
+    float: left;
+    width: 48%;
+}
+
+.widgets-php .columns-3{
+	overflow:hidden;
+	float:left;
+	width:31%;
+	margin-right:3.5%
+}
+.widgets-php .column-last{
+	float:right;
+	margin-right:0
+}
+
+.widgets-php .hybrid-widget-controls label{
+	font-size:11px
+}
+
+.widgets-php .columns-2 input.widefat,.widgets-php .columns-2 select.widefat{
+	width:99%
+}
+
+.widgets-php .columns-3 select.widefat{
+	width:98.5%
+}
+
+.widgets-php .hybrid-widget-controls select[multiple="multiple"]{
+	width:100%;
+	height:5.0em !important
+}
+
+.widgets-php input.smallfat{
+	float:right;
+	width:66px
+}
+
+.widgets-php select.smallfat{
+	float:right;
+	min-width:66px
+}
+

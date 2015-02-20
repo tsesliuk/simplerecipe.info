@@ -49,11 +49,13 @@ class PT_Content_Views {
 		add_action( 'wpmu_new_blog', array( $this, 'activate_new_site' ) );
 
 		// Load public-facing style sheet and JavaScript.
-		add_action( 'wp_enqueue_scripts', array( $this, 'enqueue_styles' ) );
+		add_action( 'wp_enqueue_scripts', array( $this, 'enqueue_styles' ), 0 );
 		add_action( 'wp_enqueue_scripts', array( $this, 'enqueue_scripts' ) );
 
 		// Update view count of post
 		add_action( 'wp_head', array( &$this, 'update_view_count' ) );
+
+		add_action( 'wp_head', array( &$this, 'init_global_variables' ) );
 
 		// Output assets content at footer of page
 		add_action( 'wp_footer', array( 'PT_CV_Html', 'assets_of_view_types' ), 100 );
@@ -263,8 +265,7 @@ class PT_Content_Views {
 
 		$args = array(
 			'labels'             => $labels,
-			'public'             => true,
-			'publicly_queryable' => true,
+			'public'             => false,
 
 			// Hide in menu, but can see All Views page
 			'show_ui'            => false,
@@ -319,6 +320,16 @@ class PT_Content_Views {
 		if ( is_single( $post->ID ) ) {
 			PT_CV_Functions::post_update_view_count( $post->ID );
 		}
+	}
+
+	/**
+	 * Init global variables
+	 *
+	 * @global type $processed_view_assets
+	 */
+	public function init_global_variables() {
+		global $processed_view_assets, $processed_views;
+		$processed_view_assets = $processed_views = array();
 	}
 
 }

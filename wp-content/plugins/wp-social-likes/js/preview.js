@@ -58,8 +58,10 @@ jQuery(document).ready(function ($) {
 			'plusone': $("#title_plusone").val(),
 			'pinterest': $("#title_pinterest").val(),
 			'livejournal': $("#title_livejournal").val(),
+			'linkedin': $("#title_linkedin").val(),
 			'odnoklassniki': $("#title_odnoklassniki").val(),
-			'mailru': $("#title_mailru").val()
+			'mailru': $("#title_mailru").val(),
+			'email': $("#title_email").val()
 		};
 		var label = {
 			'vkontakte': $("<span/>", { class: "labelToDisappear", text: $("#label_vkontakte").val() }),
@@ -68,8 +70,10 @@ jQuery(document).ready(function ($) {
 			'plusone': $("<span/>", { class: "labelToDisappear", text: $("#label_plusone").val() }),
 			'pinterest': $("<span/>", { class: "labelToDisappear", text: $("#label_pinterest").val() }),
 			'livejournal': $("<span/>", { class: "labelToDisappear", text: $("#label_livejournal").val() }),
+			'linkedin': $("<span/>", { class: "labelToDisappear", text: $("#label_linkedin").val() }),
 			'odnoklassniki': $("<span/>", { class: "labelToDisappear", text: $("#label_odnoklassniki").val() }),
-			'mailru': $("<span/>", { class: "labelToDisappear", text: $("#label_mailru").val() })
+			'mailru': $("<span/>", { class: "labelToDisappear", text: $("#label_mailru").val() }),
+			'email': $("<span/>", { class: "labelToDisappear", text: $("#label_email").val() })
 		};
 
 		var button = $('<div/>', {
@@ -95,8 +99,10 @@ jQuery(document).ready(function ($) {
 		'google_btn': newButton('plusone'),
 		'pinterest_btn': newButton('pinterest'),
 		'lj_btn': newButton('livejournal'),
+		'linkedin_btn': newButton('linkedin'),
 		'odn_btn': newButton('odnoklassniki'),
-		'mm_btn': newButton('mailru')
+		'mm_btn': newButton('mailru'),
+		'email_btn': newButton('email')
 	};
 
 	$('#preview').html(wpsl_ul);
@@ -240,7 +246,6 @@ jQuery(document).ready(function ($) {
 			"link[id^='sociallikes-style-flat']," +
 			"link[id^='sociallikes-style-birman']")
 			.attr("disabled", true);
-			console.log($("link[id^='sociallikes-style-" + styleName + "']"));
 		$("link[id^='sociallikes-style-" + styleName + "']").removeAttr("disabled");
 	}
 

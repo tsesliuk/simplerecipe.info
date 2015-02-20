@@ -116,10 +116,12 @@ echo balanceTags( PT_Options_Framework::do_settings( $options, $settings ) );
 <!-- Nav tabs -->
 <ul class="nav nav-tabs">
 	<li class="active">
-		<a href="#<?php echo esc_attr( PT_CV_PREFIX ); ?>filter-settings" data-toggle="tab"><span class="glyphicon glyphicon-search"></span><?php _e( 'Filter Settings', PT_CV_DOMAIN ); ?></a>
+		<a href="#<?php echo esc_attr( PT_CV_PREFIX ); ?>filter-settings" data-toggle="tab"><span class="glyphicon glyphicon-search"></span><?php _e( 'Filter Settings', PT_CV_DOMAIN ); ?>
+		</a>
 	</li>
 	<li>
-		<a href="#<?php echo esc_attr( PT_CV_PREFIX ); ?>display-settings" data-toggle="tab"><span class="glyphicon glyphicon-th-large"></span><?php _e( 'Display Settings', PT_CV_DOMAIN ); ?></a>
+		<a href="#<?php echo esc_attr( PT_CV_PREFIX ); ?>display-settings" data-toggle="tab"><span class="glyphicon glyphicon-th-large"></span><?php _e( 'Display Settings', PT_CV_DOMAIN ); ?>
+		</a>
 	</li>
 	<?php do_action( PT_CV_PREFIX_ . 'setting_tabs_header', $settings ); ?>
 </ul>
@@ -130,6 +132,7 @@ echo balanceTags( PT_Options_Framework::do_settings( $options, $settings ) );
 <div class="tab-pane active" id="<?php echo esc_attr( PT_CV_PREFIX ); ?>filter-settings">
 <?php
 $options = array(
+	// Content type
 	array(
 		'label'  => array(
 			'text' => __( 'Content type', PT_CV_DOMAIN ),
@@ -143,6 +146,24 @@ $options = array(
 			),
 		),
 	),
+
+	// Upgrade to Pro
+	! get_option( 'pt_cv_version_pro' ) ? array(
+		'label'         => array(
+			'text' => '',
+		),
+		'extra_setting' => array(
+			'params' => array(
+				'width'  => 10,
+			),
+		),
+		'params'        => array(
+			array(
+				'type'    => 'html',
+				'content' => sprintf( '<p class="text-muted">&rarr; %s</p>', __( 'Filter custom content type (or post type) ?', PT_CV_DOMAIN ) . sprintf( ' <a href="%s" target="_blank">%s</a>', esc_url( 'http://www.contentviewspro.com/pricing/?utm_source=client&utm_medium=view' ), __( 'Please upgrade to Pro', PT_CV_DOMAIN ) ) ),
+			),
+		),
+	) : '',
 
 	apply_filters( PT_CV_PREFIX_ . 'custom_filters', array() ),
 
@@ -161,7 +182,7 @@ $options = array(
 				'type'   => 'group',
 				'params' => array(
 
-					apply_filters( PT_CV_PREFIX_ . 'exclude_sticky_posts_setting', array() ),
+					apply_filters( PT_CV_PREFIX_ . 'sticky_posts_setting', array() ),
 
 					// Includes
 					array(
@@ -178,6 +199,8 @@ $options = array(
 						),
 					),
 
+					apply_filters( PT_CV_PREFIX_ . 'include_extra_settings', array() ),
+
 					// Excludes
 					array(
 						'label'  => array(
@@ -192,6 +215,8 @@ $options = array(
 							),
 						),
 					),
+
+					apply_filters( PT_CV_PREFIX_ . 'exclude_extra_settings', array() ),
 
 					// Parent page
 					array(
@@ -218,12 +243,12 @@ $options = array(
 						),
 						'params' => array(
 							array(
-								'type' => 'number',
-								'name' => 'limit',
-								'std'  => '10',
-								'min'  => '1',
+								'type'        => 'number',
+								'name'        => 'limit',
+								'std'         => '10',
+								'min'         => '1',
 								'append_text' => '1 &rarr; 999',
-								'desc' => __( 'The number of posts to show. Leaving it blank to show all found posts (which match all settings)', PT_CV_DOMAIN ),
+								'desc'        => __( 'The number of posts to show. Set empty to show all found posts (which match all filter settings)', PT_CV_DOMAIN ),
 							),
 						),
 					),
@@ -251,7 +276,7 @@ $options = array(
 				'params' => array(
 					array(
 						'label'         => array(
-							'text' => __( '', PT_CV_DOMAIN ),
+							'text' => '',
 						),
 						'extra_setting' => array(
 							'params' => array(
@@ -305,7 +330,7 @@ $options = array(
 										'options' => PT_CV_Values::taxonomy_list(),
 										'std'     => '',
 										'class'   => 'taxonomy-item',
-										'desc'    => __( 'Select checkbox of taxonomies to filter posts by their terms', PT_CV_DOMAIN ),
+										'desc'    => __( 'Check checkbox of taxonomies to filter posts by their terms', PT_CV_DOMAIN ),
 									),
 								),
 							),
@@ -439,7 +464,7 @@ $options = array(
 										'type' => 'text',
 										'name' => 's',
 										'std'  => '',
-										'desc' => __( 'Enter the keyword to searching for posts', PT_CV_DOMAIN ),
+										'desc' => __( 'Enter the keyword to searching for posts', PT_CV_DOMAIN ) . apply_filters( PT_CV_PREFIX_ . 'searchby_keyword_desc', '' ),
 									),
 								),
 							),

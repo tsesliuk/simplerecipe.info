@@ -152,7 +152,7 @@ if ( !function_exists('get_the_recipe_taxonomy_bar') ) {
         if(!is_wp_error($terms) && $terms != '') {
         	$icon='';
         	if( RPReloaded::get_option( 'recipe_icons_display', 0 ) == 1 ){
-        		$icon = '<i class="fa fa-flag" title=' . $tax->labels->name . '></i> ';
+        		$icon = '<i class="fa fa-flag" title="' . $tax->labels->name . '"></i> ';
         	} else {
         		$icon=$tax->labels->name . ': ';
         	}
@@ -173,12 +173,12 @@ if ( !function_exists('get_the_recipe_taxonomy_bar') ) {
                 if(!is_wp_error($terms) && $terms != '') {
                 	$icon='';
                 	if( RPReloaded::get_option( 'recipe_icons_display', 0 ) == 1 ){ 
-                		$icon = '<i class="fa fa-list-alt title=' . $tax->labels->name . '></i> '; 
+                		$icon = '<i class="fa fa-list" title=' . $tax->labels->name . '></i> '; 
                 	} else {
                 		$icon=$tax->labels->name . ': '; 
                 	}
                     $out .= sprintf(
-                        '<span class="fa fa-list-alt category-list">%1s%2s</span>',
+                        '<span class="category-list">%1s%2s</span>',
                     	$icon,
                         get_the_term_list( $recipe_id, $taxonomy, '', __( '&nbsp;/&nbsp; ', 'recipepress-reloaded' ), '' )
                     );
@@ -380,7 +380,11 @@ if ( ! function_exists('get_the_recipe_ingredient_list') ) {
 					$previous_group = $ingredient['group'];
 				}
 			
-				$out .= '<li itemprop="ingredients">';
+				$out .= '<li itemprop="ingredients"';
+				if(isset($ingredient['group'])){
+					$out .= 'class="ingredient-in-group" ';
+				}
+				$out .= '>';
 				$out .= '<span class="recipe-ingredient-quantity-unit"><span class="recipe-ingredient-quantity" data-original="'.$ingredient['amount'].'">'.$ingredient['amount'].'</span> <span class="recipe-ingredient-unit">'.$ingredient['unit'].'</span></span>';
 			
 			
@@ -422,7 +426,7 @@ if ( ! function_exists('get_the_recipe_ingredient_list') ) {
 			$out.='</ul>';
 			
 		} else {
-			$out.='<p class="warning">'.__('No ingredients could be found for this recipe.', $this->pluginName).'</p>';
+			$out.='<p class="warning">'.__('No ingredients could be found for this recipe.', 'recipepress-reloaded' ).'</p>';
 		}
 		// Return output
 		return $out;
@@ -451,7 +455,7 @@ if ( !function_exists('get_the_recipe_times') ) {
 		if( isset($recipe['rpr_recipe_prep_time'][0]) && $recipe['rpr_recipe_prep_time'][0] != '' ) {
 			$out .= '<dt>';
 			if( RPReloaded::get_option( 'recipe_icons_display', 0 ) == 1 ){
-				$out .= '<i class="fa fa-cog recipe-times-icon" title="'.__( 'Preparation Time', 'recipepress-reloaded' ).'"></i>';
+				$out .= '<i class="fa fa-cog recipe-times-icon" title="'.__( 'Preparation Time', 'recipepress-reloaded' ).'"></i><span class="hidden recipe-times-text">' . __( 'Preparation', 'recipepress-reloaded' ) . '</span>';
 			} else {
 				$out .= __( 'Preparation', 'recipepress-reloaded' );
 			}
@@ -465,7 +469,7 @@ if ( !function_exists('get_the_recipe_times') ) {
 		if( isset($recipe['rpr_recipe_cook_time'][0]) && $recipe['rpr_recipe_cook_time'][0] != '' ) {
 			$out .= '<dt>';
 			if( RPReloaded::get_option( 'recipe_icons_display', 0 ) == 1 ){
-				$out .= '<i class="fa fa-fire recipe-times-icon" title="'.__( 'Cook Time', 'recipepress-reloaded' ).'"></i>';
+				$out .= '<i class="fa fa-fire recipe-times-icon" title="'.__( 'Cook Time', 'recipepress-reloaded' ).'"></i><span class="hidden recipe-times-text">' . __( 'Cooking', 'recipepress-reloaded' ) . '</span>';
 			} else {
 				$out .= __( 'Cooking', 'recipepress-reloaded' );
 			}
@@ -492,7 +496,7 @@ if ( !function_exists('get_the_recipe_times') ) {
 		if($totaltime != 0 ) {
 			$out .= '<dt>';
 			if( RPReloaded::get_option( 'recipe_icons_display', 0 ) == 1 ){
-				$out .= '<i class="fa fa-clock-o recipe-times-icon" title="'.__( 'Total Time', 'recipepress-reloaded' ).'"></i>';
+				$out .= '<i class="fa fa-clock-o recipe-times-icon" title="'.__( 'Total Time', 'recipepress-reloaded' ).'"></i><span class="hidden recipe-times-text">' . __( 'Ready in', 'recipepress-reloaded' ) . '</span>';
 			} else {
 				$out .= __( 'Ready in', 'recipepress-reloaded' );
 			}
@@ -574,7 +578,7 @@ if ( ! function_exists('get_the_recipe_instruction_list') ) {
 			}
 			$out .= '</ol>';
 		} else {
-			$out.='<p class="warning">'.__('No instructions could be found for this recipe.', $this->pluginName).'</p>';
+			$out.='<p class="warning">'.__('No instructions could be found for this recipe.', 'recipepress-reloaded' ).'</p>';
 		}
 		
 		return $out;

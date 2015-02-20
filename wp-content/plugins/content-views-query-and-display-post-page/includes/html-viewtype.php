@@ -21,15 +21,17 @@ if ( ! class_exists( 'PT_CV_Html_ViewType' ) ) {
 		 * Generate class for columns
 		 *
 		 * @global array $dargs
-		 * @param array $content_items
+		 *
+		 * @param array  $content_items
+		 *
 		 * @return array
 		 */
 		static function process_column_width( $content_items ) {
 			global $dargs;
 
 			// -- Get column span
-			$columns = ( (int) $dargs['number-columns'] < count( $content_items ) ) ? (int) $dargs['number-columns'] : count( $content_items );
 
+			$columns = (int) $dargs['number-columns'];
 			if ( ! $columns ) {
 				$columns = 1;
 			}
@@ -87,11 +89,9 @@ if ( ! class_exists( 'PT_CV_Html_ViewType' ) ) {
 
 				$list_item = implode( "\n", $row_html );
 
+				// Only wrap in row if shuffle filter is not enable
 				if ( $pt_cv_enable_filter != 'yes' ) {
 					$list_item = sprintf( '<div class="%s">%s</div>', esc_attr( $row_class ), $list_item );
-				} else {
-					// Add the extra clearfix
-					$list_item .= '<div class="clearfix visible-xs-block"></div>';
 				}
 
 				$content[] = balanceTags( $list_item );
@@ -158,16 +158,19 @@ if ( ! class_exists( 'PT_CV_Html_ViewType' ) ) {
 
 			$scrollable_html[] = PT_CV_Html::inline_script( $js );
 
+			// Default value off setting options
+			$enable = apply_filters( PT_CV_PREFIX_ . 'scrollable_fields_enable', 1 );
+
 			// Indicator html
-			$show_indicator    = isset( $dargs['view-type-settings']['indicator'] ) ? $dargs['view-type-settings']['indicator'] : 'yes';
-			$scrollable_html[] = self::scrollable_indicator( ( $show_indicator == 'yes' ) ? 1 : 0, $wrapper_id, $count_slides );
+			$show_indicator    = isset( $dargs['view-type-settings']['indicator'] ) ? $dargs['view-type-settings']['indicator'] : $enable;
+			$scrollable_html[] = self::scrollable_indicator( $show_indicator, $wrapper_id, $count_slides );
 
 			// Content html
 			$scrollable_html[] = $scrollable_content;
 
 			// Control html
-			$show_navigation   = isset( $dargs['view-type-settings']['navigation'] ) ? $dargs['view-type-settings']['navigation'] : 'yes';
-			$scrollable_html[] = self::scrollable_control( ( $show_navigation == 'yes' ) ? 1 : 0, $wrapper_id, $count_slides );
+			$show_navigation   = isset( $dargs['view-type-settings']['navigation'] ) ? $dargs['view-type-settings']['navigation'] : $enable;
+			$scrollable_html[] = self::scrollable_control( $show_navigation, $wrapper_id, $count_slides );
 
 			// Get wrapper class scrollable
 			$scrollable_class = apply_filters( PT_CV_PREFIX_ . 'scrollable_class', 'carousel slide' );

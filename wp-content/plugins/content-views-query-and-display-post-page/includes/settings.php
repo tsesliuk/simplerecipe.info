@@ -49,7 +49,7 @@ if ( ! class_exists( 'PT_CV_Settings' ) ) {
 								'name'     => $taxonomy_slug . '-terms[]',
 								'options'  => $terms,
 								'std'      => '',
-								'class'    => 'select2',
+								'class'    => apply_filters( PT_CV_PREFIX_ . 'select_term_class', 'select2' ),
 								'multiple' => '1',
 							),
 						),
@@ -98,6 +98,7 @@ if ( ! class_exists( 'PT_CV_Settings' ) ) {
 							'name'    => 'orderby',
 							'options' => PT_CV_Values::post_regular_orderby(),
 							'std'     => '',
+							'desc'    => __( 'Select a criteria to sort by', PT_CV_DOMAIN ),
 						),
 					),
 				),
@@ -160,7 +161,23 @@ if ( ! class_exists( 'PT_CV_Settings' ) ) {
 							'std'         => '5',
 							'placeholder' => 'e.g. 5',
 							'append_text' => '1 &rarr; 100',
-							'desc'        => __( 'The number of items per page.<br>If value of Limit option is not blank (empty), this value should be smaller than Limit value', PT_CV_DOMAIN ),
+							'desc'        => __( 'The number of items per page<br>If value of "Limit" option is not blank (empty), this value should be smaller than "Limit" value', PT_CV_DOMAIN ),
+						),
+					),
+					'dependence' => array( 'enable-pagination', 'yes' ),
+				),
+				
+				// Pagination Type
+				array(
+					'label'      => array(
+						'text' => __( 'Pagination type', PT_CV_DOMAIN ),
+					),
+					'params'     => array(
+						array(
+							'type'    => 'radio',
+							'name'    => $prefix . 'type',
+							'options' => PT_CV_Values::pagination_types(),
+							'std'     => 'ajax',
 						),
 					),
 					'dependence' => array( 'enable-pagination', 'yes' ),
@@ -168,15 +185,34 @@ if ( ! class_exists( 'PT_CV_Settings' ) ) {
 
 				// Pagination Style
 				array(
-					'label'      => array(
-						'text' => __( 'Pagination style', PT_CV_DOMAIN ),
+					'label'  => array(
+						'text' => '',
 					),
-					'params'     => array(
+					'extra_setting' => array(
+						'params' => array(
+							'width'      => 12,
+						),
+					),
+					'params' => array(
 						array(
-							'type'    => 'radio',
-							'name'    => $prefix . 'style',
-							'options' => PT_CV_Values::pagination_styles(),
-							'std'     => PT_CV_Functions::array_get_first_key( PT_CV_Values::pagination_styles() ),
+							'type'   => 'group',
+							'params' => array(
+								array(
+									'label'      => array(
+										'text' => __( 'Pagination style', PT_CV_DOMAIN ),
+									),
+									'params'     => array(
+										array(
+											'type'    => 'radio',
+											'name'    => $prefix . 'style',
+											'options' => PT_CV_Values::pagination_styles(),
+											'std'     => PT_CV_Functions::array_get_first_key( PT_CV_Values::pagination_styles() ),
+											'desc'    => __( 'Output style for Ajax pagination', PT_CV_DOMAIN ),
+										),
+									),
+									'dependence' => array( $prefix . 'type', 'normal', '!=' ),
+								),
+							),
 						),
 					),
 					'dependence' => array( 'enable-pagination', 'yes' ),
@@ -231,11 +267,12 @@ if ( ! class_exists( 'PT_CV_Settings' ) ) {
 				// Fields display
 				array(
 					'label'         => array(
-						'text' => __( 'Fields display', PT_CV_DOMAIN ),
+						'text' => '',
 					),
 					'extra_setting' => array(
 						'params' => array(
 							'wrap-class' => PT_CV_Html::html_group_class(),
+							'width'      => 12,
 						),
 					),
 					'params'        => array(
@@ -245,6 +282,27 @@ if ( ! class_exists( 'PT_CV_Settings' ) ) {
 						),
 					),
 				),
+
+				// Upgrade to Pro
+				! get_option( 'pt_cv_version_pro' ) ? array(
+					'label'         => array(
+						'text' => '',
+					),
+					'extra_setting' => array(
+						'params' => array(
+							'width'  => 12,
+						),
+					),
+					'params'        => array(
+						array(
+							'type'    => 'html',
+							'content' => sprintf( '<p class="text-muted" style="margin-top: -10px; margin-bottom: 15px;">&rarr; %s</p>', __( 'Customize display order of above fields by a simple drag-and-drop ?', PT_CV_DOMAIN ) . sprintf( ' <a href="%s" target="_blank">%s</a>', esc_url( 'http://www.contentviewspro.com/pricing/?utm_source=client&utm_medium=view' ), __( 'Please upgrade to Pro', PT_CV_DOMAIN ) ) ),
+						),
+					),
+				) : '',
+
+				// Title settings
+				apply_filters( PT_CV_PREFIX_ . 'settings_title_display', array(), $prefix, $prefix2 ),
 
 				// Thumbnail settings
 				array(
@@ -264,29 +322,6 @@ if ( ! class_exists( 'PT_CV_Settings' ) ) {
 					),
 					'dependence'    => array( $prefix2 . 'thumbnail', 'yes' ),
 				),
-
-				// Meta fields settings
-				array(
-					'label'         => array(
-						'text' => __( 'Meta fields settings', PT_CV_DOMAIN ),
-					),
-					'extra_setting' => array(
-						'params' => array(
-							'wrap-class' => PT_CV_Html::html_group_class() . ' ' . PT_CV_PREFIX . 'meta-fields-settings',
-						),
-					),
-					'params'        => array(
-						array(
-							'type'   => 'group',
-							'params' => PT_CV_Settings::field_meta_fields( 'meta-fields-' ),
-							'desc'   => apply_filters( PT_CV_PREFIX_ . 'settings_sort_text', '' ),
-						),
-					),
-					'dependence'    => array( $prefix2 . 'meta-fields', 'yes' ),
-				),
-
-				// Taxonomies settings
-				apply_filters( PT_CV_PREFIX_ . 'settings_taxonomies_display', array() ),
 
 				// Content settings
 				array(
@@ -310,7 +345,7 @@ if ( ! class_exists( 'PT_CV_Settings' ) ) {
 				// Excerpt settings
 				array(
 					'label'         => array(
-						'text' => __( '', PT_CV_DOMAIN ),
+						'text' => '',
 					),
 					'extra_setting' => array(
 						'params' => array(
@@ -326,7 +361,7 @@ if ( ! class_exists( 'PT_CV_Settings' ) ) {
 									// Excerpt length
 									array(
 										'label'         => array(
-											'text' => __( 'Excerpt length', PT_CV_DOMAIN ),
+											'text' => __( 'Excerpt settings', PT_CV_DOMAIN ),
 										),
 										'extra_setting' => array(
 											'params' => array(
@@ -344,6 +379,28 @@ if ( ! class_exists( 'PT_CV_Settings' ) ) {
 											),
 										),
 									),
+									
+									// Allow HTML tags
+									array(
+										'label'         => array(
+											'text' => '',
+										),
+										'extra_setting' => array(
+											'params' => array(
+												'wrap-class' => PT_CV_PREFIX . 'full-fields',
+												'width'      => 9,
+											),
+										),
+										'params'        => array(
+											array(
+												'type'    => 'checkbox',
+												'name'    => $prefix . 'excerpt-allow_html',
+												'options' => PT_CV_Values::yes_no( 'yes', __( 'Allow HTML tags (a, br, strong, em, strike, i, ul, ol, li) in excerpt', PT_CV_DOMAIN ) ),
+												'std'     => '',
+												'desc'    => __( 'This option can cause broken HTML output. Please be careful when check it', PT_CV_DOMAIN ),
+											),
+										),
+									),
 								),
 								$prefix . 'excerpt-'
 							),
@@ -351,6 +408,29 @@ if ( ! class_exists( 'PT_CV_Settings' ) ) {
 					),
 					'dependence'    => array( array( $prefix . 'content-show', 'excerpt' ) ),
 				),
+
+				// Meta fields settings
+				array(
+					'label'         => array(
+						'text' => __( 'Meta fields settings', PT_CV_DOMAIN ),
+					),
+					'extra_setting' => array(
+						'params' => array(
+							'wrap-class' => PT_CV_Html::html_group_class() . ' ' . PT_CV_PREFIX . 'meta-fields-settings',
+						),
+					),
+					'params'        => array(
+						array(
+							'type'   => 'group',
+							'params' => PT_CV_Settings::field_meta_fields( 'meta-fields-' ),
+							'desc'   => apply_filters( PT_CV_PREFIX_ . 'settings_sort_text', '' ),
+						),
+					),
+					'dependence'    => array( $prefix2 . 'meta-fields', 'yes' ),
+				),
+
+				// Taxonomies settings
+				apply_filters( PT_CV_PREFIX_ . 'settings_taxonomies_display', array(), 'meta-fields-' ),
 			);
 
 			$result = apply_filters( PT_CV_PREFIX_ . 'field_settings', $result, $prefix2 );
@@ -368,7 +448,7 @@ if ( ! class_exists( 'PT_CV_Settings' ) ) {
 			$field_display_settings = array(
 				array(
 					'label'         => array(
-						'text' => __( '', PT_CV_DOMAIN ),
+						'text' => '',
 					),
 					'extra_setting' => array(
 						'params' => array(
@@ -427,7 +507,7 @@ if ( ! class_exists( 'PT_CV_Settings' ) ) {
 				// Show Thumbnail
 				array(
 					'label'         => array(
-						'text' => __( '', PT_CV_DOMAIN ),
+						'text' => '',
 					),
 					'extra_setting' => array(
 						'params' => array(
@@ -448,7 +528,7 @@ if ( ! class_exists( 'PT_CV_Settings' ) ) {
 				// Show Title
 				array(
 					'label'         => array(
-						'text' => __( '', PT_CV_DOMAIN ),
+						'text' => '',
 					),
 					'extra_setting' => array(
 						'params' => array(
@@ -468,7 +548,7 @@ if ( ! class_exists( 'PT_CV_Settings' ) ) {
 				// Show Content
 				array(
 					'label'         => array(
-						'text' => __( '', PT_CV_DOMAIN ),
+						'text' => '',
 					),
 					'extra_setting' => array(
 						'params' => array(
@@ -488,7 +568,7 @@ if ( ! class_exists( 'PT_CV_Settings' ) ) {
 				// Show Meta fields
 				array(
 					'label'         => array(
-						'text' => __( '', PT_CV_DOMAIN ),
+						'text' => '',
 					),
 					'extra_setting' => array(
 						'params' => array(
@@ -499,7 +579,7 @@ if ( ! class_exists( 'PT_CV_Settings' ) ) {
 						array(
 							'type'    => 'checkbox',
 							'name'    => $prefix . 'meta-fields',
-							'options' => PT_CV_Values::yes_no( 'yes', __( 'Show Meta Fields: Author, Date, Comment...', PT_CV_DOMAIN ) ),
+							'options' => PT_CV_Values::yes_no( 'yes', __( 'Show Meta Fields (Author, Date, Comment...)', PT_CV_DOMAIN ) ),
 							'std'     => '',
 						),
 					),
@@ -660,11 +740,11 @@ if ( ! class_exists( 'PT_CV_Settings' ) ) {
 					),
 					'params'     => array(
 						array(
-							'type' => 'number',
-							'name' => $prefix . 'number-columns',
-							'std'  => '2',
+							'type'        => 'number',
+							'name'        => $prefix . 'number-columns',
+							'std'         => '2',
 							'append_text' => '1 &rarr; 4',
-							'desc' => __( 'The number of items on each row of grid', PT_CV_DOMAIN ),
+							'desc'        => __( 'The number of items on each row of grid', PT_CV_DOMAIN ),
 						),
 					),
 					'dependence' => array( 'view-type', 'grid' ),
@@ -721,7 +801,7 @@ if ( ! class_exists( 'PT_CV_Settings' ) ) {
 
 			return array(
 				'label'         => array(
-					'text' => __( '', PT_CV_DOMAIN ),
+					'text' => '',
 				),
 				'extra_setting' => array(
 					'params' => array(
