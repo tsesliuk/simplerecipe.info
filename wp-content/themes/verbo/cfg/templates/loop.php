@@ -25,7 +25,7 @@
             if ($posts_index % 6 == 3) {
                 //echo("<div class='advertise-taxonomy'>Место для Вашей рекламы</div>");
 
-                
+                /*
                 echo('
                     <!-- advertise-taxonomy banners -->
                     <div class="advertise-taxonomy">
@@ -39,7 +39,7 @@
                         </script>
                     </div>
                 ');
-                
+                */
 
             }
             else {}
