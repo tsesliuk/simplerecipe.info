@@ -138,6 +138,7 @@
                                  end of Top100 code -->
                             </span>
                             <div class="mythemes-social">
+                                <a href="https://www.youtube.com/channel/UCT2CiftLOwGMaow-SE5e4iw/feed" class="fa fa-youtube" target="_blank"></a>
                                 <?php
                                     if( !empty( $github ) ){
                                         echo '<a href="' . $github . '" class="fa fa-github-alt" target="_blank"></a>';
