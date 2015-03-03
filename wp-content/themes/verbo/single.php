@@ -147,7 +147,7 @@
                                                 $classes = '';
                                             }
                                         ?>
-                                        <!-- advertise-taxonomy banners -->
+                                        <!-- advertise-taxonomy banners
                                         <div class="advertise-taxonomy">
                                             <ins class="adsbygoogle"
                                                  style="display:block"
@@ -158,7 +158,7 @@
                                             (adsbygoogle = window.adsbygoogle || []).push({});
                                             </script>
                                         </div>
-                                        <!-- -->
+                                         -->
                                         <!-- TITLE -->
                                         <h1 class="post-title <?php echo $classes; ?>" itemprop="name"><?php the_title(); ?></h1>
                                     
