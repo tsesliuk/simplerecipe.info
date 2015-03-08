@@ -8,6 +8,46 @@
 
 <!-- CONTENT -->
 <section class="<?php echo $myThemes_layout -> contentClass(); ?> list-preview">
+
+    <?php if (is_home()) { ?>
+        <div class="header-main-search">
+            <span class="glyphicon glyphicon-search"></span>
+            <?php echo do_shortcode('[searchandfilter fields="search,category,post_tag" submit_label="Искать"]'); ?>
+        </div>
+    <?php } ?>
+
+    <?php if (!is_home()) { ?>
+        <div class="header-main-search second-pages">
+            <h1>
+                <?php _e( '' , 'myThemes' ); ?><?php echo get_cat_name( get_query_var( 'cat' ) ); ?>:
+                <strong>
+                    <?php
+
+                        echo $wp_query -> found_posts . ' ';
+
+                        if( $wp_query -> found_posts == 1 ){
+                            _e( 'Рецепт' , 'myThemes' );
+                        }
+                        else{
+                            _e( 'Рецептов' , 'myThemes' );
+                        }
+                    ?>
+                </strong>
+            </h1>
+            
+            <div class="header-main-filter">
+                <?php echo do_shortcode('[searchandfilter fields="category,post_tag" submit_label="Отфильтровать"]'); ?>
+            </div>
+
+            <nav class="mythemes-nav-inline">
+              <ul class="mythemes-menu">
+                <li><a href="<?php echo home_url(); ?>" title="<?php _e( 'go home' , 'myThemes' ); ?>"><i class="icon-home"></i> <?php _e( 'Home' , 'myThemes' ); ?></a></li>
+                <li><?php echo get_cat_name( get_query_var( 'cat' ) ); ?></li>
+              </ul>
+            </nav>
+        </div>
+    <?php } ?>
+
 <?php
 
     /* LEFT WRAPPER */

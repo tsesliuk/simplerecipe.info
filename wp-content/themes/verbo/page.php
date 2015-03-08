@@ -8,9 +8,9 @@
 
               <div class="container">
                 <div class="row">
-                    <div class="col-sm-2 col-md-2 col-lg-2">
+                    <div class="col-sm-3 col-md-3 col-lg-3">
                     </div>
-                    <div class="col-sm-8 col-md-8 col-lg-8">
+                    <div class="col-sm-7 col-md-7 col-lg-7">
                         <h1><?php the_title(); ?></h1>
                     </div>
                     <div class="col-sm-2 col-md-2 col-lg-2">

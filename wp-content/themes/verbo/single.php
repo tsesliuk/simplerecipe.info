@@ -17,6 +17,8 @@
                 <!-- CONTENT -->
                 <section class="<?php echo $myThemes_layout -> contentClass(); ?>">
 
+
+
                 <div class="breadcrumb">
                     <?php
 

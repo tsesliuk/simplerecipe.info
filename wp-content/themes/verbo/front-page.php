@@ -59,6 +59,10 @@
             ?>
                     <!-- CONTENT -->
                     <section class="<?php echo $myThemes_layout -> contentClass(); ?>">
+                    
+
+
+
                     <?php
 
                         /* LEFT WRAPPER */
@@ -126,8 +130,8 @@
 
             <div class="row">
                 
-                <div class="col-sm-4 col-md-2 col-lg-2"></div>
-                <div class="col-sm-8 col-md-8 col-lg-8">
+                <div class="col-sm-4 col-md-3 col-lg-3"></div>
+                <div class="col-sm-8 col-md-7 col-lg-7">
                     
                     <div class="archive-meta bottom-description" id="description">
                         <h3>Рецепты простые для мужиков и не опытных девушек, в готовке:)</h3>

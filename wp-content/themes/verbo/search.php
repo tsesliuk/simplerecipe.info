@@ -1,16 +1,16 @@
 <?php get_header(); ?>
 
     <?php global $wp_query; ?>
-
+<!--
     <div class="mythemes-page-header second-pages">
 
       <div class="container">
         <div class="row">
 
-            <div class="col-sm-12 col-md-2 col-lg-2">
+            <div class="col-sm-12 col-md-3 col-lg-3">
             </div>
 
-            <div class="col-sm-8 col-md-8 col-lg-8">
+            <div class="col-sm-8 col-md-7 col-lg-7">
                 <div class="header-main-search second-pages">
                     <h1>Найдено
                         <?php _e( '' , 'myThemes' ); ?><?php echo get_search_query( get_query_var( 'cat' ) ); ?>:
@@ -51,7 +51,7 @@
       </div>
 
     </div>
-
+-->
     <div class="content">
         <div class="container">
             <div class="row">

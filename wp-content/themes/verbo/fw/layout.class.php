@@ -55,7 +55,7 @@ class layout {
             if( $this -> layout == 'left' )
                 $layout = 'right';
             
-            $this -> contentClass = 'col-sm-8 col-md-8 col-lg-8';
+            $this -> contentClass = 'col-sm-7 col-md-7 col-lg-7';
             $this -> width = 797;
             return;
         }
@@ -69,7 +69,7 @@ class layout {
         $sidebar = $this -> _get( 'sidebar', $this -> template, $this -> itemid );
 
         if( $this -> layout == $position ){
-            echo '<aside class="col-sm-4 col-md-2 col-lg-2 sidebar-to-' . $position . '">';
+            echo '<aside class="col-sm-4 col-md-3 col-lg-3 sidebar-to-' . $position . '">';
             if( dynamic_sidebar( $sidebar ) ){
 
             }

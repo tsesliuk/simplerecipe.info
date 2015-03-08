@@ -6,8 +6,8 @@
     Tags: blue, green, white, three-columns, two-columns, one-column, right-sidebar, left-sidebar, fluid-layout, responsive-layout, flexible-header, custom-colors, custom-menu, featured-image-header, threaded-comments, custom-background, custom-header, featured-images, theme-options, holiday, seasonal, photoblogging
     Author: myThem.es
     Author URI: http://mythem.es
-    License: GNU General Public License v2.0
-    License URI: http://www.gnu.org/licenses/gpl-2.0.html
+    License: GNU General Public License v2.0.header-main-search
+    License URI: http://www.gnu.org/licenses/gpl-2.0.html.header-main-search
 
 
     Verbo WordPress Theme, Copyright 2014 myThem.es
@@ -392,9 +392,9 @@ position: relative;
     -webkit-box-shadow: 0px 0px 10px 0px rgba(51,51,51,0.4);
     -moz-box-shadow: 0px 0px 10px 0px rgba(51,51,51,0.4);
     box-shadow: 0px 0px 10px 0px rgba(51,51,51,0.4);
-    margin-top: 40px;
     padding:34px 0 0 0;
     position: relative;
+    margin-bottom: 20px;
 }
 
 .header-main-search .glyphicon-search {
@@ -494,11 +494,11 @@ padding: 0;
 margin: 0 0 2px 0;
 }
 
-.sidebar-to-left div.widget ul li:after {
+.sidebar-to-left div.widget ul li ul li a:after {
     content: ",";
 }
 
-.sidebar-to-left div.widget ul li:last-child:after {
+.sidebar-to-left div.widget ul li ul li:last-child a:after {
     content: "";
 }
 
@@ -538,14 +538,6 @@ color: #9a3f23;
     content: "";
 }
 
-.sidebar-to-left div.widget.widget_categories ul.children li:after {
-    content: "";
-} 
-
-.sidebar-to-left div.widget.widget_categories ul.children li a:after {
-    content: ",";
-}
-
 .sidebar-to-left div.widget.widget_categories ul.children li a {
     color: #333333;
 }
@@ -561,6 +553,14 @@ color: #9a3f23;
 
 .sidebar-to-left div.widget ul.difficulty-level li {
 display: block;
+}
+
+.sidebar-to-left div.widget.widget_categories > ul > li {
+    margin-bottom:10px;
+}
+
+.sidebar-to-left div.widget.widget_categories > ul > li:last-child {
+    margin-bottom:0;
 }
 
 .to-start {
@@ -802,10 +802,6 @@ width: 29%;
 .header-main-search.second-pages div[class^="col-"] {
 padding-top: 0;
 padding-bottom: 0;
-}
-
-.category .content, .search-results .content, .tag .content {
-    padding-top: 0;
 }
 
 .page .content {
