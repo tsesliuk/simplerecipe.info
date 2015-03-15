@@ -5,7 +5,7 @@
         {
             $args = array(
                 'default-image'          => get_template_directory_uri() . '/media/img/header.jpg',
-                'random-default'         => false,
+                'random-default'         => true,
                 'flex-height'            => false,
                 'flex-width'             => true,
                 'default-text-color'     => 'ffffff',
@@ -28,7 +28,7 @@
         {
             ?>
                 <style>
-                    @import url(http://fonts.googleapis.com/css?family=Montserrat:400,700|Noto+Sans:400,700,400italic,700italic);
+                   
                     div.mythemes-header .valign-cell h1{
                         color: <?php echo get_header_textcolor(); ?>;
                     }
