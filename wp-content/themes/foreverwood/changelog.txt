@@ -1,0 +1,56 @@
+Changelog Legend:
+
+[+] = Added
+[*] = Changed
+[^] = Moved
+[=] = No Changes
+[x] = Deleted
+[!] = Bugs
+
+----
+
+(28/02/2015) - Update - Version 1.1.1
+
+[+] Added Italian translation.
+[*] Updated including of the TGM_Plugin_Activation class (only the users who are allowed to install plugins can see it now).
+[*] Updated editor-style.css.
+
+----
+
+(18/01/2015) - Update - Version 1.1.0
+
+[+] Added support for the Title Tag feature.
+[*] Updated paginate_links() arguments (added "add_args"). 
+[*] Updated the "viewport" meta tag.
+
+----
+
+(09/12/2014) - Update - Version 1.0.4
+
+[*] Updated editor-style.css (removed including of the Google font PT Sans and the main stylesheet style.css).
+
+----
+
+(16/10/2014) - Update - Version 1.0.3
+
+[+] Mentioned Text Domain in style.css.
+[+] Mentioned the URLs of images used in screenshot.
+[*] Enqueue the "HTML5 Shiv" through the function foreverwood_scripts_styles().
+[*] Set the priority of excerpt_length filter from 999 to 20.
+[*] Used esc_url_raw instead of sanitize_text_field for all URL fields in "fw-options.php".
+
+----
+
+(01/10/2014) - Update - Version 1.0.2
+
+[x] Removed deprecated function "screen_icon()" from class-tgm-plugin-activation.php.
+
+----
+
+(19/09/2014) - Update - Version 1.0.1
+
+[!] Fixed Uncaught JavaScript TypeError which occurred on the Landing Page template (because there is no Main Header Menu in this template).
+
+----
+
+(09/09/2014) - The initial public release - Version 1.0.0
